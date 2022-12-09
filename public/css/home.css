@@ -1,0 +1,110 @@
+.form-number{
+
+border-style: solid; 
+border-color: lightgrey;   
+text-align: center;
+}
+
+   
+
+.container{
+
+display: flexbox;
+margin-left: top;
+background-color: #e8effc;
+align-content: center;
+padding-top: 0%;
+padding-left: 15%;
+padding-right: 35%;
+width: 200%;
+height: 200%;
+
+
+}
+
+
+.container1{
+
+    display: flex;
+    background-color: #e8effc;
+    
+ 
+
+
+     
+    }
+
+    .container2{
+
+        display: flex;
+        background-color: #e8effc;
+        padding-left: 7%;
+       
+    
+    
+         
+        }
+
+.content{
+
+    background-color: #e8effc;
+
+
+}
+
+
+
+.container-fluid{
+
+background-color: #e8effc;
+
+}
+
+
+.content-header{
+
+background-color: #e8effc;
+display: flex;
+
+}
+
+.row{
+
+background-color: #ffff;
+text-align: center;
+
+
+}
+.card{
+
+width: 30%;
+margin-left: 5%;
+
+
+
+
+}
+
+.card-header{
+
+   text-align: center;
+
+
+    }
+
+     
+ .container2{
+
+padding-right: 20;
+
+ }
+
+ .table{
+
+background-color: white;
+border-style: solid; 
+border-color: lightgrey;   
+
+ } 
+
+
