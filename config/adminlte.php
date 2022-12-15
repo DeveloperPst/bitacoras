@@ -153,7 +153,7 @@ return [
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
-    'sidebar_nav_animation_speed' => 300,
+    'sidebar_nav_animation_speed' => 500,
 
     /*
     |--------------------------------------------------------------------------
@@ -298,6 +298,12 @@ return [
         ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
 
         [
+            'text' => 'Inicio',
+            'url'  => '/home',
+            'icon' => 'fas fa-fw fa-house-user',
+        ],
+
+        [
             'text' => 'Perfiles',
             'url'  => '/perfiles',
             'icon' => 'fas fa-fw fa-user',
@@ -339,7 +345,7 @@ return [
         [
             'text'       => 'importante',
             'icon_color' => 'red',
-            'url'        => '/home',
+            'url'        => '/graficas',
         ],
         [
             'text'       => 'Advertencia',
@@ -349,7 +355,7 @@ return [
         [
             'text'       => 'información',
             'icon_color' => 'cyan',
-            'url'        => '/graficas',
+            'url'        => '/segundoTurno',
         ],
     ],
 

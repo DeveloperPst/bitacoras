@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index(){
 
 
-        return view('home');
+        return view('/home');
     }
     
     public function turno1()
@@ -56,4 +56,5 @@ class HomeController extends Controller
     {
         return view('/cambiarContrasena');
     }
+
 }

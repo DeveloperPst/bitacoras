@@ -36,7 +36,7 @@ height: 200%;
 
     .container2{
 
-        display: flex;
+       
         background-color: #e8effc;
         padding-left: 7%;
        
@@ -77,34 +77,123 @@ text-align: center;
 }
 .card{
 
+padding-top: 0%;
 width: 30%;
-margin-left: 5%;
+margin-left: 8%;
 
 
 
 
 }
 
+.card2{
+
+    width: 25rem;
+    margin-left: 0rem;
+    
+    padding-top: 0%;
+    padding-left: 20%;
+    padding: 5%;
+    
+     
+        
+    }
+
+    .card3{
+
+      
+        width: 35%;
+        margin-left: 25%;
+        background-color: #ffff;
+        border: 2px;
+        border-color: #e8effc;
+        font-style: normal;
+}
+
+.card4{
+
+    padding-top: 0%;
+    width: 60%;
+    margin-left: 20%;
+    background-color: #ffff;
+    border: 2px;
+    border-color: #e8effc;  
+    font-style: normal;
+   
+    
+} 
+
+
+    .form-horizontal{
+
+        background-color: #ffff;
+
+    }
+    .content-wrappe{
+
+
+        background-color: #e8effc;
+
+    }
+.control-label{
+
+align-content: center;
+justify-content: center;
+    
+}
+
 .card-header{
 
    text-align: center;
-
+   justify-content: center; 
 
     }
+    .card-body{
 
+        padding: 4%;
+        justify-content: center;
+        margin-inline: 0%;
+        height: 68%;
      
- .container2{
+     
+         }
+     
+   
 
-padding-right: 20;
+.card-header{
 
- }
+background-color: blue;    
+
+}
 
  .table{
 
 background-color: white;
 border-style: solid; 
-border-color: lightgrey;   
-
+border-color: transparent;   
+justify-content: center;
+text-align: center; 
  } 
 
+ .table1{
 
+ background-color: white;
+ justify-content: center;
+ text-align: center; 
+     } 
+
+
+  .container3{
+
+    
+    margin-left: top;
+    background-color: #e8effc;
+    align-content: center;
+    padding-top: auto;
+    padding-left: 17%;
+    padding-right: 35%;
+    width: 100%;
+  
+    
+        
+ }

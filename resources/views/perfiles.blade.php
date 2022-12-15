@@ -13,50 +13,58 @@
 
 @section('content')
 
-<div class="container">
+ 
+<div class="container2 p-2">
 
-<form class="form-horizontal">
+<div class="card3 lg">
+     <div class="card-header bg-primary p-2">
+    <h5><strong>Actualizar Perfíl</strong></h5>
+    </div>
+    <div class="card-body border border:dark" >
+
+  <form class="form-horizontal">
   <fieldset>
-    <legend>Actualizar mi Perfíl</legend>
-    <br>
+    
     <div class="form-group">
-      <label for="inputText" class="col-lg-4 control-label">Nombres y Apellidos</label>
+      <label for="inputText" class="col-lg-6 control-label">Nombres y Apellidos</label>
       <div class="col-lg-10">
-        <input class="form-control" rows="4" id="inputText" placeholder="Nombres y Apellidos"></input>
+        <input class="form-control" rows="3" id="inputText" placeholder="Nombres y Apellidos"></input>
         </div>
     </div>
     <div class="form-group">
-      <label for="inputEmail" class="col-lg-3 control-label">Correo Electrónico</label>
+      <label for="inputEmail" class="col-lg-6 control-label">Correo Electrónico</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" id="inputEmail" placeholder="Email">
       </div>
     </div>
       <div class="form-group">
-      <label for="inputEmail" class="col-lg-3 control-label">Teléfono</label>
+      <label for="inputEmail" class="col-lg-4 control-label">Teléfono</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" id="inputEmail" placeholder="Teléfono">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputText" class="col-lg-4 control-label">Dirección Residencia</label>
+      <label for="inputText" class="col-lg-4 control-label">Dirección</label>
       <div class="col-lg-10">
-        <input class="form-control" rows="4" id="inputText" placeholder="Dirección"></input>
+        <input class="form-control" rows="3" id="inputText" placeholder="Dirección"></input>
         </div>
     </div>
     
      <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <br>
+       
         <button type="reset" class="btn btn-danger">Cancel</button>
         <button type="submit" class="btn btn-primary">Enviar</button>
       </div>
     </div>
   </fieldset>
-</form>
-</div>
 
+ </form>
+
+</div>
 @stop
 
+<section></section>
 
 
 

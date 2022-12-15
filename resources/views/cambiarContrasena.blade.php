@@ -15,24 +15,31 @@
 
 <div class="container">
 
-<form class="form-horizontal">
+<div class="card4">
+
+<div class="card-header bg-primary p-2">
+    <h5><strong>Cambiar Contraseña</strong></h5>
+    </div>
+  
+  <div class="card-body ">
+    
+ <form class="form-horizontal">
   <fieldset>
-    <legend>Cambiar mi Contraseña</legend>
-    <br>
+   
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-3 control-label">Contraseña</label>
+      <label for="inputPassword" class="col-lg-4 control-label">Contraseña</label>
       <div class="col-lg-10">
         <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
        </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-3 control-label">Nueva Contraseña</label>
+      <label for="inputPassword" class="col-lg-4 control-label">Nueva</label>
       <div class="col-lg-10">
         <input type="password" class="form-control" id="inputPassword" placeholder="Nueva Contraseña">
        </div>
     </div>
     <div class="form-group">
-      <label for="inputPassword" class="col-lg-4 control-label">Confirmar Contraseña</label>
+      <label for="inputPassword" class="col-lg-4 control-label">Confirmar</label>
       <div class="col-lg-10">
         <input type="password" class="form-control" id="inputPassword" placeholder="Confirmar Contraseña">
        </div>
@@ -47,6 +54,10 @@
     </div>
   </fieldset>
 </form>
+
+</div>
+</div>
+
 <br>
 <br>
 <br>

@@ -26,18 +26,18 @@
 
       <strong class="text">Registrar información</strong>
       </div>
-      <div class="card-body border border:dark">
+      <div class="card-body">
 
-        <form class="text-center">
+        <form class="text-center" action="" method="">
 
       <!-- 4 column grid layout with text inputs for the first and last names -->
       <div class="row mb-2">
         <div class="col-sm">
           <div class="form-outline">
 
-          <label for="validationDefault04" class="form-select "> Zona/Grupo </label><br>
+          <label for="zona" class="form-select "> Zona/Grupo </label><br>
         <select class="form-select" id="validationDefault04" required="required">
-          <option selected disabled value="">Seleccionar...</option>
+          <option selected disabled value="">Seleccionar..</option>
           <option>Centro</option>
           <option>Oeste</option>
           <option>Norte</option>
@@ -52,37 +52,36 @@
         </div>
         <div class="col-sm">
           <div class="form-outline">
-          <label class="form-label" for="form6Example2">Comparendos</label><br>
-            <input type="number" id="form6Example2" class="form-number" required="required"/>
+          <label class="form-label" for="comparendos">Comparendos</label><br>
+            <input type="number" id="form6Example2" class="form-number" value= "" required="required"/>
             </div>
         </div>
 
 
         <div class="col-sm">
           <div class="form-outline">
-          <label class="form-label" for="form6Example3">Inmovilizados</label><br>
-            <input type="number" id="form6Example3" class="form-number" required="required"/>
+          <label class="form-label" for="inmovilizados">Inmovilizados</label><br>
+            <input type="number" id="form6Example3" class="form-number" value="" required="required"/>
           </div>
         </div>
 
         <div class="col-sm">
           <div class="form-outline">
-          <label class="form-label" for="form6Example4">Pico y Placa</label><br>
-            <input type="number" id="form6Example4" class="form-number" required="required"/>
+          <label class="form-label" for="pico_y_placa">Pico y Placa</label><br>
+            <input type="number" id="form6Example4" class="form-number" value="" required="required"/>
             </div>
         </div>
 
-
         <div class="col-sm">
           <div class="form-outline">
-          <label class="form-label" for="form6Example5">Bicicarril</label><br>
-            <input type="number" id="form6Example5" class="form-number" required="required"/>
+          <label class="form-label" for="bicicarril">Bicicarril</label><br>
+            <input type="number" id="form6Example5" class="form-number" value="" required="required"/>
           </div>
         </div>
         </div>
 
           <!-- Submit button -->
-      <button type="submit" class="btn btn-primary"><strong>Enviar</strong></button>
+         <button type="submit" class="btn btn-primary"><strong>Enviar</strong></button>
      </form>
 
      </div>
@@ -91,7 +90,7 @@
 
      <div class="container2">
 
-       <table class="table table-striped table-bordered">
+       <table class="table">
 
         <thead class = "bg-primary">
             <tr >
@@ -186,13 +185,13 @@
 
 <div class="container1">
 
-     <div class="card">
+     <div class="card5">
      <div class="card-header bg-primary">
     <strong>Registrar información</strong>
     </div>
-    <div class="card-body border border:dark">
+    <div class="card-body">
 
-        <form class="text-center">
+        <form class="text-center" method="post">
 
         <div class="row mb-2">
         <div class="col">
@@ -200,7 +199,7 @@
 
         <label for="validationDefault04" class="form-select "> Código </label><br>
         <select class="form-select" id="validationDefault04" required="required">
-        <option selected disabled value="">Opciones...</option>
+        <option selected disabled value="">...</option>
         <option>Centro</option>
         <option>Oeste</option>
         <option>Norte</option>
@@ -215,9 +214,9 @@
         </div>  
         <div class="col">
         <div class="form-outline">
-        <label class="form-label" for="form6Example2">Tipo Accidente</label><br>
-        <select class="form-select" id="validationDefault04" required="required">
-        <option selected disabled value="" t>Seleccionar...</option>
+        <label class="form-label" for="tipoAccidente">Tipo Accidente</label><br>
+        <select class="form-select" id="validationDefault04" value="{{ old('tipoAccidente')}}" required="required">
+        <option selected disabled value="">...</option>
         <option>Negativo</option>
         <option>Daños</option>
         <option>Choque y Lesiones</option>
@@ -237,7 +236,7 @@
 
         <div class="col">
         <div class="form-outline">
-        <label class="form-label" for="form6Example3">Cantidad</label><br>
+        <label class="form-label" for="cantidad">Cantidad</label><br>
             <input type="number" id="form6Example3" class="form-number" required="required"/>
         </div>
         </div>
@@ -248,13 +247,120 @@
     <button type="submit" class="btn btn-primary"><strong>Enviar</strong></button>
     </form>
 
-
-    </div>
-    </div>
+  </div>
     </div>
 
+    
+    <!--<div class="container2">
+
+    <table class="table1 table-striped lg-3">
+
+<thead class = "bg-primary">
+    <tr >
+    <th>Código</th>
+    <th>Tipo Accidente</th>
+    <th>Cantidad</th>
+    
+    </tr>
+</thead>
+<tbody class="bg-color:white">
+    <tr>
+    <th scope="row">Negativo</th>
+    <td>""</td>
+    
+    </tr>
+    <tr>
+    <th scope="row">Daños</th>
+    <td>""</td>
+   
+    </tr>
+    <tr>
+    <th scope="row">Choque y Lesiones</th>
+    <td>""</td>
+    
+    </tr>
+
+    <tr>
+    <th scope="row">Atropello</th>
+    <td>""</td>
+    
+    </tr>
+
+    <tr>
+    <th scope="row">Volcamiento</th>
+    <td>""</td>
+    
+    </tr>
+
+    <tr>
+    <th scope="row">Caida Ocupante</th>
+    <td>""</td>
+    
+    </tr>
+
+    <tr>
+    <th scope="row">Homicidio en la vía</th>
+    <td>""</td>
+    
+    </tr>
+
+    <tr>
+    <th scope="row">Inspección a Cadáver</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Inspección Foránea</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Incidentes</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Total Daños</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Total Lesiones</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Total Homicidios</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Total Inspecciones</th>
+    <td>""</td>
+
+    </tr>
+
+    <tr>
+    <th scope="row">Total Negativos</th>
+    <td>""</td>
+
+    </tr>
+    </tbody>
+</table>
+
+    </div>
+
+    
+</div>
 </div>
 
+-->
 
 @stop
 

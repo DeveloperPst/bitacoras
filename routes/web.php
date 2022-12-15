@@ -33,3 +33,5 @@ Route::get('/graficas', [App\Http\Controllers\HomeController::class,'graficas'])
 Route::get('/perfiles', [App\Http\Controllers\HomeController::class,'perfiles'])->name('perfiles');
 
 Route::get('/cambiarContrasena', [App\Http\Controllers\HomeController::class,'cambiarContrasena'])->name('cambiarContrasena');
+
+ 

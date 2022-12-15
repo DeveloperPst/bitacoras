@@ -629,12 +629,12 @@ progress {
 .container-lg,
 .container-md,
 .container-sm {
-  width: 100%;
+  min-width:100%;
   padding-right: var(--bs-gutter-x, 7rem);
   padding-left: var(--bs-gutter-x, 7rem);
   margin-right: auto;
   margin-left: auto;
- 
+   
  
 
 }
@@ -679,8 +679,8 @@ progress {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-right: calc(var(--bs-gutter-x) * 1);
+  padding-left: calc(var(--bs-gutter-x) * 1);
   margin-top: var(--bs-gutter-y);
 }
 
@@ -1188,7 +1188,7 @@ progress {
 
   .col-md-8 {
     flex: 0 0 auto;
-    width: 66.66666667%;
+    width: 68%;
   }
 
   .col-md-9 {
@@ -3034,12 +3034,15 @@ textarea.form-control-lg {
   color: #fff;
   background-color: darkblue;
   border-color: darkblue;
+  font-size: medium;
+
 }
 .btn-primary:hover {
   color: #fff;
-  background-color:#0d6efd;
+  background-color: rgb(68, 68, 70);
   border-color: darkblue;
   overflow: hidden;
+  font-style: darkblue;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -3475,6 +3478,8 @@ textarea.form-control-lg {
   font-weight: 400;
   color: #0d6efd;
   text-decoration: underline;
+  font-size: medium;
+  font-weight: bold;
 }
 .btn-link:hover {
   color: #0a58ca;
@@ -3947,6 +3952,8 @@ textarea.form-control-lg {
   display: block;
   padding: 0.5rem 1rem;
   color:#030303;
+  font-weight: bold;
+  font-size: medium;
   text-decoration: none;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
@@ -4054,6 +4061,7 @@ textarea.form-control-lg {
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between;
+ 
 
 
 }
@@ -4543,13 +4551,15 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-color: #fff;
+  min-width: 100%;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  margin-top: 2%;
+  margin-left: 1%;
+  font-weight: bold;
+  font-size:medium; 
+  padding: 2%;
   
+ 
 }
 .card > hr {
   margin-right: 0;
@@ -4575,10 +4585,17 @@ textarea.form-control-lg {
 }
 
 .card-body {
-  flex: 1 1 auto;
-  padding: 2rem 2rem;
+  
+  padding: 3rem 2rem;
   background-color:#ccdffc;
   margin-top: auto;
+  font-size: medium;
+  border-color: darkblue;
+  border: 2px;
+  align-content: center;
+ 
+  
+  
 }
 
 .card-title {
@@ -4604,6 +4621,7 @@ textarea.form-control-lg {
   border-bottom: 1px solid rgba(252, 249, 249, 0.125);
   background-color: darkblue;
   color: white;
+  
 
 
 
@@ -4946,6 +4964,7 @@ textarea.form-control-lg {
 .btn .badge {
   position: relative;
   top: -1px;
+ 
 }
 
 .alert {
