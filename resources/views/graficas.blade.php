@@ -12,6 +12,9 @@
 
 @section('content')
 
-<h3>Gráficas</h3>
+<h3><strong>Gráficas</strong></h3>
+
+
+
 
 @stop

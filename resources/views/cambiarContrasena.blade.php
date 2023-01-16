@@ -17,7 +17,7 @@
 
 <div class="card4">
 
-<div class="card-header bg-primary p-2">
+<div class="card-header p-2">
     <h5><strong>Cambiar Contraseña</strong></h5>
     </div>
   
@@ -55,12 +55,18 @@
   </fieldset>
 </form>
 
+
 </div>
+
+</div>
+
+
 </div>
 
 <br>
 <br>
-<br>
-</div>
+
 
 @stop
+
+

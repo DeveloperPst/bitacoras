@@ -28,10 +28,12 @@ Route::get('/segundoTurno', [App\Http\Controllers\HomeController::class,'turno2'
 
 Route::get('/tercerTurno', [App\Http\Controllers\HomeController::class,'turno3'])->name('tercerTurno');
 
+Route::get('/reportes', [App\Http\Controllers\HomeController::class,'reportes'])->name('reportes');
+
 Route::get('/graficas', [App\Http\Controllers\HomeController::class,'graficas'])->name('graficas');
 
 Route::get('/perfiles', [App\Http\Controllers\HomeController::class,'perfiles'])->name('perfiles');
 
 Route::get('/cambiarContrasena', [App\Http\Controllers\HomeController::class,'cambiarContrasena'])->name('cambiarContrasena');
 
- 
+

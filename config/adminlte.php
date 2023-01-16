@@ -47,8 +47,8 @@ return [
 
     'logo' => '<b>Bitácoras</b>',
     'logo_img' => '/vendor/adminlte/dist/img/Agentes.png',
-    'logo_img_class' => 'brand-image img-circle elevation-4',
-    'logo_img_xl' => false,
+    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Bitácoras',
 
@@ -66,10 +66,10 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-blue',
+    'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_profile_url' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -86,8 +86,8 @@ return [
     'layout_topnav' => null,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => true,
-    'layout_fixed_navbar' => false,
-    'layout_fixed_footer' => false,
+    'layout_fixed_navbar' => null,
+    'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
     /*
@@ -105,7 +105,7 @@ return [
     'classes_auth_card' => 'bg-gradient-dark',
     'classes_auth_header' => '',
     'classes_auth_body' => 'bg-gradient-dark',
-    'classes_auth_footer' => 'text-center',
+    'classes_auth_footer' => '',
     'classes_auth_icon' => 'fa-fw text-light',
     'classes_auth_btn' => 'btn-flat btn-light',
 
@@ -122,15 +122,15 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => 'bg-dark',
-    'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
+    'classes_brand' => 'brand',
+    'classes_brand_text' => 'brand_text',
+    'classes_content_wrapper' => 'content_wrapper',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
-    'classes_sidebar_nav' => '',
-    'classes_topnav' => '',
-    'classes_topnav_nav' => 'navbar-expand',
+    'classes_sidebar' => 'sidebar-dark-blue elevation-4',
+    'classes_sidebar_nav' => 'nav-compact',
+    'classes_topnav' => 'navbar-blue',
+    'classes_topnav_nav' => 'navbar-expand-md',
     'classes_topnav_container' => '',
 
     /*
@@ -151,7 +151,7 @@ return [
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => false,
     'sidebar_scrollbar_theme' => 'os-theme-light',
-    'sidebar_scrollbar_auto_hide' => 'l',
+    'sidebar_scrollbar_auto_hide' => 's',
     'sidebar_nav_accordion' => true,
     'sidebar_nav_animation_speed' => 500,
 
@@ -266,13 +266,8 @@ return [
             'topnav_right' => true,
 
          ],
-        [
-            'type' => 'search',
-            'search'  => true,
-            'topnav_left' => true,
 
-         ],
-
+        
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
@@ -283,20 +278,9 @@ return [
          
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+
+        ['header' => 'DASHBOARD'], 
         
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-
-
-        ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
-
         [
             'text' => 'Inicio',
             'url'  => '/home',
@@ -304,18 +288,21 @@ return [
         ],
 
         [
-            'text' => 'Perfiles',
-            'url'  => '/perfiles',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Reportes',
+            'url'  => '/reportes',
+            'icon' => 'fas fa-chart-pie',
         ],
+        
         [
-            'text' => 'Cambiar Contraseña',
-            'url'  => '/cambiarContrasena',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Gráficas',
+            'url'  => '/graficas',
+            'icon' => 'fas fa-fw fa-image',
         ],
+
+        
         [
             'text'    => 'Turnos',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-calendar',
             'submenu' => [
                 [
                     'text' => 'Primer Turno',
@@ -336,27 +323,27 @@ return [
 
                    ],
 
-                   [
-                    'text' => 'Gráficas',
-                    'url'  => '/graficas',
-                    'icon' => 'fas fa-fw fa-image',
-                ],
-        ['header' => 'ETIQUETAS'],
+     
+       
+        ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
+
+        
+
         [
-            'text'       => 'importante',
-            'icon_color' => 'red',
-            'url'        => '/graficas',
+            'text' => 'Perfiles',
+            'url'  => '/perfiles',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text'       => 'Advertencia',
-            'icon_color' => 'yellow',
-            'url'        => '/primerTurno',
+            'text' => 'Cambiar Contraseña',
+            'url'  => '/cambiarContrasena',
+            'icon' => 'fas fa-fw fa-lock',
         ],
-        [
-            'text'       => 'información',
-            'icon_color' => 'cyan',
-            'url'        => '/segundoTurno',
-        ],
+        
+
+                   
+                
+        
     ],
 
     /*
@@ -440,11 +427,11 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => true,
+                    'asset' => false,
                     'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
                 ],
             ],

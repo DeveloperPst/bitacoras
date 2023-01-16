@@ -16,11 +16,11 @@
  
 <div class="container2 p-2">
 
-<div class="card3 lg">
-     <div class="card-header bg-primary p-2">
+<div class="card3">
+     <div class="card-header p-2">
     <h5><strong>Actualizar Perfíl</strong></h5>
     </div>
-    <div class="card-body border border:dark" >
+    <div class="card-body" >
 
   <form class="form-horizontal">
   <fieldset>

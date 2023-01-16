@@ -634,7 +634,7 @@ progress {
   padding-left: var(--bs-gutter-x, 7rem);
   margin-right: auto;
   margin-left: auto;
-   
+      
  
 
 }
@@ -677,11 +677,11 @@ progress {
 }
 .row > * {
   flex-shrink: 0;
-  width: 100%;
   max-width: 100%;
   padding-right: calc(var(--bs-gutter-x) * 1);
   padding-left: calc(var(--bs-gutter-x) * 1);
   margin-top: var(--bs-gutter-y);
+  display: block;
 }
 
 .col {
@@ -1188,7 +1188,8 @@ progress {
 
   .col-md-8 {
     flex: 0 0 auto;
-    width: 68%;
+    width: 55%;
+    
   }
 
   .col-md-9 {
@@ -3031,16 +3032,17 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
+  
   color: #fff;
-  background-color: darkblue;
-  border-color: darkblue;
+  background-color:  #007bff;
+  border-color:#b6d4fe;;
   font-size: medium;
-
+  
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: rgb(68, 68, 70);
-  border-color: darkblue;
+  background-color:  #007bff;
+  border-color:  #007bff;
   overflow: hidden;
   font-style: darkblue;
 }
@@ -4046,7 +4048,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-
+   
 
 
 }
@@ -4548,16 +4550,18 @@ textarea.form-control-lg {
 }
 
 .card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 100%;
+ 
+  max-height: 50%;
   background-clip: border-box;
-  margin-top: 2%;
-  margin-left: 1%;
   font-weight: bold;
   font-size:medium; 
-  padding: 2%;
+  padding: 20px 20px 10px 20px;
+  padding-right:10%;
+  border-radius: 10px;
+  margin: 2%;
+  position: relative;
+ 
+ 
   
  
 }
@@ -4586,15 +4590,13 @@ textarea.form-control-lg {
 
 .card-body {
   
-  padding: 3rem 2rem;
-  background-color:#ccdffc;
-  margin-top: auto;
+  padding: 3rem 1rem;
+  background-color: #fff;
   font-size: medium;
   border-color: darkblue;
-  border: 2px;
-  align-content: center;
- 
-  
+  display:block;
+  border-radius: 0% 0% 3% 3%;
+   
   
 }
 
@@ -4619,9 +4621,10 @@ textarea.form-control-lg {
   padding: 0.6rem 2rem;
   margin-bottom: 0;
   border-bottom: 1px solid rgba(252, 249, 249, 0.125);
-  background-color: darkblue;
+  background-color: #FF0035;
   color: white;
-  
+  font-size: medium;
+  border-radius: 3% 3% 0% 0%;
 
 
 
@@ -7549,14 +7552,18 @@ textarea.form-control-lg {
 }
 
 .py-4 {
-  padding-top: 1.5rem !important;
-  padding-bottom: 1.5rem !important;
-  background-color: transparent;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  background-color: #e8effc;
+  margin-block-end: 2%;
+  
+
 }
 
 .py-5 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
+
 }
 
 .pt-0 {
