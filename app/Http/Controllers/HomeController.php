@@ -44,7 +44,7 @@ class HomeController extends Controller
 
     public function reportes()
     {
-        return view('Hola mundo');
+        return view('reportes');
     }
     
     public function graficas()
