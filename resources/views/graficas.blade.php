@@ -14,6 +14,8 @@
 
 <h3><strong>Gráficas</strong></h3>
 
+@if(isset($_POST(''));
+
 
 
 
