@@ -13,11 +13,12 @@
 
 @section('content')
 
+
 <div class="container">
 
 <div class="card4">
 
-<div class="card-header p-2">
+<div class="card-header p-1">
     <h5><strong>Cambiar Contraseña</strong></h5>
     </div>
   
@@ -48,8 +49,9 @@
     <br>
        <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-danger">Cancel</button>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="reset" class="btn btn-danger">Cancelar</button>
       </div>
     </div>
   </fieldset>
@@ -66,7 +68,7 @@
 <br>
 <br>
 
-
+ 
 @stop
 
 

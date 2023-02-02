@@ -12,8 +12,11 @@
 
 @section('content')
 
+<!--
+
+
 <div class="container2">
-<h3><strong>Informe Segundo Turno</strong></h3>
+<h3><strong>INFORME SEGUNDO TURNO</strong></h3>
     <br>
        <table class="table table table-striped table-hover">
 
@@ -100,5 +103,6 @@
 
 </div>
 
+-->
 
 @stop

@@ -287,18 +287,18 @@ return [
             'icon' => 'fas fa-fw fa-house-user',
         ],
 
-        [
-            'text' => 'Reportes',
-            'url'  => '/reportes',
-            'icon' => 'fas fa-chart-pie',
-        ],
-        
+               
         [
             'text' => 'Gráficas',
             'url'  => '/graficas',
             'icon' => 'fas fa-fw fa-image',
         ],
 
+        [
+            'text' => 'Reportes',
+            'url'  => '/reportes',
+            'icon' => 'fas fa-chart-pie',
+        ],
         
         [
             'text'    => 'Turnos',
@@ -500,3 +500,5 @@ return [
 
     'livewire' => false,
 ];
+
+

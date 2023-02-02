@@ -41,11 +41,6 @@ class HomeController extends Controller
     {
         return view('/tercerTurno');
     }
-
-    public function reportes()
-    {
-        return view('reportes');
-    }
     
     public function graficas()
     {
@@ -62,6 +57,10 @@ class HomeController extends Controller
         return view('/cambiarContrasena');
     }
 
+    public function reportes()
+    {
+        return view('reportes');
+    }
     
 
 }

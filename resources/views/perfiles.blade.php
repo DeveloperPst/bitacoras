@@ -13,22 +13,29 @@
 
 @section('content')
 
- 
+
 <div class="container2 p-2">
 
 <div class="card3">
      <div class="card-header p-2">
-    <h5><strong>Actualizar Perfíl</strong></h5>
+    <h5><strong>Actualizar Perfil</strong></h5>
     </div>
     <div class="card-body" >
 
   <form class="form-horizontal">
-  <fieldset>
+  
     
     <div class="form-group">
-      <label for="inputText" class="col-lg-6 control-label">Nombres y Apellidos</label>
+      <label for="inputText" class="col-lg-6 control-label">Nombres</label>
       <div class="col-lg-10">
-        <input class="form-control" rows="3" id="inputText" placeholder="Nombres y Apellidos"></input>
+        <input class="form-control" rows="3" id="inputText" placeholder="Nombres"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputText" class="col-lg-6 control-label">Apellidos</label>
+      <div class="col-lg-10">
+        <input class="form-control" rows="3" id="inputText" placeholder="Apellidos"></input>
         </div>
     </div>
     <div class="form-group">
@@ -51,17 +58,18 @@
     </div>
     
      <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
+      <div class="col-lg-10 col-lg-offset-2"><br>
        
-        <button type="reset" class="btn btn-danger">Cancel</button>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <button type="reset" class="btn btn-danger">Cancelar</button>
+        
       </div>
     </div>
-  </fieldset>
+  
 
  </form>
 
-</div>
+</div> 
 @stop
 
 <section></section>
