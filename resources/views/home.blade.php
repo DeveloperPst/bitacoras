@@ -30,6 +30,8 @@
                   <th>Inmovilizados</th>
                   <th>Pico y Placa</th>
                   <th>Bicicarril</th>
+                  <th></th>
+
                   
               </tr>
           
@@ -37,11 +39,11 @@
 
           <tbody>
               <tr >
-                  <td>Centro</td>
-                  <td><input type="number" id="Compacentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovicentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Pypcentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicicentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Centro</td>
+                  <td><br><input type="number" id="Compacentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br><input type="number" id="Inmovicentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br><input type="number" id="Pypcentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br><input type="number" id="Bicicentro" class="form-number" required = "Campo requerido"></td>
                 
               </tr>
 
@@ -108,17 +110,21 @@
 
           <th></th>
 
-          
-          <th>
+                    
+          <th><br>
 
                <button type="submit" id = "form1" value ="Send" class="btn btn-primary">Guardar</button>
           </th>
 
+          </th>
+
           <th>
+
+          <th><br>
         
           <button type="reset" id = "form1" value ="Reset" class="btn btn-danger">Cancelar</button>
               
-              
+      
           </th>
 
           <th>
@@ -130,381 +136,283 @@
           
           </th>
 
-
-          
-
           </tbody>
 
           </table>
 
-</section>
+   </section>
 
 
-<section class="seccion1">
+    <section class="seccion1">
 
 
-<form action="#" method="POST">
-<h5 class="text-center"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
-  
+    <form action="#" method="POST">
+    <h5 class="text-center"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
       
-  <table id="table2" class="table2">
-  <thead class="thead">
-      
-      <tr>
-          <th>Codigo</th>
-          <th>Tipo Accidente</th>
-          <th>Cantidad</th>
-      
-                    
-      </tr>
-  
-    </thead>
-
-  <tbody>
-    
-      <tr>
-          <td><br>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td><br>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-                       
-            </select>
-
-          </td>
-          <td><br><input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                
-      </tr>
-
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td>
           
-          <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                  
-      </tr>
-
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>   
-
-          </td>
-
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
+      <table id="table2" class="table2 table-sm">
+      <thead class="thead">
+          
+          <tr>
+              <th>Codigo</th>
+              <th>Tipo Accidente</th>
+              <th>Cantidad</th>
+              <th></th>
+              <th></th>
+              <th></th> 
                         
-            </select>
-          </td>
-          <td>
-          
-          <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                    
-      </tr>
-
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad"class="form-number" required = "Campo requerido"> </td>
-                  
-      </tr>
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-          
-          
-      </tr>
+          </tr>
       
-       <tr>
-          <td>
+        </thead>
 
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-          </td>
-
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-
-                   
-      </tr>
-
-      <tr>
-
-  <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-          
-    </tr>  
-
-    <tr>
-
-<td>
-
-        <select class="form-select" id="agentes" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>561</option>
-          <option>942-910</option>
-          <option>910</option>
-          <option>901</option>
-          <option>901 Clinica</option>
-         </select>
-
-        </td>
-        <td>
-
-        <select class="form-select" id="accidentalidad" required = "Campo requerido"">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>Negativo</option>
-          <option>Daños</option>
-          <option>Choque y Lesiones</option>
-          <option>Atropello</option>
-          <option>Volcamiento</option>
-          <option>Caida Ocupante</option>
-          <option>Homicidio en la via</option>
-          <option>Inspección a Cadáver</option>
-          <option>Inspección Foránea</option>
-          
-          
-          </select>
-        </td>
-        <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+      <tbody>
         
-  </tr>  
+          <tr>
+              <td><br>
 
-  <tr>
+              
+                <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>942-910</option>
+                <option>910</option>
+                
+              </select>
+              </select>
 
-<td>
+              </td>
+              <td><br>
 
-        <select class="form-select" id="agentes" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>561</option>
-          <option>942-910</option>
-          <option>910</option>
-          <option>901</option>
-          <option>901 Clinica</option>
-         </select>
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>Choque y Lesiones</option>
+                <option>Atropello</option>
+                <option>Volcamiento</option>
+                <option>Caida Ocupante</option>
+                                        
+               </select>
 
-        </td>
-        <td>
+              </td>
+              <td><br><input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+                    
+          </tr>
 
-        <select class="form-select" id="accidentalidad" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>Negativo</option>
-          <option>Daños</option>
-          <option>Choque y Lesiones</option>
-          <option>Atropello</option>
-          <option>Volcamiento</option>
-          <option>Caida Ocupante</option>
-          <option>Homicidio en la via</option>
-          <option>Inspección a Cadáver</option>
-          <option>Inspección Foránea</option>
+          <tr>
+              <td>
+
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>561</option>
+                
+              </select>
+
+              </td>
+              <td>
+
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>Negativo</option>
+                               
+              </select>
+
+              </td>
+              <td>
+              
+              <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+                      
+          </tr>
+
+          <tr>
+              <td>
+
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                
+                <option>901</option>
+                <option>901 Clinica</option>
+              </select>   
+
+              </td>
+
+              <td>
+
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                
+                <option>Homicidio en la via</option>
+                <option>Inspección a Cadáver</option>
+                <option>Inspección Foránea</option>
+                            
+                </select>
+              </td>
+              <td>
+              
+              <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+                        
+          </tr>
+
+          <tr>
+              <td>
+
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>942-910</option>
+                <option>910</option>
+                 
+              </select>
+
+              </td>
+              <td>
+
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                
+                <option>Choque y Lesiones</option>
+                <option>Atropello</option>
+                <option>Volcamiento</option>
+                <option>Caida Ocupante</option>
+                
+                
+                
+                </select>
+              </td>
+              <td><input type="number" id="cantidad"class="form-number" required = "Campo requerido"> </td>
+                      
+          </tr>
+          <tr>
+              <td>
+
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>901</option>
+                <option>901 Clinica</option>
+                
+              </select>
+
+              </td>
+              <td>
+
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>Homicidio en la via</option>
+                <option>Inspección a Cadáver</option>
+                <option>Inspección Foránea</option>
+                            
+                     
+              </select>
+              </td>
+              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+              
+              
+          </tr>
           
-          
-          </select>
-        </td>
-        <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-        
-  </tr>  
+          <tr>
+              <td>
 
-   
-  <th><br><br>
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>561</option>
+                
+              </select>
+              </td>
 
-        <button type="submit" name = "button3" class="btn btn-primary">Guardar</button>
-  
-   
-  </th>
+              <td>
 
-  <th><br><br>
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>Negativo</option>
+                            
+              </select>
+              </td>
+              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
 
-       <button type="reset" name = "button4" class="btn btn-danger">Cancelar</button>  
+                      
+          </tr>
 
-  </th>
+          <tr>
 
- 
-  
+      <td>
 
-  </tbody>
+              <select class="form-select" id="agentes" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>901</option>
+                <option>901 Clinica</option>
+              </select>
 
-  </table>
+              </td>
+              <td>
 
-</section>    
+              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+                <option selected disabled value="">Seleccionar..</option>
+                <option>Homicidio en la via</option>
+                <option>Inspección a Cadáver</option>
+                <option>Inspección Foránea</option>
+                
+                
+                </select>
+              </td>
+              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+              
+        </tr>  
+
+        <tr>
+
+    <td>
+
+            <select class="form-select" id="agentes" required = "Campo requerido">
+              <option selected disabled value="">Seleccionar..</option>
+               
+              <option>942-910</option>
+              <option>910</option>
+               
+            </select>
+
+            </td>
+            <td>
+
+            <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <option selected disabled value="">Seleccionar..</option>
+               
+              <option>Choque y Lesiones</option>
+              <option>Atropello</option>
+              <option>Volcamiento</option>
+              <option>Caida Ocupante</option>
+                             
+              
+              </select>
+            </td>
+            <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+            
+      </tr>  
+
+            
+      <th><br>
+
+            <button type="submit" name = "button3" class="btn btn-primary">Guardar</button>
+      
+      
+      </th>
+
+      <th><br>
+
+          <button type="reset" name = "button4" class="btn btn-danger">Cancelar</button>  
+
+      </th>
+
+    
+      
+
+      </tbody>
+
+      </table>
+
+    </section>    
 
 
-  </div>
+      </div>
 
-  
+      
 
-</div>  
+    </div>  
 
 <div class="container-seccion2">
 
@@ -513,7 +421,7 @@
             <form action="#" method="POST">  
                       <h5 class="title"><strong>PRUEBAS DE ALCOHOLEMIA POR:</strong></h5><br>
                           
-                      <table id="table3" class="table3 table-small">
+                      <table id="table3" class="table3 table-sm">
                       <thead class="thead">
                           
                           <tr>
@@ -581,7 +489,7 @@
             <form action="#" method="POST">  
                       <h5 class="title"><strong>PRUEBAS DE ALCOHOLEMIA POR:</strong></h5><br>
                           
-                      <table id="table4" class="table4 table-small">
+                      <table id="table4" class="table4 table-sm">
                       <thead class="thead">
                           
                           <tr>
@@ -657,10 +565,11 @@
                       <thead class="thead">
                           
                           <tr>
-                            
+                             
                               <th>Placa Agente</th>
                               <th>Tipo de Control</th>
                               <th>Novedad Presentada</th>
+                              <th></th>
                               
                               <th></th>
                               
@@ -668,7 +577,7 @@
                       
                         </thead>
 
-                      <tbody>
+                      <tbody class="text-center">
                           <tr>
                               <td><br>
 
@@ -704,7 +613,7 @@
                             
                             </td>
 
-                            <td><br>
+                            <td><br><br>
 
                             <textarea class = "textarea" name="" id="incidencia" cols="30" rows="8"></textarea>
 
@@ -752,7 +661,7 @@
                             
                             </td>
 
-                            <td><br>
+                            <td><br><br>
 
                             <textarea class = "textarea" name="" id="incidencias" cols="30" rows="8"></textarea>
 
@@ -800,7 +709,8 @@
                             
                             </td>
 
-                            <td><br>
+                            
+                            <td><br><br>
 
                             <textarea class = "textarea" name="" id="incidencias" cols="30" rows="8"></textarea>
 
@@ -809,7 +719,7 @@
                               
                           </tr>
 
-                                                  
+                                          
                                            
                       <th><br>
 
@@ -823,10 +733,10 @@
                           
                       </th>
 
-                      <th>
+                      <th></th>    
 
-                          
-                      </th>
+                      <th></th>                    
+                      
 
                       <th></th>
                       

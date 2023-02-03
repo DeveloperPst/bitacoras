@@ -31,8 +31,10 @@ background-color: #e8effc;
 
 align-content: center;
 justify-content: center;
-margin-left: 15%;
+margin-left: 0%;
 width: 26mm;
+height: 27px;
+ 
 
 
 }
@@ -40,8 +42,9 @@ width: 26mm;
 
 .form-control{
 
-align-content: center;
-width: 30rem;
+justify-content: center; 
+width: 13rem;
+margin-right: 2%;
 
 
 }
@@ -67,7 +70,7 @@ text-align: center;
 .textarea{
 
 width: 80%;
-height: 80px;
+height: 100px;
 
 
 }
@@ -163,6 +166,8 @@ padding-left: 0%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     width: 32rem;
     padding-left: 0%;
+    border-radius: 8px;
+    
                 
      }
 
@@ -176,40 +181,23 @@ color: #fff;
 font: bold;
 font-size: small;
 display:inline-block;
-margin-left:4%;
+margin-right:2%;
 margin-bottom: 5%;
-
+justify-content: center;
+display: inline-block;
 
 }
-
-
-.btn{
-
- 
-    align-content: center;
-    text-align: center;
-    border: 2px;
-    color: #fff;
-    font: bold;
-    font-size: small;
-    display:inline-block;
-    margin-left:4%;
-    margin-bottom: 5%;
-    
-    
-    }
-
 
 
 
 .container {
 
     display: flex;
-    margin-left: top;
+    margin-left:2%;
     background-color: #e8effc;
     align-content: center;
     padding-top: 0%;
-    padding-left: 15%;
+    padding-left: 8%;
     padding-right: 25%;
     width: 200%;
     height: 200%;
@@ -228,18 +216,16 @@ margin-bottom: 5%;
 
 .card3 {
 
-    width: 38%;
+    width: 40%;
     margin-left: 30%;
     background-color: #ffff;
     border-radius: 3% 3% 3% 3%;
     border-color: #666666;
-    font-style: normal;
     height: 95%;
     display:block;
     border: 2px;
-    margin-bottom: 10%;
     margin-top: 1%;
-    margin-block-end: 100%;
+    margin-block-end: 10%;
     position: relative;
     }
 
@@ -414,8 +400,9 @@ background-color: #343a40;
     align-content: center;
     width: 50%;
 	height: 200px;
-    border-radius: 5px;
+    border-radius: 1%;
     font-weight: bold;
+    
     
     
 }
@@ -429,8 +416,7 @@ background-color: #343a40;
     align-content: center;
     width: 30rem;
 	height: 200px;
-    border-radius: 5px;
-    border-color: black;
+    border-radius: 1%;
     font-weight: bold;
     margin-left:8%;
     
@@ -444,13 +430,12 @@ background-color: #343a40;
     background-color:#fff;
     justify-content: center;
     text-align: center;
-    width: 31rem;
+    width: 32rem;
 	height: 200px;
     align-content: center;
-    border-radius: 3px;
-    border-color: black;
+    border-radius: 1%;
     font-weight: bold;
-    margin-left:6%;
+    margin-left:5%;
                
 }
 
@@ -463,24 +448,22 @@ background-color: #343a40;
     width: 30rem;
 	height: 200px;
     align-content: center;
-    border-radius: 2px;
-    border-color: black;
+    border-radius: 1%;
     font-weight: bold;
-    margin-left:2%;
+    margin-left:4%;
                
 }
 
 .table5{
     
-  
+   
     background-color:#fff;
     justify-content: center;
     text-align: center;
-    width: 31rem;
-	height: 200px;
+    width: 65rem;
+	height: 250px;
     align-content: center;
-    border-radius: 2px;
-    border-color: black;
+    border-radius: 1%;
     font-weight: bold;
     margin-left: 2%;
     margin-block-end: 10%;

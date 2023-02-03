@@ -17,7 +17,7 @@
 <div class="container2 p-2">
 
 <div class="card3">
-     <div class="card-header p-2">
+     <div class="card-header p-1">
     <h5><strong>Actualizar Perfil</strong></h5>
     </div>
     <div class="card-body" >
