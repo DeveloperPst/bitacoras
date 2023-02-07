@@ -14,59 +14,38 @@
 @section('content')
 
 
-<div class="container">
+<div class="card4" style="width: 21rem;">
 
-<div class="card4">
+<h5 class="card-header p-1">Cambiar Contraseña</h5><br>
+ 
+  <div class="card-body">
 
-<div class="card-header p-1">
-    <h5><strong>Cambiar Contraseña</strong></h5>
-    </div>
-  
-  <div class="card-body ">
-    
- <form class="form-horizontal">
-  <fieldset>
-   
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-4 control-label">Contraseña</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
-       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-4 control-label">Nueva</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Nueva Contraseña">
-       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputPassword" class="col-lg-4 control-label">Confirmar</label>
-      <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Confirmar Contraseña">
-       </div>
-    </div>
 
-    <br>
-       <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        
+          <form id="needs-validation" >
+      <div class="form-group">
+      <label>Contraseña actual</label>
+      <input class="form-control input-lg" placeholder="Contraseña actual" type="password"  id = "oldpw" required>
+      </div>
+      <div class="form-group">
+      <label>Nueva contraseña</label>
+      <input class="form-control input-lg" placeholder="Nueva contraseña" type="password" id = "newpw" required>
+      </div>
+
+      <div class="form-group">
+      <label>Confirmar contraseña</label>
+      <input class="form-control input-lg" placeholder="Confirmar contraseña" type="password"  id = "confirmpw" required>
+      </div><br>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button type="reset" class="btn btn-danger">Cancelar</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
 
-
-</div>
-
+      <small class="text-muted mt-3 mb-1 d-block">Volver al <a href="/home">Login</a></small>
+      </form>
+          
+        </div>
 </div>
 
 
-</div>
-
-<br>
-<br>
 
  
 @stop

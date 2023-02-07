@@ -40,71 +40,71 @@
           <tbody>
               <tr >
                   <td><br>Centro</td>
-                  <td><br><input type="number" id="Compacentro" class="form-number" required = "Campo requerido"></td>
-                  <td><br><input type="number" id="Inmovicentro" class="form-number" required = "Campo requerido"></td>
-                  <td><br><input type="number" id="Pypcentro" class="form-number" required = "Campo requerido"></td>
-                  <td><br><input type="number" id="Bicicentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br><input type="number" id="Compacentro" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovicentro" class="form-number"></td>
+                  <td><br><input type="number" id="Pypcentro" class="form-number"></td>
+                  <td><br><input type="number" id="Bicicentro" class="form-number"></td>
                 
               </tr>
 
               <tr>
                   <td>Oeste</td>
-                  <td><input type="number" id="Compaoeste" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioeste" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypoeste" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioeste" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Compaoeste" class="form-number"></td>
+                  <td><input type="number" id="Inmovioeste" class="form-number"></td>
+                  <td><input type="number" id="Pypoeste" class="form-number"></td>
+                  <td><input type="number" id="Bicioeste" class="form-number"></td>
                   
               </tr>
 
               <tr>
                   <td>Norte</td>
-                  <td><input type="number" id="Companorte" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovinorte" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypnorte" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicinorte" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Companorte" class="form-number"></td>
+                  <td><input type="number" id="Inmovinorte" class="form-number"></td>
+                  <td><input type="number" id="Pypnorte" class="form-number"></td>
+                  <td><input type="number" id="Bicinorte" class="form-number"></td>
                   
               </tr>
 
               <tr>
                   <td>Oriente</td>
-                  <td><input type="number" id="Compaoriente" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioriente"class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pyporiente" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioriente" class="form-number"required = "Campo requerido"></td>
+                  <td><input type="number" id="Compaoriente" class="form-number"></td>
+                  <td><input type="number" id="Inmovioriente"class="form-number"></td>
+                  <td><input type="number" id="Pyporiente" class="form-number"></td>
+                  <td><input type="number" id="Bicioriente" class="form-number"></td>
                   
               </tr>
               <tr>
                   <td>Sur</td>
-                  <td><input type="number" id="Compasur" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovisur" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypsur" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicisur" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Compasur" class="form-number"></td>
+                  <td><input type="number" id="Inmovisur" class="form-number"></td>
+                  <td><input type="number" id="Pypsur" class="form-number"></td>
+                  <td><input type="number" id="Bicisur" class="form-number"></td>
                   
               </tr>
               <tr>
                   <td>Operativo</td>
-                  <td><input type="number" id="Compaoperativo" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioperativo" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypoperativo" class="form-number"required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioperativo" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Compaoperativo" class="form-number"></td>
+                  <td><input type="number" id="Inmovioperativo" class="form-number"></td>
+                  <td><input type="number" id="Pypoperativo" class="form-number"></td>
+                  <td><input type="number" id="Bicioperativo" class="form-number"></td>
                     
               </tr>
 
               <tr>
                   <td>Disponibles</td>
-                  <td><input type="number" id="Compadisponibles" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovidisponibles" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypdisponibles" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicidisponibles" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Compadisponibles" class="form-number"></td>
+                  <td><input type="number" id="Inmovidisponibles" class="form-number"></td>
+                  <td><input type="number" id="Pypdisponibles" class="form-number"></td>
+                  <td><input type="number" id="Bicidisponibles" class="form-number"></td>
                   
               </tr>
 
               <tr>
                   <td>Comisaria</td>
-                  <td><input type="number" id="Compacomisaria" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovicomisaria" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypcomisaria" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicicomisaria" class="form-number" required = "Campo requerido"></td>
+                  <td><input type="number" id="Compacomisaria" class="form-number"></td>
+                  <td><input type="number" id="Inmovicomisaria" class="form-number"></td>
+                  <td><input type="number" id="Pypcomisaria" class="form-number"></td>
+                  <td><input type="number" id="Bicicomisaria" class="form-number"></td>
                   
               </tr>
 
@@ -171,7 +171,7 @@
               <td><br>
 
               
-                <select class="form-select" id="agentes" required = "Campo requerido">
+                <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>942-910</option>
                 <option>910</option>
@@ -182,7 +182,7 @@
               </td>
               <td><br>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>Choque y Lesiones</option>
                 <option>Atropello</option>
@@ -192,14 +192,14 @@
                </select>
 
               </td>
-              <td><br><input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+              <td><br><input type="number" id="cantidad" class="form-number"></td>
                     
           </tr>
 
           <tr>
               <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>561</option>
                 
@@ -208,7 +208,7 @@
               </td>
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>Negativo</option>
                                
@@ -217,14 +217,14 @@
               </td>
               <td>
               
-              <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+              <input type="number" id="cantidad" class="form-number"></td>
                       
           </tr>
 
           <tr>
               <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 
                 <option>901</option>
@@ -235,7 +235,7 @@
 
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 
                 <option>Homicidio en la via</option>
@@ -246,14 +246,14 @@
               </td>
               <td>
               
-              <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
+              <input type="number" id="cantidad" class="form-number"></td>
                         
           </tr>
 
           <tr>
               <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>942-910</option>
                 <option>910</option>
@@ -263,7 +263,7 @@
               </td>
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 
                 <option>Choque y Lesiones</option>
@@ -275,13 +275,13 @@
                 
                 </select>
               </td>
-              <td><input type="number" id="cantidad"class="form-number" required = "Campo requerido"> </td>
+              <td><input type="number" id="cantidad"class="form-number"> </td>
                       
           </tr>
           <tr>
               <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>901</option>
                 <option>901 Clinica</option>
@@ -291,7 +291,7 @@
               </td>
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>Homicidio en la via</option>
                 <option>Inspección a Cadáver</option>
@@ -300,7 +300,7 @@
                      
               </select>
               </td>
-              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+              <td><input type="number" id="cantidad" class="form-number"></td>
               
               
           </tr>
@@ -308,7 +308,7 @@
           <tr>
               <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>561</option>
                 
@@ -317,13 +317,13 @@
 
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>Negativo</option>
                             
               </select>
               </td>
-              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+              <td><input type="number" id="cantidad" class="form-number"></td>
 
                       
           </tr>
@@ -332,7 +332,7 @@
 
       <td>
 
-              <select class="form-select" id="agentes" required = "Campo requerido">
+              <select class="form-select" id="agentes">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>901</option>
                 <option>901 Clinica</option>
@@ -341,7 +341,7 @@
               </td>
               <td>
 
-              <select class="form-select" id="accidentalidad" required = "Campo requerido">
+              <select class="form-select" id="accidentalidad">
                 <option selected disabled value="">Seleccionar..</option>
                 <option>Homicidio en la via</option>
                 <option>Inspección a Cadáver</option>
@@ -350,7 +350,7 @@
                 
                 </select>
               </td>
-              <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+              <td><input type="number" id="cantidad" class="form-number"> </td>
               
         </tr>  
 
@@ -358,7 +358,7 @@
 
     <td>
 
-            <select class="form-select" id="agentes" required = "Campo requerido">
+            <select class="form-select" id="agentes">
               <option selected disabled value="">Seleccionar..</option>
                
               <option>942-910</option>
@@ -369,7 +369,7 @@
             </td>
             <td>
 
-            <select class="form-select" id="accidentalidad" required = "Campo requerido">
+            <select class="form-select" id="accidentalidad">
               <option selected disabled value="">Seleccionar..</option>
                
               <option>Choque y Lesiones</option>
@@ -380,7 +380,7 @@
               
               </select>
             </td>
-            <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
+            <td><input type="number" id="cantidad" class="form-number"></td>
             
       </tr>  
 
@@ -414,7 +414,7 @@
 
     </div>  
 
-<div class="container-seccion2">
+         <div class="container-seccion2">
 
             <section class="seccion2"><br>
 
@@ -438,14 +438,14 @@
                       <tbody>
                           <tr>
                               <td>Positivas</td>
-                              <td><br><input type="number" id="positivast" class="form-number" required = "Campo requerido"></td>
+                              <td><br><input type="number" id="positivast" class="form-number"></td>
                               
                             
                           </tr>
 
                           <tr>
                               <td>Negativas</td>
-                              <td><input type="number" id="negativast" class="form-number" required = "Campo requerido"> </td>
+                              <td><input type="number" id="negativast" class="form-number"> </td>
                               
                               
                           </tr>
@@ -505,14 +505,14 @@
                       <tbody>
                           <tr>
                               <td>Positivas</td>
-                              <td><br><input type="number" id="positivasa" class="form-number" required = "Campo requerido"></td>
+                              <td><br><input type="number" id="positivasa" class="form-number"></td>
                               
                             
                           </tr>
 
                           <tr>
                               <td>Negativas</td>
-                              <td><input type="number" id="negativasa" class="form-number" required = "Campo requerido"> </td>
+                              <td><input type="number" id="negativasa" class="form-number"></td>
                               
                               
                           </tr>
@@ -552,11 +552,11 @@
       </section>      
 
 
-    </div>
+    </div><br><br>
 
     <div class="container-seccion3">
 
-            <section class="seccion5"><br>
+            <section class="seccion4"><br>
 
             <form action="#" method="POST">  
                       <h5 class="title"><strong>INCIDENCIAS PRESENTADAS</strong></h5><br>
@@ -581,7 +581,7 @@
                           <tr>
                               <td><br>
 
-                              <select class="form-select" id="agentes" required="required">
+                              <select class="form-select" id="agentes">
                                 <option selected disabled value="">Seleccionar..</option>
                                 <option>376</option>
                                 <option>361</option>
@@ -604,7 +604,7 @@
                               </td>
                               <td><br>
 
-                              <select class="form-select" id="tipo" required="required">
+                              <select class="form-select" id="tipo">
                               <option selected disabled value="">Seleccionar..</option>
                               <option>Regulación</option>
      
@@ -621,12 +621,12 @@
                             </td>
                               
                             
-                          </tr>
+                        </tr>
 
                           <tr>
                               <td><br>
 
-                          <select class="form-select" id="agentes" required="required">
+                          <select class="form-select" id="agentes">
                           <option selected disabled value="">Seleccionar..</option>
                           <option>376</option>
                           <option>361</option>
@@ -652,7 +652,7 @@
                               </td>
                               <td><br>
                             
-                              <select class="form-select" id="tipo" required="required">
+                              <select class="form-select" id="tipo">
                               <option selected disabled value="">Seleccionar..</option>
                               <option>Regulación</option>
      
@@ -674,7 +674,7 @@
                           <tr>
                               <td><br>
 
-                          <select class="form-select" id="agentes" required="required">
+                          <select class="form-select" id="agentes">
                           <option selected disabled value="">Seleccionar..</option>
                           <option>376</option>
                           <option>361</option>
@@ -700,7 +700,7 @@
                               </td>
                               <td><br>
                             
-                              <select class="form-select" id="tipo" required="required">
+                              <select class="form-select" id="tipo">
                               <option selected disabled value="">Seleccionar..</option>
                               <option>Regulación</option>
      
@@ -713,13 +713,12 @@
                             <td><br><br>
 
                             <textarea class = "textarea" name="" id="incidencias" cols="30" rows="8"></textarea>
-
                             
                             </td>                      
                               
                           </tr>
 
-                                          
+                                                              
                                            
                       <th><br>
 
