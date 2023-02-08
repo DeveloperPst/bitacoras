@@ -59,8 +59,16 @@ class HomeController extends Controller
 
     public function reportes()
     {
-        return view('reportes');
+        return view('/reportes');
+    }
+
+    public function maestroTurno()
+    {
+        return view('/maestroTurno');
     }
     
-
+    public function parametrizacion()
+    {
+        return view('/parametrizacion');
+    }
 }

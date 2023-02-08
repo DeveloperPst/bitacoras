@@ -46,9 +46,12 @@ justify-content: center;
 align-content: center;
 min-width: 50%;
 margin-right: 2%;
-
+ 
 
 }
+
+
+ 
 
 .form-label{
 
@@ -75,6 +78,9 @@ height: 100px;
 
 
 }
+
+
+
 .title{
 
 padding: 1%;
@@ -244,8 +250,7 @@ color: #333333;
 .card3 {
 
     
-    width: 32%;
-    height: 80%;
+    width: 40%;
     justify-content: center;
     align-content: center;
     margin-left: 33%;
@@ -254,12 +259,13 @@ color: #333333;
     border-color: #666666;
     font-size: medium;
     margin-top: 2%;
+    align-content: center;
     border-radius: 3% 3% 3% 3%;    
+    display:block;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
      
    
-    
-    }
+}
 
 
 .card4 {
@@ -282,9 +288,45 @@ color: #333333;
    
 }
 
+.card5 {
+
+    
+    width: 80%;
+    justify-content: center;
+    align-content: center;
+    margin-left: 12%;
+    background-color: #ffff;
+    border: 2px;
+    border-color: #666666;
+    font-size: medium;
+    margin-top: 2%;
+    border-radius: 3% 3% 3% 3%;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+       
+}
 
 
+.card6 {
 
+    
+    width: 35%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin-left: 33%;
+    background-color: #ffff;
+    border: 2px;
+    border-color: #666666;
+    font-size: medium;
+    margin-top: 2%;
+    align-content: center;
+    border-radius: 3% 3% 3% 3%;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: block; 
+   
+}
+
+ 
 
 .os-padding{
 
@@ -367,18 +409,24 @@ color: #ffff;
 
 }
 
-
-
-
+ 
 .card-body {
-  
-    margin-inline: 0%;
-    height: 0%;
+   
     display: flex;
-    padding-left: 20%;
+    padding-left: 19%;
+   
 
 }
+ 
+ 
+ .row{
 
+display:block;
+margin-right: 13%;
+ 
+
+
+}
 
 .navbar {
 
@@ -578,4 +626,4 @@ width: 30rem;
     
     }
 
-   
+    

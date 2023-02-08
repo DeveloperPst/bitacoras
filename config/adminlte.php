@@ -226,7 +226,7 @@ return [
 
     'menu' => [
 
-
+       
         [
             'text' => 'Primer Turno',
             'url'  => '/primerTurno',
@@ -280,6 +280,13 @@ return [
         // Sidebar items:
 
         ['header' => 'DASHBOARD'], 
+
+
+        [
+            'text' => 'Maestro Turno',
+            'url'  => '/maestroTurno',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         
         [
             'text' => 'Inicio',
@@ -304,6 +311,8 @@ return [
             'text'    => 'Turnos',
             'icon'    => 'fas fa-calendar',
             'submenu' => [
+
+                
                 [
                     'text' => 'Primer Turno',
                     'url'  => '/primerTurno',
@@ -327,6 +336,11 @@ return [
        
         ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
 
+        [
+            'text' => 'Parametrización',
+            'url'  => '/parametrizacion',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         
 
         [

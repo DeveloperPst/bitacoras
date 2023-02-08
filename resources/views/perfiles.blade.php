@@ -15,7 +15,8 @@
 
 
 
-<div class="card3">
+
+<div class="card3" style="width: 22rem;">
 
 <h5 class="card-header p-1">Actualizar Perfil</h5><br>
  
@@ -25,31 +26,36 @@
           <form id="needs-validation" >
       <div class="form-group">
       <label>Nombres</label>
-      <input class="form-control input-lg" placeholder="Nombres" type="text"  id = "nombres" required>
+      <input class="form-control input-lg" placeholder="Nombres" type="password"  id = "nombres" required>
       </div>
       <div class="form-group">
       <label>Apellidos</label>
-      <input class="form-control input-lg" placeholder="Apellidos" type="text" id = "apellidos" required>
+      <input class="form-control input-lg" placeholder="Apellidos" type="password" id = "apellidos" required>
       </div>
 
       <div class="form-group">
       <label>Email</label>
-      <input class="form-control input-lg" placeholder="Email" type="text"  id = "email" required>
+      <input class="form-control input-lg" placeholder="Email" type="password"  id = "email" required>
       </div>
-      
+
       <div class="form-group">
       <label>Telefono</label>
-      <input class="form-control input-lg" placeholder="Telefono" type="number" id = "telefono" required>
+      <input class="form-control input-lg" placeholder="Telefono" type="password"  id = "telefono" required>
       </div><br>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button type="reset" class="btn btn-danger">Cancelar</button>
 
-       
-      </form> 
-          
+      <small class="text-muted mt-3 mb-1 d-block">Volver al <a href="/home">Inicio</a></small>
+      </form>
+
         </div>
 </div>
+
+
+
+ 
+
 
 
 @stop

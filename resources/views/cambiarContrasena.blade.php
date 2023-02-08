@@ -14,7 +14,7 @@
 @section('content')
 
 
-<div class="card4" style="width: 21rem;">
+<div class="card4" style="width: 21em;">
 
 <h5 class="card-header p-1">Cambiar Contraseña</h5><br>
  
@@ -39,7 +39,7 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
         <button type="reset" class="btn btn-danger">Cancelar</button>
 
-      <small class="text-muted mt-3 mb-1 d-block">Volver al <a href="/home">Login</a></small>
+      <small class="text-muted mt-3 mb-1 d-block">Volver al <a href="/home">Inicio</a></small>
       </form>
           
         </div>

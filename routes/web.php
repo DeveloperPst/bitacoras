@@ -35,3 +35,7 @@ Route::get('/perfiles', [App\Http\Controllers\HomeController::class,'perfiles'])
 Route::get('/cambiarContrasena', [App\Http\Controllers\HomeController::class,'cambiarContrasena'])->name('cambiarContrasena');
 
 Route::get('/reportes', [App\Http\Controllers\HomeController::class,'reportes'])->name('reportes');
+
+Route::get('/maestroTurno', [App\Http\Controllers\HomeController::class,'maestroTurno'])->name('maestroTurno');
+
+Route::get('/parametrizacion', [App\Http\Controllers\HomeController::class,'parametrizacion'])->name('parametrizacion');
