@@ -39,3 +39,4 @@ Route::get('/reportes', [App\Http\Controllers\HomeController::class,'reportes'])
 Route::get('/maestroTurno', [App\Http\Controllers\HomeController::class,'maestroTurno'])->name('maestroTurno');
 
 Route::get('/parametrizacion', [App\Http\Controllers\HomeController::class,'parametrizacion'])->name('parametrizacion');
+

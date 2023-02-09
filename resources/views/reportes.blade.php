@@ -11,67 +11,172 @@
 
 @section('content')
 
-<div class="container-turno">
 
-    <h3><strong>Reportes</strong></h3><br>
+<h5 class="card-header p-2">Informe Eventos CEGES</h5>
 
-    <div class="card5">
+<div class="container-reporte bg-white p-2" style="font-family: Arial, Helvetica, sans-serif;">
 
-        <h5 class="card-header">Informe Eventos CEGES</h5>
+<img src="img/logoAlcaldia.png" alt="Alcaldia de Santiago de Cali" class="VAR">
 
-          <div class="card-body">
+<br><br>
 
-          <form action="" method="Post"></form>
-              
-        <div class="row">
-          <div class="col">
-            <input type="text" class="form-control" value="" placeholder="Asunto"><br>
-            <input type="text" class="form-control" value="" placeholder="Lugar"><br>
-            <input type="text" class="form-control" value="" placeholder="Conductor Veh-1"><br>
-            <input type="number" class="form-control" value="" placeholder="Nro Documento"><br>
-            <input type="text" class="form-control" value="" placeholder="Lesionado"><br>
-            <input type="number" class="form-control" value="" placeholder="Licencia Conducción"><br>
-            <input type="text" class="form-control" value="" placeholder="Placas Veh-1"><br>
-            <input type="number" class="form-control" value="" placeholder="SOAT"><br>
-            <input type="text" class="form-control" value="" placeholder="Nombre"><br>
-            <input type="text" class="form-control" value="" placeholder="Clinica"><br>
-            <input type="number" class="form-control" value="" placeholder="Prueba Alcoholemia"><br>
-            <input type="number" class="form-control" value="" placeholder="Placa Agente"><br>
-            <input type="number" class="form-control" value="" placeholder="Orden Comparendo"><br>
-            <input type="number" class="form-control" value="" placeholder="Resultado Prueba"><br>
-            <input type="text" class="form-control" value="" placeholder="Nombre Agente"><br>
-            <input type="text" class="form-control" value="" placeholder="Incidente"><br>
-            
-            
-          </div>
-            </div>
-        <div class="row">
-          <div class="col">
-            <input type="date" class="form-control" placeholder="Fecha" value=""><br>
-            <input type="time" class="form-control" placeholder="Hora" value=""><br>
-            <input type="number" class="form-control" placeholder="Tipo Documento" value=""><br>
-            <input type="number" class="form-control" placeholder="Edad" value=""><br>
-            <input type="text" class="form-control" placeholder="Clinica" value=""><br>
-            <input type="number" class="form-control" placeholder="T.O" value=""><br>
-            <input type="text" class="form-control" placeholder="Tipo de vehículo" value=""><br>
-            <input type="number" class="form-control" placeholder="RTM" value=""><br>
-            <input type="text" class="form-control" placeholder="Condición" value=""><br>
-            <input type="text" class="form-control" placeholder="RTM" value=""><br>
-            <input type="number" class="form-control" placeholder="Operador de alcoholimetro" value=""><br>
-            <input type="number" class="form-control" placeholder="Resultado Prueba" value=""><br>
-            <input type="number" class="form-control" placeholder="Orden Comparendo" value=""><br>
-            <input type="number" class="form-control" placeholder="Placa" value=""><br>
-            <input type="number" class="form-control" placeholder="Ipat" value=""><br>
-            <input type="number" class="form-control" value="" placeholder="SPOA"><br>
+<h6 class="VAR"><strong>ALFREDO CANDELO CORTES</strong></h6>
+<h6 class="VAR">Subsecretario de Servicios de Movilidad.</h6> 
+<h6 class="VAR">Cali</h6><br>
+
+
+<div class="VAR" contenteditable="true">
+   <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+ 
+   <div class="container-R">
+
+ <b>Asunto: </b>Siniestro Vial 910</p>
+
+
+ <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+    <b>Lugar: </b>Calle 9 con Carrera 44  <b>&nbsp&nbsp&nbspComuna: </b>22  <b>&nbsp&nbsp&nbspFecha: </b>19/04/2022</b>
+  
+    <b>&nbsp&nbsp&nbspHorario: </b>	05:30 a. m. </p><br>
+  
+       
+
+     <div class="container-R">
+      
+     	 	 	 	 	 	 
+ <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+    <b>Conductor Vehículo No. 1:	</b>Luis Alberto Ordoñez <b>&nbsp&nbsp&nbspCedula de Ciudadanía:&nbsp	</b>94.552.357</p> 		
+
+    
+    </div>  
+
+    <div class="container-R">
+      
+ <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+    <b>Edad:</b>22 <b>&nbsp&nbsp&nbspLesionado(a): </b>Si <b>&nbsp&nbsp&nbspClínica: </b>N.A <b>&nbsp&nbsp&nbspLicencia conducción: </b>1151944235</p>
+ 	  	 	 	 	 	 	 
+
+    </div>  
+
+  <div class="container-R">
+ 	
+ 
+    
+    <b>T.O: </b><b>&nbsp&nbsp&nbspPlaca Vehículo No. 1: </b>TFT06C <b>&nbsp&nbsp&nbspTipo: </b>Automóvil <b>&nbsp&nbsp&nbspSOAT: </b>Vigente<b>&nbsp&nbspRTM: </b>Vigente</p>   
+
+    </div><br><br>
+    
+    <div class="container-R">
+      
+     	 	 	 	 	 	 
+      <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+           
+         <b>Conductor Vehículo No. 1:	</b>Luis Alberto Ordoñez <b>&nbsp&nbsp&nbspCedula de Ciudadanía:&nbsp	</b>94.552.357</p> 		
+     
+         
+         </div>  
+     
+         <div class="container-R">
+           
+      <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+           
+         <b>Edad:</b>22 <b>&nbsp&nbsp&nbspLesionado(a): </b>Si <b>&nbsp&nbsp&nbspClínica: </b>N.A <b>&nbsp&nbsp&nbspLicencia conducción: </b>1151944235</p>
+                            
+     
+         </div>  
+     
+       <div class="container-R">
+        
+      
+         
+         <b>T.O: </b><b>&nbsp&nbsp&nbspPlaca Vehículo No. 1: </b>TFT06C <b>&nbsp&nbsp&nbspTipo: </b>Automóvil <b>&nbsp&nbsp&nbspSOAT: </b>Vigente<b>&nbsp&nbspRTM: </b>Vigente</p>   
+     
+         </div><br><br> 
+   
+         
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+     <b>Lesionado(a): </b></p>
+
+     
+     <div class="container-R">
+     
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Nombre: </b>Rosero Arcos Karen <b>&nbsp&nbsp&nbspCondición: </b>Acompañante<b>&nbsp&nbsp&nbspClínica: </b>Santa Clara</p>   
+
+    </div>
+
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Prueba indirecta de alcoholemia No. 1:  </b></p> 
+
+      <div class="container-R">
+
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Operador del Alcoholímetro: </b>Victor Castaño <b>&nbsp&nbsp&nbspPlaca  </b>306</p>
+      
+  
       </div>
-      </div>
-  </div>
+          
+  
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Resultado Prueba Conductor vehículo No. 1:    </b></p> 
+      
+      
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Orden Comparendo: </b>N.A</p>      
 
-        <button type="submit" class="btn btn-primary">Generar</button>
-        <button type="reset" class="btn btn-danger">Cancelar</button>
-</div>
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Resultado Prueba Conductor vehículo No. 2: </b></p>    
+      
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Orden Comparendo: </b>N.A</p> 
+      
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Agente que conoce del hecho: </b>Jose Luis Murillo</p> <br><br>      
+
+
+      <div class="container-R">
+      
+  <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Incidente: </b>Jose Luis Murillo<b> &nbsp&nbsp&nbspIpat Nro. </b>1402206 <b>&nbsp&nbsp&nbspSPOA Nro. </b>1402206</p>  
+      
+     </div>
+
+     <div class="container-R">
+      
+ <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Imágenes: </b><br><br> <input type="file" multiple= 'true' name="archivo"></p> 
+
+      </div>
+      
+ <p style="text-align:justify;font-family: Arial, Helvetica, sans-serif; font-size: 12pt" contenteditable="true">
+      
+      <b>Relato de los hechos: </b></p><br><br><br>       
+
+<h6><strong>JHON FREDDY GUEVARA 263</strong></h6>
+<h6>Agente de Transito</h6> 
+<h6>Centro de Gestión Secretaria de Movilidad</h6><br><br>
+ 
+<button type="submit" class="btn btn-primary">Generar PDF</button>
+ 
+
+ </div>   
+  
 
 @stop
+
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">

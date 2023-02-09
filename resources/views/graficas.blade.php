@@ -12,12 +12,6 @@
 
 @section('content')
 
-<h3><strong>Gráficas</strong></h3>
-
-
-
- 
-
 
 
 

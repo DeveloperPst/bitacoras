@@ -24,8 +24,19 @@ background-color: #e8effc;
 
 }
 
+.container-reporte{
+
+width: 80%; 
+background-color: #fff;
+margin-left: 11%;
+justify-content: center;
+padding-inline-end: 5%;
 
 
+
+}
+
+ 
 .form-select{
 
 
@@ -399,7 +410,20 @@ color: #ffff;
 
 .card-header {
 
+    width: 80%;
     padding-top: 2%;
+    text-align: center;
+    background-color: dimgray;
+    color: #fff;
+    font: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     margin-left: 11%;
+
+}
+
+.card-headerR {
+
+   padding: 1%;
     text-align: center;
     background-color: dimgray;
     color: #fff;
@@ -478,6 +502,13 @@ background-color: #343a40;
     font: bold;
     
     }
+
+.VAR{
+
+  margin-left: 12%;
+    
+    }
+
 
 
 .table {
