@@ -302,7 +302,7 @@ return [
         ],
 
         [
-            'text' => 'Reportes',
+            'text' => 'Informes CEGES',
             'url'  => '/reportes',
             'icon' => 'fas fa-chart-pie',
         ],

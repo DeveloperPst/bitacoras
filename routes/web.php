@@ -36,6 +36,8 @@ Route::get('/cambiarContrasena', [App\Http\Controllers\HomeController::class,'ca
 
 Route::get('/reportes', [App\Http\Controllers\HomeController::class,'reportes'])->name('reportes');
 
+Route::get('/reportes', [App\Http\Controllers\reportesController::class,'imprimir'])->name('reportes');
+
 Route::get('/maestroTurno', [App\Http\Controllers\HomeController::class,'maestroTurno'])->name('maestroTurno');
 
 Route::get('/parametrizacion', [App\Http\Controllers\HomeController::class,'parametrizacion'])->name('parametrizacion');

@@ -1263,7 +1263,7 @@ progress {
   .g-md-0,
 .gx-md-0 {
     --bs-gutter-x: 0;
-  }6
+  }
 
   .g-md-0,
 .gy-md-0 {
@@ -1319,8 +1319,8 @@ progress {
 .gy-md-5 {
     --bs-gutter-y: 3rem;
   }
-}
-@media (min-width: 992px) {
+
+  @media (min-width: 992px) {
   .col-lg {
     flex: 1 0 0%;
   }
@@ -11361,4 +11361,3 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
