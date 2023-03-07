@@ -14,62 +14,50 @@
 @section('content')
 
 
-<div class="container2 p-2">
 
-<div class="card3">
-     <div class="card-header p-2">
-    <h5><strong>Actualizar Perfil</strong></h5>
-    </div>
-    <div class="card-body" >
 
-  <form class="form-horizontal">
-  
-    
-    <div class="form-group">
-      <label for="inputText" class="col-lg-6 control-label">Nombres</label>
-      <div class="col-lg-10">
-        <input class="form-control" rows="3" id="inputText" placeholder="Nombres"></input>
-        </div>
-    </div>
+<div class="card3" style="width: 22rem;">
 
-    <div class="form-group">
-      <label for="inputText" class="col-lg-6 control-label">Apellidos</label>
-      <div class="col-lg-10">
-        <input class="form-control" rows="3" id="inputText" placeholder="Apellidos"></input>
-        </div>
-    </div>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-6 control-label">Correo Electrónico</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-      </div>
-    </div>
+<h5 class="card-header p-1">Actualizar Perfil</h5><br>
+ 
+  <div class="card-body">
+
+
+          <form id="needs-validation" >
       <div class="form-group">
-      <label for="inputEmail" class="col-lg-4 control-label">Teléfono</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Teléfono">
+      <label>Nombres</label>
+      <input class="form-control input-lg" placeholder="Nombres" type="text"  id = "nombres" required>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputText" class="col-lg-4 control-label">Dirección</label>
-      <div class="col-lg-10">
-        <input class="form-control" rows="3" id="inputText" placeholder="Dirección"></input>
+      <div class="form-group">
+      <label>Apellidos</label>
+      <input class="form-control input-lg" placeholder="Apellidos" type="text" id = "apellidos" required>
+      </div>
+
+      <div class="form-group">
+      <label>Email</label>
+      <input class="form-control input-lg" placeholder="Email" type="email"  id = "email" required>
+      </div>
+
+      <div class="form-group">
+      <label>Telefono</label>
+      <input class="form-control input-lg" placeholder="Telefono" type="number"  id = "telefono" required>
+      </div><br>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="reset" class="btn btn-danger">Cancelar</button>
+
+      <small class="text-muted mt-3 mb-1 d-block">Volver al <a href="/home">Inicio</a></small>
+      </form>
+
         </div>
-    </div>
-    
-     <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2"><br>
-       
-      <button type="submit" class="btn btn-primary">Guardar</button>
-      <button type="reset" class="btn btn-danger">Cancelar</button>
-        
-      </div>
-    </div>
-  
+</div>
 
- </form>
 
-</div> 
+
+ 
+
+
+
 @stop
 
 <section></section>

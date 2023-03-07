@@ -11,14 +11,32 @@
 
 
 @section('content')
+
+<div class="container-home">
+
+<h3><strong>ESTADÍSTICA CENTRO DE GESTIÓN DEL TRÁNSITO</strong></h3>
+<br>
+<h5><strong>TURNO ACTIVO:
+    <?php 
+    
+    session_start();
+    if (!isset($_SESSION['turno_activo'])) {
+        echo "Ningún turno activo";
+    } else {
+        echo $_SESSION['turno_activo'];
+    }
+    
+    ?></strong></h5>
+                                    
+
+</div>
+
+
 <div class="container-seccion">
 
+  <section class="seccion">
 
-<section class="seccion">
-
-
-
-        <form action="#" method="POST" id= "form1">
+        <form method="get" action="{{ url('registrar_proc') }}">
           <h5 class="text-center"><strong>CONSOLIDADO PROCEDIMIENTOS</strong></h5><br>
               
           <table id="table1" class="table table-sm">
@@ -30,6 +48,8 @@
                   <th>Inmovilizados</th>
                   <th>Pico y Placa</th>
                   <th>Bicicarril</th>
+                  <th></th>
+
                   
               </tr>
           
@@ -37,88 +57,101 @@
 
           <tbody>
               <tr >
-                  <td>Centro</td>
-                  <td><input type="number" id="Compacentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovicentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Pypcentro" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicicentro" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Centro</td>
+                   <!--<td><br><input type="number" id="3" name="Compacentro" class="form-number"></td>-->
+                  <td><br><input type="number" id="Inmovicentro" name="Inmovicentro" class="form-number"></td>
+                  <td><br><input type="number" id="Pypcentro" name="Pypcentro" class="form-number"></td>
+                  <td><br><input type="number" id="Bicicentro" name="Bicicentro" class="form-number"></td>
                 
-              </tr>
-
-              <tr>
-                  <td>Oeste</td>
-                  <td><input type="number" id="Compaoeste" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioeste" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypoeste" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioeste" class="form-number" required = "Campo requerido"></td>
+              </tr> 
+              
+              <!--<tr>
+                  <td><br>Oeste</td>
+                  <td><br><input type="number" id="Compaoeste" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovioeste" class="form-number"></td>
+                  <td><br><input type="number" id="Pypoeste" class="form-number"></td>
+                  <td><br><input type="number" id="Bicioeste" class="form-number"></td>
                   
               </tr>
 
               <tr>
-                  <td>Norte</td>
-                  <td><input type="number" id="Companorte" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovinorte" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypnorte" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicinorte" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Norte</td>
+                  <td><br><input type="number" id="Companorte" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovinorte" class="form-number"></td>
+                  <td><br><input type="number" id="Pypnorte" class="form-number"></td>
+                  <td><br><input type="number" id="Bicinorte" class="form-number"></td>
                   
               </tr>
 
               <tr>
-                  <td>Oriente</td>
-                  <td><input type="number" id="Compaoriente" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioriente"class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pyporiente" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioriente" class="form-number"required = "Campo requerido"></td>
+                  <td><br>Oriente</td>
+                  <td><br><input type="number" id="Compaoriente" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovioriente"class="form-number"></td>
+                  <td><br><input type="number" id="Pyporiente" class="form-number"></td>
+                  <td><br><input type="number" id="Bicioriente" class="form-number"></td>
                   
               </tr>
               <tr>
-                  <td>Sur</td>
-                  <td><input type="number" id="Compasur" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovisur" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypsur" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicisur" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Sur</td>
+                  <td><br><input type="number" id="Compasur" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovisur" class="form-number"></td>
+                  <td><br><input type="number" id="Pypsur" class="form-number"></td>
+                  <td><br><input type="number" id="Bicisur" class="form-number"></td>
                   
               </tr>
               <tr>
-                  <td>Operativo</td>
-                  <td><input type="number" id="Compaoperativo" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovioperativo" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypoperativo" class="form-number"required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicioperativo" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Operativo</td>
+                  <td><br><input type="number" id="Compaoperativo" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovioperativo" class="form-number"></td>
+                  <td><br><input type="number" id="Pypoperativo" class="form-number"></td>
+                  <td><br><input type="number" id="Bicioperativo" class="form-number"></td>
                     
               </tr>
 
               <tr>
-                  <td>Disponibles</td>
-                  <td><input type="number" id="Compadisponibles" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Inmovidisponibles" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypdisponibles" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicidisponibles" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Disponibles</td>
+                  <td><br><input type="number" id="Compadisponibles" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovidisponibles" class="form-number"></td>
+                  <td><br><input type="number" id="Pypdisponibles" class="form-number"></td>
+                  <td><br><input type="number" id="Bicidisponibles" class="form-number"></td>
                   
               </tr>
 
               <tr>
-                  <td>Comisaria</td>
-                  <td><input type="number" id="Compacomisaria" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Inmovicomisaria" class="form-number" required = "Campo requerido"> </td>
-                  <td><input type="number" id="Pypcomisaria" class="form-number" required = "Campo requerido"></td>
-                  <td><input type="number" id="Bicicomisaria" class="form-number" required = "Campo requerido"></td>
+                  <td><br>Comisaria</td>
+                  <td><br><input type="number" id="Compacomisaria" class="form-number"></td>
+                  <td><br><input type="number" id="Inmovicomisaria" class="form-number"></td>
+                  <td><br><input type="number" id="Pypcomisaria" class="form-number"></td>
+                  <td><br><input type="number" id="Bicicomisaria" class="form-number"></td>
+                  
+              </tr>-->
+
+
+              <tr>
+                  <td><br>Total</td>
+                  <td><br><label></label></td>
+                  <td><br><label></label></td>
+                  <td><br><label></label></td>
+                  <td><br><label></label></td>
                   
               </tr>
 
           <th></th>
 
-          
-          <th>
+                    
+          <th><br>
 
-               <button type="submit" id = "form1" value ="Send" class="btn btn-primary">Guardar</button>
+               <button type="submit" class="btn btn-primary">Guardar</button>
           </th>
 
           <th>
+          </th>
+
+          <th><br>
         
           <button type="reset" id = "form1" value ="Reset" class="btn btn-danger">Cancelar</button>
               
-              
+      
           </th>
 
           <th>
@@ -129,415 +162,101 @@
           <th></th>
           
           </th>
-
-
-          
 
           </tbody>
 
           </table>
+    </form>
+    </section>
 
-</section>
+    <section class="seccion1">
 
-
-<section class="seccion1">
-
-
-<form action="#" method="POST">
-<h5 class="text-center"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
-  
+    <form method="get" action="{{ url('registrar_accidente') }}">
+    <h5 class="text-center"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
       
-  <table id="table2" class="table2">
-  <thead class="thead">
+          
+      <table id="table2" class="table2 table-sm">
+      <thead class="thead">
+          
+          <tr>
+              <th>Tipo Accidente</th>
+              <th>Cantidad</th>                        
+          </tr>
       
-      <tr>
-          <th>Codigo</th>
-          <th>Tipo Accidente</th>
-          <th>Cantidad</th>
-      
+        </thead>
+
+      <tbody>
+        
+          <tr>
+              <td><br><br>
+
+              
+                <select class="form-select" id="tipo_accidente" name="tipo_accidente">
+                <option selected disabled value="">Seleccionar..</option>
+                @foreach($result_select_acc as $a)
+                    <option value="{{ $a['id_tipo_accidente'] }}">{{ $a['descripcion_tipo_accidente'] }}</option>
+                @endforeach           
+               </select>
+              
+
+              </td>
+
+              <td><br><br><input type="number" id="cantidad" name="cantidad" class="form-number" required></td>
                     
-      </tr>
-  
-    </thead>
+          </tr>
 
-  <tbody>
+            <tr>
+              <td><br><br><button type="submit" name = "button3" class="btn btn-primary">Guardar</button></td>
     
-      <tr>
-          <td><br>
 
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
+              <td><br><br><button type="reset" name = "button4" class="btn btn-danger">Cancelar</button></td>
+          </tr>
 
-          </td>
-          <td><br>
+        </tbody>
 
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-                       
-            </select>
+        </table>
+        </form>
 
-          </td>
-          <td><br><input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                
-      </tr>
+        <section class="seccion2"><br><br>
 
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td>
-          
-          <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                  
-      </tr>
-
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>   
-
-          </td>
-
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-                        
-            </select>
-          </td>
-          <td>
-          
-          <input type="number" id="cantidad" class="form-number" required = "Campo requerido"></td>
-                    
-      </tr>
-
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad"class="form-number" required = "Campo requerido"> </td>
-                  
-      </tr>
-      <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-          
-          
-      </tr>
-      
-       <tr>
-          <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-          </td>
-
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-
-                   
-      </tr>
-
-      <tr>
-
-  <td>
-
-          <select class="form-select" id="agentes" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>561</option>
-            <option>942-910</option>
-            <option>910</option>
-            <option>901</option>
-            <option>901 Clinica</option>
-           </select>
-
-          </td>
-          <td>
-
-          <select class="form-select" id="accidentalidad" required = "Campo requerido">
-            <option selected disabled value="">Seleccionar..</option>
-            <option>Negativo</option>
-            <option>Daños</option>
-            <option>Choque y Lesiones</option>
-            <option>Atropello</option>
-            <option>Volcamiento</option>
-            <option>Caida Ocupante</option>
-            <option>Homicidio en la via</option>
-            <option>Inspección a Cadáver</option>
-            <option>Inspección Foránea</option>
-            
-            
-            </select>
-          </td>
-          <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-          
-    </tr>  
-
-    <tr>
-
-<td>
-
-        <select class="form-select" id="agentes" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>561</option>
-          <option>942-910</option>
-          <option>910</option>
-          <option>901</option>
-          <option>901 Clinica</option>
-         </select>
-
-        </td>
-        <td>
-
-        <select class="form-select" id="accidentalidad" required = "Campo requerido"">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>Negativo</option>
-          <option>Daños</option>
-          <option>Choque y Lesiones</option>
-          <option>Atropello</option>
-          <option>Volcamiento</option>
-          <option>Caida Ocupante</option>
-          <option>Homicidio en la via</option>
-          <option>Inspección a Cadáver</option>
-          <option>Inspección Foránea</option>
-          
-          
-          </select>
-        </td>
-        <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-        
-  </tr>  
-
-  <tr>
-
-<td>
-
-        <select class="form-select" id="agentes" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>561</option>
-          <option>942-910</option>
-          <option>910</option>
-          <option>901</option>
-          <option>901 Clinica</option>
-         </select>
-
-        </td>
-        <td>
-
-        <select class="form-select" id="accidentalidad" required = "Campo requerido">
-          <option selected disabled value="">Seleccionar..</option>
-          <option>Negativo</option>
-          <option>Daños</option>
-          <option>Choque y Lesiones</option>
-          <option>Atropello</option>
-          <option>Volcamiento</option>
-          <option>Caida Ocupante</option>
-          <option>Homicidio en la via</option>
-          <option>Inspección a Cadáver</option>
-          <option>Inspección Foránea</option>
-          
-          
-          </select>
-        </td>
-        <td><input type="number" id="cantidad" class="form-number" required = "Campo requerido"> </td>
-        
-  </tr>  
-
-   
-  <th><br><br>
-
-        <button type="submit" name = "button3" class="btn btn-primary">Guardar</button>
-  
-   
-  </th>
-
-  <th><br><br>
-
-       <button type="reset" name = "button4" class="btn btn-danger">Cancelar</button>  
-
-  </th>
-
- 
-  
-
-  </tbody>
-
-  </table>
-
-</section>    
-
-
-  </div>
-
-  
-
-</div>  
-
-<div class="container-seccion2">
-
-            <section class="seccion2"><br>
-
-            <form action="#" method="POST">  
-                      <h5 class="title"><strong>PRUEBAS DE ALCOHOLEMIA POR:</strong></h5><br>
+            <form method="get" action="{{ url('registrar_1') }}">
+                      <h5 class="title2"><strong>PRUEBAS DE ALCOHOLEMIA</strong></h5><br>
                           
-                      <table id="table3" class="table3 table-small">
+                      <table id="table3" class="table3 table-sm">
                       <thead class="thead">
                           
                           <tr>
-                            
                               <th>Operativo Turno</th>
                               <th>Cantidad</th>
                               <th></th>
                               <th></th>
-                              
-                          </tr>
+                             
+                          </tr> 
                       
-                        </thead>
+                        </thead> 
 
                       <tbody>
+                        <tr>
+                        <td><br>Tipo de prueba</td>  
+                        <td><br>
+                                <select class="form-select" name="operativo" style="width: 6rem;" id="turno" >
+                                  <option selected disabled value="">Opciones...</option>
+
+                                    @foreach($result_select_prue as $b)
+                                        <option value="{{ $b['id_tipo_prueba'] }}">{{ $b['descripcion_tipo_prueba'] }}</option>
+                                    @endforeach
+                                </select>
+                           </td>
                           <tr>
-                              <td>Positivas</td>
-                              <td><br><input type="number" id="positivast" class="form-number" required = "Campo requerido"></td>
+                              <td><br>Positivas</td>
+                              <td><br><input type="number" id="positivast" name="positivast" class="form-number"></td>
                               
                             
                           </tr>
 
                           <tr>
-                              <td>Negativas</td>
-                              <td><input type="number" id="negativast" class="form-number" required = "Campo requerido"> </td>
+                              <td><br>Negativas</td>
+                              <td><br><input type="number" id="negativast" name="negativast" class="form-number"> </td>
                               
                               
                           </tr>
@@ -546,10 +265,16 @@
                                            
                       <th><br>
 
-                          <button type="submit" name = "button5" class="btn btn-primary">Guardar</button>
+                      <div class="row2 mb-0">
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-primary" style ="margin-left:0%;" id="guardar">
+                                    {{ __('Guardar') }}
+                                </button>   
+                            </div>
+                        </div>
                       </th>
 
-                      <th><br>
+                      <th><br><br>
                     
                       <button type="reset" name = "button6" class="btn btn-danger">Cancelar</button>
                           
@@ -571,96 +296,41 @@
                       </tbody>
 
                       </table>
-
+              </form>
             </section> 
-
-
-      <section class="seccion3"><br>
-
+      </section>  
       
-            <form action="#" method="POST">  
-                      <h5 class="title"><strong>PRUEBAS DE ALCOHOLEMIA POR:</strong></h5><br>
-                          
-                      <table id="table4" class="table4 table-small">
-                      <thead class="thead">
-                          
-                          <tr>
-                              <th>Operativo Accidente</th>
-                              <th>Cantidad</th>
-                              <th></th>
-                              <th></th>
-                              
-                          </tr>
-                      
-                        </thead>
-
-                      <tbody>
-                          <tr>
-                              <td>Positivas</td>
-                              <td><br><input type="number" id="positivasa" class="form-number" required = "Campo requerido"></td>
-                              
-                            
-                          </tr>
-
-                          <tr>
-                              <td>Negativas</td>
-                              <td><input type="number" id="negativasa" class="form-number" required = "Campo requerido"> </td>
-                              
-                              
-                          </tr>
-
-                          
-                                          
-                      <th><br>
-
-                          <button type="submit" name = "button5" class="btn btn-primary">Guardar</button>
-                      </th>
-
-                      <th><br>
-                    
-                      <button type="reset" name = "button6" class="btn btn-danger">Cancelar</button>
-                          
-                          
-                      </th>
-
-                      <th>
-
-                          
-                      </th>
-
-                      <th></th>
-                      
-                      </th>
-
-
-                      
-
-                      </tbody>
-
-                      </table>
-
-            
-
-      </section>      
+      
 
 
     </div>
 
+      
+
+   
+
+         <div class="container-seccion2">
+
+            
+
+    </div><br>  
+
     <div class="container-seccion3">
 
-            <section class="seccion5"><br>
+            <section class="seccion4"><br>
 
-            <form action="#" method="POST">  
+            <form method="get" action="{{ url('registrar_incidencia') }}">
                       <h5 class="title"><strong>INCIDENCIAS PRESENTADAS</strong></h5><br>
                           
                       <table id="table5" class="table5 table-sm">
                       <thead class="thead">
                           
                           <tr>
-                            
+                             
                               <th>Placa Agente</th>
                               <th>Tipo de Control</th>
                               <th>Novedad Presentada</th>
+                              <th></th>
                               
                               <th></th>
                               
@@ -668,152 +338,47 @@
                       
                         </thead>
 
-                      <tbody>
+                      <tbody class="text-center">
                           <tr>
                               <td><br>
 
-                              <select class="form-select" id="agentes" required="required">
+                              <select class="form-select" id="agentes" name="agentes">
                                 <option selected disabled value="">Seleccionar..</option>
-                                <option>376</option>
-                                <option>361</option>
-                                <option>562</option>
-                                <option>321</option>
-                                <option>604</option>
-                                <option>588</option>
-                                <option>622</option>
-                                <option>652</option>
-                                <option>299</option>
-                                <option>230</option>
-                                <option>368</option>
-                                <option>105</option>
-                                <option>358</option>
-                                <option>617</option>
-                                <option>367</option>
-                            
-                            </select>
+                                @foreach($result_select_age as $c)
+                                    <option value="{{ $c['id_agente'] }}">{{ $c['placa_agente'] }}</option>
+                                @endforeach
+                              </select>
 
                               </td>
                               <td><br>
 
-                              <select class="form-select" id="tipo" required="required">
+                              <select class="form-select" id="tipo" name='tipo'>
                               <option selected disabled value="">Seleccionar..</option>
-                              <option>Regulación</option>
-     
-        
+                                @foreach($result_select_cont as $d)
+                                    <option value="{{ $d['id_tipo_control'] }}">{{ $d['descripcion_tipo_cont'] }}</option>
+                                @endforeach
                               </select>
                             
                             </td>
 
-                            <td><br>
+                            <td><br><br>
 
-                            <textarea class = "textarea" name="" id="incidencia" cols="30" rows="8"></textarea>
-
-                            
+                            <textarea class="textarea" name="incidencia" id="incidencia" cols="30" rows="8" required></textarea>
+   
                             </td>
-                              
-                            
-                          </tr>
-
-                          <tr>
-                              <td><br>
-
-                          <select class="form-select" id="agentes" required="required">
-                          <option selected disabled value="">Seleccionar..</option>
-                          <option>376</option>
-                          <option>361</option>
-                          <option>562</option>
-                          <option>321</option>
-                          <option>604</option>
-                          <option>588</option>
-                          <option>622</option>
-                          <option>652</option>
-                          <option>299</option>
-                          <option>230</option>
-                          <option>368</option>
-                          <option>105</option>
-                          <option>358</option>
-                          <option>617</option>
-                          <option>367</option>
-
-                          </select>
-
-
-
-
-                              </td>
-                              <td><br>
-                            
-                              <select class="form-select" id="tipo" required="required">
-                              <option selected disabled value="">Seleccionar..</option>
-                              <option>Regulación</option>
-     
-        
-                              </select>
-                            
-                            </td>
-
-                            <td><br>
-
-                            <textarea class = "textarea" name="" id="incidencias" cols="30" rows="8"></textarea>
-
-                            
-                            </td>
-                              
-                              
-                          </tr>
-                            
-                          <tr>
-                              <td><br>
-
-                          <select class="form-select" id="agentes" required="required">
-                          <option selected disabled value="">Seleccionar..</option>
-                          <option>376</option>
-                          <option>361</option>
-                          <option>562</option>
-                          <option>321</option>
-                          <option>604</option>
-                          <option>588</option>
-                          <option>622</option>
-                          <option>652</option>
-                          <option>299</option>
-                          <option>230</option>
-                          <option>368</option>
-                          <option>105</option>
-                          <option>358</option>
-                          <option>617</option>
-                          <option>367</option>
-
-                          </select>
-
-
-
-
-                              </td>
-                              <td><br>
-                            
-                              <select class="form-select" id="tipo" required="required">
-                              <option selected disabled value="">Seleccionar..</option>
-                              <option>Regulación</option>
-     
-        
-                              </select>
-                            
-                            </td>
-
-                            <td><br>
-
-                            <textarea class = "textarea" name="" id="incidencias" cols="30" rows="8"></textarea>
-
-                            
-                            </td>                      
-                              
-                          </tr>
-
-                                                  
+                                            
+                        </tr>
+                                                              
                                            
                       <th><br>
 
-                          <button type="submit" name = "button5" class="btn btn-primary">Guardar</button>
+                      <div class="row2 mb-0">
+                            <div class="col-md-0 offset-md-0">
+                                <button type="submit" class="btn btn-primary" id="guardar">
+                                    {{ __('Guardar') }}
+                                </button>   
+                            </div>
+                        </div>
                       </th>
 
                       <th><br>
@@ -823,37 +388,23 @@
                           
                       </th>
 
-                      <th>
-
-                          
-                      </th>
-
-                      <th></th>
-                      
-                      </th>
-
-
-                      
-
                       </tbody>
 
                       </table>
-
+            </form>
             </section> 
 
     </div>
     
-    @stop
+</div> 
+   
+
+@stop
 
 
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Bienvenidos!'); </script>
-
 @stop
 
 

@@ -16,7 +16,7 @@ return [
 
     'title' => '',
     'title_prefix' => '',
-    'title_postfix' => '| Bitácoras',
+    'title_postfix' => '| Bitácora',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Bitácoras</b>',
-    'logo_img' => '/vendor/adminlte/dist/img/Agentes.png',
+    'logo_img' => './img/Agentes.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -187,7 +187,7 @@ return [
     |
     */
 
-    'use_route_url' => false,
+    'use_route_url' => true,
     'dashboard_url' => 'home',
     'logout_url' => 'logout',
     'login_url' => 'login',
@@ -226,10 +226,10 @@ return [
 
     'menu' => [
 
-
+       
         [
             'text' => 'Primer Turno',
-            'url'  => '/primerTurno',
+            'url'  => 'primerTurno',
             'target' => '_blank',
             'topnav' => true,
 
@@ -237,7 +237,7 @@ return [
 
          [
             'text' => 'Segundo Turno',
-            'url'  => '/segundoTurno',
+            'url'  => 'segundoTurno',
             'target' => '_blank',
             'topnav' => true,
 
@@ -245,15 +245,15 @@ return [
 
          [
             'text' => 'Tercer Turno',
-            'url'  => '/tercerTurno',
+            'url'  => 'tercerTurno',
             'target' => '_blank',
             'topnav' => true,
 
          ],
 
          [
-            'text' => 'Gráficas',
-            'url'  => '/graficas',
+            'text' => 'Historial',
+            'url'  => 'historial',
             'target' => '_blank',
             'topnav' => true,
 
@@ -261,7 +261,7 @@ return [
 
          [
             'text' => 'Regresar',
-            'url'  => '/home',
+            'url'  => 'home',
             'target' => '_blank',
             'topnav_right' => true,
 
@@ -274,75 +274,122 @@ return [
 
          ],
 
+         [
+            'text' => 'Salir',
+            'url'  => 'login',
+            'topnav_right' => true,
+         ],
 
          
 
         // Sidebar items:
 
-        ['header' => 'DASHBOARD'], 
-        
+        ['header' => 'DASHBOARD TURNOS'], 
+
+        [
+            'text' => 'Maestro Turno',
+            'url'  => 'maestroTurno',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+
         [
             'text' => 'Inicio',
-            'url'  => '/home',
+            'url'  => 'home',
             'icon' => 'fas fa-fw fa-house-user',
         ],
 
+        [
+            'text' => 'Turno activo',
+            'url'  => 'turnoactivo',
+            'icon' => 'fas fa-power-off',
+        ],
                
         [
-            'text' => 'Gráficas',
-            'url'  => '/graficas',
+            'text' => 'Historial turnos',
+            'url'  => 'historial',
             'icon' => 'fas fa-fw fa-image',
         ],
 
+        ['header' => 'INFORMES CEGES'], 
+
         [
-            'text' => 'Reportes',
-            'url'  => '/reportes',
+            'text' => 'Informes CEGES',
+            'url'  => 'reportes',
             'icon' => 'fas fa-chart-pie',
         ],
-        
+
         [
-            'text'    => 'Turnos',
-            'icon'    => 'fas fa-calendar',
+            'text' => 'Historial CEGES',
+            'url'  => 'historial_ceges',
+            'icon' => 'fas fa-fw fa-image',
+        ],     
+       
+        ['header' => 'PARAMETRIZACIÓN'],
+
+        [
+            'text'    => 'Parametrización',
+            'icon'    => 'fas fa-cog',
             'submenu' => [
+
+                
                 [
-                    'text' => 'Primer Turno',
-                    'url'  => '/primerTurno',
+                    'text' => 'Tipos accidentes',
+                    'url'  => 'tipo_accidente',
+                    'icon' => 'fas fa-circle',     
                 ],
                 [
-                    'text'    => 'Segundo Turno',
-                    'url'     => '/segundoTurno',
-                                                              
-                    ],
-
-                    [
-                        'text' => 'Tercer Turno',
-                        'url'  => '/tercerTurno',
-                    ],
+                    'text'    => 'Tipos controles',
+                    'url'     => 'tipo_control',    
+                    'icon' => 'fas fa-circle',                              
+                ],
+                [
+                    'text'    => 'Tipos procedimientos',
+                    'url'     => 'tipo_procedimiento', 
+                    'icon' => 'fas fa-circle',                                 
+                ],
+                [
+                    'text'    => 'Tipos pruebas',
+                    'url'     => 'tipo_prueba', 
+                    'icon' => 'fas fa-circle',                                 
+                ],
+                [
+                    'text'    => 'Tipos servicios',
+                    'url'     => 'tipo_servicio',  
+                    'icon' => 'fas fa-circle',                           
+                ],
+                [
+                    'text' => 'Zonas',
+                    'url'  => 'zonas',
+                    'icon' => 'fas fa-globe',
+                ],   
 
                 ],
 
                    ],
 
-     
-       
-        ['header' => 'CONFIGURACIÓN DE LA CUENTA'],
-
-        
+        ['header' => 'ADMINISTRACIÓN USUARIOS'],
 
         [
-            'text' => 'Perfiles',
-            'url'  => '/perfiles',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambiar Contraseña',
-            'url'  => '/cambiarContrasena',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        
+            'text'    => 'Administración usuarios',
+            'icon'    => 'fas fa-cog',
+            'submenu' => [
 
-                   
                 
+                [
+                    'text' => 'Listado de usuarios',
+                    'url'  => 'listado_usuarios',
+                    'icon' => 'fas fa-user',
+                ],    
+                [
+                    'text' => 'Agentes',
+                    'url'  => 'agentes',
+                    'icon' => 'fas fa-user-tie',
+                ],
+                
+                ],
+
+        ],
+
         
     ],
 

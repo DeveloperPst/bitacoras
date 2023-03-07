@@ -1263,7 +1263,7 @@ progress {
   .g-md-0,
 .gx-md-0 {
     --bs-gutter-x: 0;
-  }6
+  }
 
   .g-md-0,
 .gy-md-0 {
@@ -1319,8 +1319,8 @@ progress {
 .gy-md-5 {
     --bs-gutter-y: 3rem;
   }
-}
-@media (min-width: 992px) {
+
+  @media (min-width: 992px) {
   .col-lg {
     flex: 1 0 0%;
   }
@@ -4553,15 +4553,16 @@ textarea.form-control-lg {
 
 .card {
  
-  width: 115%;
+  min-width: 70%;
+  height: 400px;
   display: block;
   background-clip: border-box;
   font-weight: bold;
   font-size:medium; 
   padding: 20px 20px 10px 20px;
-  padding-right:25%;
-  padding-right:25%;
-  border-radius: 20%;
+  padding-right:9%;
+  padding-left: 3%;
+  border-radius: 8% 8% 8% 8%;
   margin: 2%;
   position: relative;
  
@@ -11360,4 +11361,3 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
