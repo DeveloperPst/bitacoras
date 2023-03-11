@@ -99,8 +99,8 @@
                     
                         <div class="row2 mb-0">
                             <div class="col-md-12 offset-md-4">
-                                <button type="submit" class="btn btn-primary" id="guardar">
-                                    {{ __('Guardar') }}
+                                <button type="submit" class="btn btn-primary" id="actualizar">
+                                    {{ __('Actualizar') }}
                                 </button><br><br>
                             </div>
                         </div>

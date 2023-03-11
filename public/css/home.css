@@ -38,10 +38,58 @@ margin-left: 12%;
     display: flex;
     background-color: #e8effc; 
     justify-content: center;
+    max-width: 100%;
+    
+    
+
+}
+
+.seccion-P2{
+
+    display: flex;
+    background-color: #e8effc; 
+    justify-content: center;
+    margin-left: 6%;
+
+}
+
+.seccion-P3{
+
+    display: flex;
+    background-color: #e8effc; 
+    justify-content: center;
+    margin-right: 5%;
+}
+
+.seccion-P4{
+
+    display: flex;
+    background-color: #e8effc; 
+    justify-content: center;
+    margin-right: 2%;
 
 
 }
 
+.seccion-P5{
+
+    display: flex;
+    background-color: #e8effc; 
+    justify-content: center;
+    margin-right: 7%;
+
+
+}
+
+.seccion-P6{
+
+    display: flex;
+    background-color: #e8effc; 
+    justify-content: center;
+    margin-right: 15%;
+
+
+}
 
 .container-P{
 
@@ -200,13 +248,11 @@ padding-left: 0%;
 .seccion2{
 
     justify-content: center;
-    position: relative;
-    margin-left: 0%;
-    margin-right: 0%;
+    margin-left: 12%;
     font-size: small;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 31rem;
-    padding-left: 0%;
+    width: 35rem;
+     
     
     
     }
@@ -338,18 +384,53 @@ color: #333333;
 }
 
 .container-turno{
-
-    justify-content: center;
-    margin-left:1%;
-    background-color: #e8effc;
     text-align: center;
-    padding-top: 0%;
-    padding-left: 8%;
-    padding-right: 25%;
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: #e8effc;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
+    min-width: 100%;
+
+
+}
+
+.container-turno1{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+   
+ 
+
+
+}
+
+.container-turno2{
+
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    min-width: 100%;
+    
+
+}
+
+.container-turno3{
+
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    min-width: 100%;
+    
 
 }
 
@@ -675,7 +756,7 @@ color: #333333;
 
    
     width: 30rem;
-    height: 40%;
+    height: 50%;
     justify-content: center;
     background-color: #ffff;
     border: 2px;
@@ -692,8 +773,10 @@ color: #333333;
 .card18 {
 
    
-    min-width: 30rem;
-    margin-left:6%;
+    width: 33rem;
+    margin-left:10%;
+    min-height: 80%;
+    display: block;
     justify-content: center;
     background-color: #ffff;
     border: 2px;
@@ -760,6 +843,25 @@ color: #333333;
     display: block; 
     
 }
+
+.cardP {
+
+   
+    width: 33rem;
+    margin-left:10%;
+    min-height: 80%;
+    display: block;
+    justify-content: center;
+    background-color: #ffff;
+    border: 2px;
+    border-color: #666666;
+    font-size: medium;
+    align-content: center;
+    border-radius: 3% 3% 3% 3%;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-block-end: 5%;
+    
+} 
 
 .os-padding{
 
@@ -1519,13 +1621,28 @@ background-color: #343a40;
     background-color:#fff;
     justify-content: center;
     text-align: center;
-    width: 65rem;
-	height: 250px;
+    width: 50rem;
+    margin-left: 15%;
+    margin-right: 50%;
+	min-height: 80%;
     align-content: center;
     border-radius: 5px 5px 5px 5px;
+    margin-block-end: 00%;
+               
+}
+
+.table6{
+   
+    background-color:#fff;
+    justify-content: center;
+    text-align: center;
+    width: 5rem;
+    min-height:100%;
+	align-content: center;
+    border-radius: 5px 5px 5px 5px;
     font-weight: bold;
-    margin-left: 2%;
-    margin-block-end: 10%;
+     
+   
                
 }
 
@@ -1543,6 +1660,95 @@ background-color: #343a40;
     
     
     
+}
+
+
+.table-P1 {
+    
+    background-color:white;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    width: 50%;
+	height: 90%;
+    margin-right: 15%;
+    border-radius: 1%;
+    font-weight: bold;
+    
+    
+    
+}
+
+.table-p1 {
+    
+    background-color:white;
+    align-content: center;
+    width: 28rem;
+     
+            
+}
+
+  
+
+.table-p2 {
+    
+    background-color:white;
+    align-content: center;
+    width: 35rem;
+    height: 90%;
+
+       
+            
+}
+
+.table-p3 {
+    
+    background-color:white;
+    align-content: center;
+    width: 40rem;
+    height: 88%;
+    margin-left: 11%;
+      
+     
+            
+}
+
+.table-p4 {
+    
+    background-color:white;
+    align-content: center;
+    width: 32rem;
+    height: 89%;
+    margin-left: 7%;
+   
+            
+}
+
+.table-p5 {
+    
+    background-color:white;
+    align-content: center;
+    width: 38rem;
+    max-height: 90%;
+    margin-left: 5%;
+ 
+     
+            
+}
+
+.table-P3{
+    
+  
+    background-color:#fff;
+    justify-content: center;
+    text-align: center;
+    width: 33rem;
+    height: 27rem;
+	align-content: center;
+    border-radius: 1%;
+    font-weight: bold;
+    margin-left:8%;
+               
 }
 
 

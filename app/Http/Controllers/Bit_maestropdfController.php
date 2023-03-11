@@ -70,6 +70,7 @@ class Bit_maestropdfController extends Controller
 
         $data = DB::table('dxpst.bit_maestro_turno')
         ->select('nro_registro')
+        ->where('id_estado', '=', 1)
         ->orderBy('nro_registro', 'desc')
         ->limit(1)
         ->get();
@@ -81,6 +82,12 @@ class Bit_maestropdfController extends Controller
         $turno_activo = intval($turno);
         $this->registrar_accidente($turno_activo);
         $this->registrar_alcoholemia($turno_activo);
+        $this->registrar_procedimiento($turno_activo);
+        $this->registrar_turno_activo($turno_activo);
+
+        $_SESSION['mensaje'] = 2;
+        
+        return redirect('turnoactivo');
     }
 
     //TRIGGER DE INICIALIZACIÓN DE TABLA ACCIDENTALIDAD 
@@ -99,7 +106,8 @@ class Bit_maestropdfController extends Controller
             ]);
         }
     }
-
+    
+    //TRIGGER DE INICIALIZACIÓN DE TABLA ALCOHOLEMIA 
     public function registrar_alcoholemia($turno_activo)
     {
         $data = DB::table('dxpst.bit_tipo_prueba')
@@ -115,7 +123,41 @@ class Bit_maestropdfController extends Controller
                 'nro_registro'=> $turno_activo
             ]);
         }
-        return redirect('turnoactivo');
+    }
+
+    //TRIGGER DE INICIALIZACIÓN DE TABLA PROCEDIMIENTOS 
+    public function registrar_procedimiento($turno_activo)
+    {
+        $data = DB::table('dxpst.bit_zona')
+        ->select('id_zona')
+        ->get();
+        $result = json_decode($data, true);
+
+        foreach($result as $r){
+
+            $data1 = DB::table('dxpst.Bit_Tipo_Procedimiento')
+            ->select('id_tipo_proc')
+            ->get();
+            $result1 = json_decode($data1, true);
+
+            foreach($result1 as $r1){
+                DB::table('dxpst.Bit_Procedimiento')->insert([
+                    'id_zona' => $r['id_zona'],
+                    'id_tipo_proc' => $r1['id_tipo_proc'],
+                    'cantidad_proc' => 0,
+                    'nro_registro'=> $turno_activo
+                ]);
+            }
+        }
+    }
+
+    public function registrar_turno_activo($turno_activo)
+    {
+
+        DB::table('dxpst.bit_turno_activo')->update([
+                    'id_turno_activo' => $turno_activo,
+                    'usuario_inicia' => 1
+                ]);
     }
 
     public function validacion_turno(Request $request)
@@ -123,13 +165,18 @@ class Bit_maestropdfController extends Controller
         $datosTipo = request()->except('_token');
         $conteo = DB::table('dxpst.bit_maestro_turno')
         ->select(DB::raw('count(ID_ESTADO) as count'))
-        ->where('ID_TURNO', '<>', $datosTipo['turno'])
         ->where('ID_ESTADO', '=', 1)
+        ->orwhere('ID_ESTADO', '=', 3)
         ->get();
 
         if($conteo == '[{"count":"1"}]'){
+            
+            session_start();
+            $_SESSION['mensaje'] = 6;
             return redirect('maestroTurno');
+
         } else if($conteo == '[{"count":"0"}]'){
+            
             $this->inicio_turno($datosTipo);
             return redirect('maestroTurno');
         }
@@ -153,6 +200,8 @@ class Bit_maestropdfController extends Controller
             ->where('NRO_REGISTRO', '=', $datoTurno['id'])
             ->update(['ID_ESTADO' => 3]);
 
+        session_start();
+        $_SESSION['mensaje'] = 3;
         return redirect('maestroTurno');
     }
 
@@ -163,7 +212,10 @@ class Bit_maestropdfController extends Controller
             ->where('NRO_REGISTRO', '=', $datoTurno['id'])
             ->update(['ID_ESTADO' => 1]);
 
+        session_start();
+        $_SESSION['mensaje'] = 4;
         return redirect('maestroTurno');
+        
     }
 
     public function finalizar_turno(Request $request, $id)
@@ -172,11 +224,12 @@ class Bit_maestropdfController extends Controller
         DB::table('dxpst.BIT_MAESTRO_TURNO')
             ->where('NRO_REGISTRO', '=', $datoTurno['id'])
             ->update(['ID_ESTADO' => 4]);
+        
+        DB::table('dxpst.bit_turno_activo')
+        ->update(['id_turno_activo' => null]);
 
-            session_start();
-            session_destroy();
-            session_commit();
-
+        session_start();
+        $_SESSION['mensaje'] = 5;
         return redirect('maestroTurno');
     }
     

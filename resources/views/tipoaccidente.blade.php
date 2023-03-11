@@ -9,6 +9,62 @@
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @stop
 @section('content')
+
+<?php
+
+session_start();
+if($_SESSION['mensaje'] == 6){
+        
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'success',
+        title: 'Información registrada correctamente!'
+    })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
+
+} else if($_SESSION['mensaje'] == 7){
+        
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'info',
+        title: 'Información eliminada correctamente!'
+    })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
+
+} else {
+
+}
+
+?>
+
 <div class="container">
     <div class="row justify-content-center">
 
@@ -25,20 +81,6 @@
                     @endif
             <form method="POST" action="{{ url('registro_tipo_acc') }}">
                         @csrf
-
-                        <div class="row2 mb-6"><br>
-                            <label for="codigo" class="col-md-4 col-form-label">{{ __('Código') }}</label><br>
-    
-                            <div class="col-md-6">
-                                <input id="codigo" type="text" class="form-control @error('codigo') is-invalid @enderror" style="width: 10rem;" name="codigo" value="{{ old('codigo') }}" required autocomplete="codigo" autofocus>
-
-                                @error('codigo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="row2 mb-6">
                             <label for="descripcion" class="col-md-4 col-form-label text-center">{{ __('Descripción') }}</label>
@@ -83,7 +125,7 @@
                         <tr>
                             <td><strong>Id</strong></td>
                             <td><strong>Descripción</strong></td>
-                            <td colspan='2' style='text-align: center;'><strong>Acciones</strong></td>
+                            <td style='text-align: center;'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
                         </tr>
 
@@ -91,13 +133,6 @@
                         <tr>
                             <td>{{ $d['id_tipo_accidente'] }}</td>
                             <td>{{ $d['descripcion_tipo_accidente'] }}</td>
-                            <td>
-                            <form action="{{ url('') }}">
-                                <button name='editar' class="btn btn-edit btn-primary" title='Editar'>
-                                    <span class="fa fa-edit"></span>
-                                </button>
-                            </form>
-                            </td>
 
                             <td>
                                 <form method="post" class="delete_form" action="{{ url('eliminar_tipo_accidente',$d['id_tipo_accidente']) }}" id="studentForm_{{$d['id_tipo_accidente']}}">

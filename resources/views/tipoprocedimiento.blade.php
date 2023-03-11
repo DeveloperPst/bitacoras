@@ -9,6 +9,62 @@
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @stop
 @section('content')
+
+<?php
+
+session_start();
+if($_SESSION['mensaje'] == 6){
+        
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'success',
+        title: 'Información registrada correctamente!'
+    })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
+
+} else if($_SESSION['mensaje'] == 7){
+        
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'info',
+        title: 'Información eliminada correctamente!'
+    })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
+
+} else {
+
+}
+
+?>
+
 <div class="container">
     <div class="row2 justify-content-center">
         <div class="col-md-12">
@@ -69,7 +125,7 @@
                         <tr>
                             <td><strong>Id</strong></td>
                             <td><strong>Descripción</strong></td>
-                            <td colspan='2' style='text-align: center;'><strong>Acciones</strong></td>
+                            <td style='text-align: center;'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
                         </tr>
 
@@ -77,13 +133,6 @@
                         <tr>
                             <td>{{ $d['id_tipo_proc'] }}</td>
                             <td>{{ $d['descripcion_tipo_proc'] }}</td>
-                            <td>
-                            <form action="{{ url('') }}">
-                                <button name='editar' class="btn btn-edit btn-primary" title='Editar'>
-                                    <span class="fa fa-edit"></span>
-                                </button>
-                            </form>
-                            </td>
 
                             <td>
                                 <form method="post" class="delete_form" action="{{ url('eliminar_tipo_proc',$d['id_tipo_proc']) }}" id="studentForm_{{$d['id_tipo_proc']}}">

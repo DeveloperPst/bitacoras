@@ -8,7 +8,9 @@
 
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @stop
+
 @section('content')
+
 <div class="container-agentes">
     <div class="row1 justify-content-center">
 
@@ -22,7 +24,6 @@
                             {{ session('status') }}
                         </div> 
                     @endif
-                       
 
                     <form method="POST" action="{{ url('registro_agente') }}" class="form">
                         @csrf
@@ -147,5 +148,6 @@
             </div>
         </div>
     </div>
+
 </div>
 @endsection

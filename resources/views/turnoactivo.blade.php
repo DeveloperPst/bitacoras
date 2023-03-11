@@ -8,20 +8,82 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="./Highcharts/code/highcharts.js"></script>
 
 @stop
 
 @section('content')
 
+<?php
+    if($_SESSION['mensaje'] == 1){
+        
+        echo "<script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Sesión iniciada correctamente!'
+          })
+        </script>";
+
+        $_SESSION['mensaje'] = 0;
+
+    } else if($_SESSION['mensaje'] == 6){
+        
+        echo "<script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Información registrada correctamente!'
+          })
+        </script>";
+
+        $_SESSION['mensaje'] = 0;
+
+    } else {
+
+    }
+?>
 
 <div class="container-turno">
 
 
-<h3><strong>INFORME PRIMER TURNO</strong></h3>
+<h3><strong>INFORME TURNO ACTIVO</strong></h3>
+<h5><strong>TURNO ACTIVO:</strong>
+    <?php 
+        if (!isset($_SESSION['turno_activo'])) {
+            echo "Ningún turno activo";
+        } else {
+            echo $_SESSION['turno_activo']." - <strong>USUARIO: </strong>".$_SESSION['usuario']." - <strong>FECHA: </strong>".$_SESSION['fecha_registro'];
+        }
+    ?></h5>
 <hr><br>
 
-<form method="get" action="{{ url('registrar_proc') }}">
+<form method="get" action="{{ url('actualizar_proc') }}">
+
+        @csrf
+
           <h5 class="text-center"><strong>CONSOLIDADO PROCEDIMIENTOS</strong></h5><br>
               
           <table id="table1" class="table table-sm">
@@ -41,208 +103,101 @@
             </thead>
 
           <tbody>
+
+            
+                
+           
               <tr >
                   <td><br>Centro</td>
-                   <!--<td><br><input type="number" id="3" name="Compacentro" class="form-number"></td>-->
-                  <td><br><input type="number" id="Inmovicentro" name="Inmovicentro" class="form-number"></td>
-                  <td><br><input type="number" id="Pypcentro" name="Pypcentro" class="form-number"></td>
-                  <td><br><input type="number" id="Bicicentro" name="Bicicentro" class="form-number"></td>
+                  <td><br><input type="number" name="1" class="form-number"  required></td>
+                  <td><br><input type="number" name="2" class="form-number" required></td>
+                  <td><br><input type="number" name="3" class="form-number" required></td>
+                  <td><br><input type="number" name="4" class="form-number" required></td>
                 
               </tr> 
-              
-              <!--<tr>
+        
+                <tr>
                   <td><br>Oeste</td>
-                  <td><br><input type="number" id="Compaoeste" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovioeste" class="form-number"></td>
-                  <td><br><input type="number" id="Pypoeste" class="form-number"></td>
-                  <td><br><input type="number" id="Bicioeste" class="form-number"></td>
+                  <td><br><input type="number" id = "8" name="Compaoeste" class="form-number" required></td>
+                  <td><br><input type="number" id = "8" name="Inmovioeste" class="form-number" required></td>
+                  <td><br><input type="number" id = "8" name="Pypoeste" class="form-number" required></td>
+                  <td><br><input type="number" id = "8" name="Bicioeste" class="form-number" required></td>
                   
               </tr>
 
-              <tr>
+           <tr>
                   <td><br>Norte</td>
-                  <td><br><input type="number" id="Companorte" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovinorte" class="form-number"></td>
-                  <td><br><input type="number" id="Pypnorte" class="form-number"></td>
-                  <td><br><input type="number" id="Bicinorte" class="form-number"></td>
+                  <td><br><input type="number" id = "6" name="Companorte" class="form-number" required></td>
+                  <td><br><input type="number" id = "6" name="Inmovinorte" class="form-number"required></td>
+                  <td><br><input type="number" id = "6" name="Pypnorte" class="form-number" required></td>
+                  <td><br><input type="number" id = "6" name="Bicinorte" class="form-number" required></td>
                   
               </tr>
 
               <tr>
                   <td><br>Oriente</td>
-                  <td><br><input type="number" id="Compaoriente" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovioriente"class="form-number"></td>
-                  <td><br><input type="number" id="Pyporiente" class="form-number"></td>
-                  <td><br><input type="number" id="Bicioriente" class="form-number"></td>
+                  <td><br><input type="number" id = "9" name="Compaoriente" class="form-number" required></td>
+                  <td><br><input type="number" id = "9" name="Inmovioriente"class="form-number" required></td>
+                  <td><br><input type="number" id = "9" name="Pyporiente" class="form-number" required></td>
+                  <td><br><input type="number" id = "9" name="Bicioriente" class="form-number" required></td>
                   
               </tr>
               <tr>
                   <td><br>Sur</td>
-                  <td><br><input type="number" id="Compasur" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovisur" class="form-number"></td>
-                  <td><br><input type="number" id="Pypsur" class="form-number"></td>
-                  <td><br><input type="number" id="Bicisur" class="form-number"></td>
+                  <td><br><input type="number" id = "5" name="Compasur" class="form-number" required></td>
+                  <td><br><input type="number" id = "5" name="Inmovisur" class="form-number" required></td>
+                  <td><br><input type="number" id = "5" name="Pypsur" class="form-number" required></td>
+                  <td><br><input type="number" id = "5" name="Bicisur" class="form-number" required></td>
                   
               </tr>
               <tr>
                   <td><br>Operativo</td>
-                  <td><br><input type="number" id="Compaoperativo" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovioperativo" class="form-number"></td>
-                  <td><br><input type="number" id="Pypoperativo" class="form-number"></td>
-                  <td><br><input type="number" id="Bicioperativo" class="form-number"></td>
+                  <td><br><input type="number"  id = "10" name="Compaoperativo" class="form-number" required></td>
+                  <td><br><input type="number"  id = "10" name="Inmovioperativo" class="form-number" required></td>
+                  <td><br><input type="number"  id = "10" name="Pypoperativo" class="form-number" required></td>
+                  <td><br><input type="number"  id = "10" name="Bicioperativo" class="form-number" required></td>
                     
               </tr>
 
               <tr>
                   <td><br>Disponibles</td>
-                  <td><br><input type="number" id="Compadisponibles" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovidisponibles" class="form-number"></td>
-                  <td><br><input type="number" id="Pypdisponibles" class="form-number"></td>
-                  <td><br><input type="number" id="Bicidisponibles" class="form-number"></td>
+                  <td><br><input type="number"  id = "11" name="Compadisponibles" class="form-number" required></td>
+                  <td><br><input type="number"  id = "11" name="Inmovidisponibles" class="form-number" required></td>
+                  <td><br><input type="number"  id = "11" name="Pypdisponibles" class="form-number" required> </td>
+                  <td><br><input type="number"  id = "11" name="Bicidisponibles" class="form-number" required></td>
                   
               </tr>
 
               <tr>
                   <td><br>Comisaria</td>
-                  <td><br><input type="number" id="Compacomisaria" class="form-number"></td>
-                  <td><br><input type="number" id="Inmovicomisaria" class="form-number"></td>
-                  <td><br><input type="number" id="Pypcomisaria" class="form-number"></td>
-                  <td><br><input type="number" id="Bicicomisaria" class="form-number"></td>
-                  
-              </tr>-->
-
-
-              <tr>
-                  <td><br>Total</td>
-                  <td><br><label></label></td>
-                  <td><br><label></label></td>
-                  <td><br><label></label></td>
-                  <td><br><label></label></td>
+                  <td><br><input type="number" id = "12" name="Compacomisaria" class="form-number" required></td>
+                  <td><br><input type="number" id = "12" name="Inmovicomisaria" class="form-number" required></td>
+                  <td><br><input type="number" id = "12" name="Pypcomisaria" class="form-number" required></td>
+                  <td><br><input type="number" id = "12" name="Bicicomisaria" class="form-number" required> </td>
                   
               </tr>
 
+             
+               
           <th></th>
 
-                    
           <th><br>
-
-               <button type="submit" class="btn btn-primary">Guardar</button>
-          </th>
-
-          <th>
-          </th>
+          <td><br><br><button type="submit" name = "button3" class="btn btn-primary">Guardar</button></td>
 
           <th><br>
         
           <button type="reset" id = "form1" value ="Reset" class="btn btn-danger">Cancelar</button>
               
-      
           </th>
-
-          <th>
-
-              
+          <th> 
           </th>
-
           <th></th>
-          
           </th>
-
           </tbody>
 
           </table>
     </form>
-    
-<div class="seccion-P">
- 
-    
-       <table class="table-t1 table-sm table-striped table-hover border:2px;"><br><br>
-
-       
-        <thead class = "thead">
-            <tr >
-            <th>Zona/Grupo</th>
-            <th>Comparendos</th>
-            <th>Inmovilizados</th>
-            <th>Pico y Placa</th>
-            <th>Bicicarril</th>
-            </tr>
-        </thead>
-        <tbody class="bg-color:white">
-            <tr>
-            <th scope="row">Centro</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-            <tr>
-            <th scope="row">Oeste </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-            <tr>
-            <th scope="row">Norte</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Oriente</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Sur</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Operativo</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Disponibles</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Comisaria</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <th scope="row">Cantidad Total</th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
-
-            </tbody>
-        </table>
-
-       
+           
     <div class='card18'>
       <div class='card-header p-1'>{{ __('Gráfico Procedimientos') }}</div>
       <div id="grafico_procedimiento">
@@ -254,7 +209,7 @@
          
 
 </div>
-
+    
 <hr>
 <h5 class="h5">Reporte Accidentalidad</h5><br>
 
@@ -435,8 +390,8 @@
     <br>
     <tr>
     <th>Tipo prueba</th>
-    <th>Positivas</th>
     <th>Negativas</th>
+    <th>Positivas</th>
     <th>Cantidad Total</th>
      
      </tr>
@@ -462,7 +417,8 @@
                 </tr> 
             @endforeach
         @else
-            <td>No existen registros para este turno</td>  
+            <td>No existen registros para este turno</td>  -
+            
         @endif
 
 </tr>
@@ -583,85 +539,34 @@
         @else
             <td>No existen registros para este turno</td> 
         @endif
-
-
     </tbody>
 </table>
 <br>
-    <div class='card18'>    
-      <div class='card-header p-1'>{{ __('Gráfico Incidencias') }}</div>
-      <div id="grafico_incidencias">
-        
-          </div>
-    </div>
 
 </div>
 
 <script>
-  
-  Highcharts.chart('grafico_alcoholemia', {
+
+Highcharts.chart('grafico_alcoholemia', {
     chart: {
         type: 'bar'
     },
     title: {
         text: '',
+        align: 'left'
     },
     xAxis: {
-        categories: ['Por accidente', 'Por operativo']
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Cantidad(Unidades)'
-        },
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
-        }
-    },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name: id_tipo_prueba,
-        data: [<?php 
-                    if(isset($r['cantidad_positivo'])){
-                        echo $r['cantidad_positivo'].",".$r['cantidad_negativo'];
-                    } else {
-                        echo 0;
-                    }
-                ?>]
-    }, {
-        name: id_tipo_prueba,
-        data: [<?php
-                if(isset($r['cantidad_positivo'])){
-                    echo $r['cantidad_positivo'].",".$r['cantidad_negativo'];
-                } else {
-                    echo 0;
+        categories: [
+            <?php
+            if(isset($result11)){
+                foreach($result11 as $r11){
+                    echo "'".$r11['descripcion_tipo_prueba']."',";
                 }
-            ?>]
-    }]
-});
-
-Highcharts.chart('grafico_incidencias', {
-    chart: {
-        type: 'bar'
-    },
-    title: {
-        text: 'Historic World Population by Region',
-        align: 'left'
-    },
-    subtitle: {
-        text: 'Source: <a ' +
-            'href="https://en.wikipedia.org/wiki/List_of_continents_and_continental_subregions_by_population"' +
-            'target="_blank">Wikipedia.org</a>',
-        align: 'left'
-    },
-    xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ],
         title: {
             text: null
         }
@@ -669,53 +574,45 @@ Highcharts.chart('grafico_incidencias', {
     yAxis: {
         min: 0,
         title: {
-            text: 'Population (millions)',
+            text: 'Cantidad (Unidades)',
             align: 'high'
         },
         labels: {
             overflow: 'justify'
         }
     },
-    tooltip: {
-        valueSuffix: ' millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-    },
     credits: {
         enabled: false
     },
     series: [{
-        name: 'Year 1990',
-        data: [631, 727, 3202, 721, 26]
-    }, {
-        name: 'Year 2000',
-        data: [814, 841, 3714, 726, 31]
-    }, {
-        name: 'Year 2010',
-        data: [1044, 944, 4170, 735, 40]
-    }, {
-        name: 'Year 2018',
-        data: [1276, 1007, 4561, 746, 42]
+        name: 'Positivo',
+        data: [
+            <?php
+            if(isset($result11)){
+                foreach($result11 as $r11){
+                    echo $r11['cantidad_positivo'].",";
+                }
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ]
+    },
+    {
+        name: 'Negativo',
+        data: [
+        <?php
+            if(isset($result11)){
+                foreach($result11 as $r11){
+                    echo $r11['cantidad_negativo'].",";
+                }
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+    ]
     }]
 });
-
 
 Highcharts.chart('grafico_accidentalidad', {
     chart: {
@@ -723,85 +620,105 @@ Highcharts.chart('grafico_accidentalidad', {
     },
     title: {
         text: '',
+        align: 'left'
     },
     xAxis: {
-        categories: ['1']
+        categories: [
+            <?php
+            if(isset($result10)){
+                foreach($result10 as $r10){
+                    echo "'".$r10['descripcion_tipo_accidente']."',";
+                }
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ],
+        title: {
+            text: null
+        }
     },
     yAxis: {
         min: 0,
         title: {
-            text: 'Cantidad(Unidades)'
+            text: 'Cantidad (Unidades)',
+            align: 'high'
         },
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
+        labels: {
+            overflow: 'justify'
         }
     },
     credits: {
         enabled: false
     },
     series: [{
-        data: [<?php
-                if(isset($r1['cantidad_acc'] )){
-                    echo $r1['cantidad_acc'];
-                } else {
-                    echo 0;
+        name: 'Accidentalidad reportada',
+        data: [
+            <?php
+            if(isset($result10)){
+                foreach($result10 as $r10){
+                    echo $r10['cantidad_acc'].",";
                 }
-            
-            ?>]
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ]
     }]
 });
 
 Highcharts.chart('grafico_procedimiento', {
     chart: {
-        type: 'bar'
+        type: 'column'
     },
     title: {
         text: '',
+        align: 'left'
     },
     xAxis: {
-        categories: ['1', '2']
+        categories: [
+            <?php
+            if(isset($result12)){
+                foreach($result12 as $r12){
+                    echo "'".$r12['descripcion_zona']." - ".$r12['descripcion_tipo_proc']."',";
+                }
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ],
+        title: {
+            text: null
+        }
     },
     yAxis: {
         min: 0,
         title: {
-            text: 'Cantidad(Unidades)'
+            text: 'Cantidad (Unidades)',
+            align: 'high'
         },
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
+        labels: {
+            overflow: 'justify'
         }
     },
     credits: {
         enabled: false
     },
     series: [{
-        data: [<?php
-                if(isset($r1['cantidad_acc'] )){
-                    echo $r1['cantidad_acc'];
-                } else {
-                    echo 0;
+        name: 'Procedimientos registrados',
+        data: [
+            <?php
+            if(isset($result13)){
+                foreach($result13 as $r13){
+                    echo $r13['cantidad_proc'].",";
                 }
-            
-            ?>]
-    }, {
-        data: [<?php
-                if(isset($r1['cantidad_acc'] )){
-                    echo $r1['cantidad_acc'];
-                } else {
-                    echo 0;
-                }
-            
-            ?>]
+            } else {
+                echo "<td>No existen registros para este turno</td>";
+            }
+            ?>
+        ]
     }]
 });
-
 
 </script>
 

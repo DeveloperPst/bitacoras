@@ -12,6 +12,123 @@
 
 @section('content')
 
+<?php
+  session_start();
+  if($_SESSION['mensaje'] == 2){
+        echo "<script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'success',
+            title: 'Turno iniciado correctamente!'
+          })
+        </script>";
+
+        $_SESSION['mensaje'] = 0;
+        
+    } else if($_SESSION['mensaje'] == 3){
+      echo "<script>
+      const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'warning',
+          title: 'Turno pausado correctamente!'
+        })
+      </script>";
+
+      $_SESSION['mensaje'] = 0;
+      
+  } else if($_SESSION['mensaje'] == 4){
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'info',
+        title: 'Turno reanudado correctamente!'
+      })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
+    
+} else if($_SESSION['mensaje'] == 5){
+  echo "<script>
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Turno finalizado correctamente!'
+    })
+  </script>";
+
+  $_SESSION['mensaje'] = 0;
+  
+} else if($_SESSION['mensaje'] == 6){
+  echo "<script>
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'warning',
+      title: 'No se puede iniciar el turno, ya que se encuentra uno activo!'
+    })
+  </script>";
+
+  $_SESSION['mensaje'] = 0;
+  
+} else {
+
+    }
+?>
+
 <div class="card6" style="width: 16rem;">
 
 <h6 class="card-header p-1">Seleccionar turno</h6>
@@ -90,7 +207,7 @@
                               <td class="bg-warning">Pausado</td> 
                               <td>
                             <a href="{{ url('reanudar_turno/'.$d['nro_registro'].'') }}"
-                                class="btn btn-edit btn-primary bg-success" title="Reanudar">
+                            class="btn btn-edit btn-primary bg-green" title="Pausar">
                                     <span class="fa fa-play"></span>
                                 </a>
                             </td>    
