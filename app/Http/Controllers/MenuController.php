@@ -6,16 +6,6 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    //FUNCIÓN PARA REDIRECCIONAMIENTO AL MÓDULO HOME LACALDERON CALONDONO 23/02/2023
-    public function home(){
-        return view('home');
-    }
-
-    //FUNCIÓN PARA REDIRECCIONAMIENTO AL MÓDULO TURNO ACTIVO LACALDERON CALONDONO 23/02/2023
-    public function turnoactivo(){
-        return view('turnoactivo');
-    }
-
     //FUNCIÓN PARA REDIRECCIONAMIENTO AL MÓDULO HISTORIAL TURNOS LACALDERON CALONDONO 23/02/2023
     public function historial(){
         return view('historial');
@@ -72,16 +62,18 @@ class MenuController extends Controller
             'cantidad_negativo' => $cantidad_f_n
         ]);
         
+        $_SESSION['mensaje'] = 6;
         return redirect('turnoactivo');
     }
 
     public function all(Request $request){
 
         session_start();
-        if(isset($_SESSION['turno_activo'])){
+        if($_SESSION['turno_activo'] != null){
 
         $turno_activo = $_SESSION['turno_activo'];
 
+        // CONSULTA PARA EL LISTADO DE PRUEBA ALCOHOLEMIA
         $data = DB::table('dxpst.Bit_Prueba_Alcoholemia')
         ->join('dxpst.Bit_Tipo_Prueba', 'dxpst.Bit_Prueba_Alcoholemia.id_tipo_prueba', '=', 'dxpst.Bit_Tipo_Prueba.id_tipo_prueba')
         ->select('dxpst.Bit_Prueba_Alcoholemia.id_tipo_prueba','dxpst.Bit_Prueba_Alcoholemia.cantidad_positivo', 'dxpst.Bit_Prueba_Alcoholemia.cantidad_negativo', 'dxpst.Bit_Tipo_Prueba.descripcion_tipo_prueba')
@@ -89,6 +81,7 @@ class MenuController extends Controller
         ->get();
         $result = json_decode($data, TRUE);
 
+        // CONSULTA PARA EL LISTADO DE ACCIDENTALIDAD
         $data1 = DB::table('dxpst.Bit_accidentalidad')
         ->join('dxpst.Bit_Tipo_Accidente', 'dxpst.Bit_Tipo_Accidente.id_tipo_accidente', '=', 'dxpst.Bit_accidentalidad.id_tipo_accidente')
         ->select('dxpst.Bit_accidentalidad.cantidad_acc','dxpst.Bit_accidentalidad.id_tipo_accidente', 'dxpst.Bit_Tipo_Accidente.descripcion_tipo_accidente')
@@ -97,6 +90,7 @@ class MenuController extends Controller
         ->get();
         $result1 = json_decode($data1, TRUE);
         
+        // CONSULTA PARA EL LISTADO DE INCIDENCIAS
         $data2 = DB::table('dxpst.Bit_Incidencia')
         ->join('dxpst.bit_agente', 'dxpst.Bit_Incidencia.id_agente', '=', 'dxpst.bit_agente.id_agente')
         ->join('dxpst.bit_tipo_control', 'dxpst.Bit_Incidencia.id_tipo_control', '=', 'dxpst.bit_tipo_control.id_tipo_control')
@@ -106,53 +100,112 @@ class MenuController extends Controller
         ->get();
         $result2 = json_decode($data2, TRUE);
 
-        $data3 = DB::table('dxpst.Bit_Incidencia')
-        ->join('dxpst.bit_tipo_control', 'dxpst.Bit_Incidencia.id_tipo_control', '=', 'dxpst.bit_tipo_control.id_tipo_control')
-        ->where('dxpst.Bit_Incidencia.nro_registro', '=', $turno_activo)
-        ->select(DB::raw('count(dxpst.Bit_Incidencia.id_tipo_control) as conteo1', 'dxpst.Bit_Incidencia.id_tipo_control', 'dxpst.bit_tipo_prueba.descripcion_tipo_cont'))
-        ->groupBy('dxpst.Bit_Incidencia.id_tipo_control', 'dxpst.bit_tipo_control.descripcion_tipo_cont')
+        // CONSULTA PARA EL LISTADO DE PROCEDIMIENTOS
+        $data3 = DB::table('dxpst.Bit_Procedimiento')
+        ->join('dxpst.bit_zona', 'dxpst.Bit_Procedimiento.id_zona', '=', 'dxpst.bit_zona.id_zona')
+        ->join('dxpst.Bit_Tipo_Procedimiento', 'dxpst.Bit_Procedimiento.id_tipo_proc', '=', 'dxpst.Bit_Tipo_Procedimiento.id_tipo_proc')
+        ->select('dxpst.Bit_Procedimiento.*', 'dxpst.bit_zona.descripcion_zona', 'dxpst.Bit_Tipo_Procedimiento.descripcion_tipo_proc')
+        ->where('dxpst.Bit_Procedimiento.nro_registro', '=', $turno_activo)
+        ->orderBy('dxpst.Bit_Procedimiento.id_procedimiento')
         ->get();
         $result3 = json_decode($data3, TRUE);
 
-        $data4 = DB::table('dxpst.Bit_Accidentalidad')
-        ->join('dxpst.Bit_Tipo_Accidente', 'dxpst.Bit_Accidentalidad.id_tipo_accidente', '=', 'dxpst.Bit_Tipo_Accidente.id_tipo_accidente')
-        ->select(DB::raw('count(dxpst.Bit_Accidentalidad.id_tipo_accidente) as conteo'))
-        ->where('dxpst.Bit_Accidentalidad.nro_registro', '=', $turno_activo)
-        ->groupBy('dxpst.Bit_Accidentalidad.id_tipo_accidente')
-        ->get();
-        $result4 = json_decode($data4, TRUE);
+         $data4 = DB::table('dxpst.Bit_Tipo_Accidente')->get();
+         $result_select_acc = json_decode($data4, TRUE);
 
-        $data = DB::table('dxpst.Bit_Tipo_Accidente')->get();
-         $result_select_acc = json_decode($data, TRUE);
+         $data5 = DB::table('dxpst.Bit_Tipo_Control')->get();
+         $result_select_cont = json_decode($data5, TRUE);
 
-         $data1 = DB::table('dxpst.Bit_Tipo_Control')->get();
-         $result_select_cont = json_decode($data1, TRUE);
+         $data6 = DB::table('dxpst.Bit_Tipo_Procedimiento')->get();
+         $result_select_proc = json_decode($data6, TRUE);
 
-         $data2 = DB::table('dxpst.Bit_Tipo_Procedimiento')->get();
-         $result_select_proc = json_decode($data2, TRUE);
-
-         $data3 = DB::table('dxpst.Bit_Tipo_Prueba')->get();
-         $result_select_prue = json_decode($data3, TRUE);
+         $data7 = DB::table('dxpst.Bit_Tipo_Prueba')->get();
+         $result_select_prue = json_decode($data7, TRUE);
          
-         $data4 = DB::table('dxpst.Bit_Tipo_Servicio')->get();
-         $result_select_serv = json_decode($data4, TRUE);
+         $data8 = DB::table('dxpst.Bit_Tipo_Servicio')->get();
+         $result_select_serv = json_decode($data8, TRUE);
 
-         $data5 = DB::table('dxpst.Bit_Agente')->get();
-         $result_select_age = json_decode($data5, TRUE);
+         $data9 = DB::table('dxpst.Bit_Agente')->get();
+         $result_select_age = json_decode($data9, TRUE);
 
-        return view('turnoactivo', ['result' => $result,
-        'result1' => $result1, 'result2' => $result2,
-        'result3' => $result3, 'result4' => $result4,
+         // CONSULTA PARA EL LISTADO DE ACCIDENTALIDAD PARA LAS GRÁFICAS
+         $data10 = DB::table('dxpst.bit_accidentalidad')
+         ->join('dxpst.bit_tipo_accidente', 'dxpst.bit_accidentalidad.id_tipo_accidente', '=', 'dxpst.bit_tipo_accidente.id_tipo_accidente')
+         ->select('dxpst.bit_accidentalidad.cantidad_acc','dxpst.bit_accidentalidad.id_tipo_accidente', 'dxpst.bit_tipo_accidente.descripcion_tipo_accidente')
+         ->where('dxpst.bit_accidentalidad.nro_registro', '=', $turno_activo)
+         ->get();
+        $result10 = json_decode($data10, TRUE);
+
+         // CONSULTA PARA EL LISTADO DE ALCOHOLEMIA PARA LAS GRÁFICAS
+         $data11 = DB::table('dxpst.Bit_Prueba_Alcoholemia')
+         ->join('dxpst.Bit_Tipo_Prueba', 'dxpst.Bit_Prueba_Alcoholemia.id_tipo_prueba', '=', 'dxpst.Bit_Tipo_Prueba.id_tipo_prueba')
+         ->select('dxpst.Bit_Prueba_Alcoholemia.cantidad_positivo','dxpst.Bit_Prueba_Alcoholemia.cantidad_negativo', 'dxpst.Bit_Tipo_Prueba.descripcion_tipo_prueba')
+         ->where('dxpst.Bit_Prueba_Alcoholemia.nro_registro', '=', $turno_activo)
+         ->get();
+         $result11 = json_decode($data11, TRUE);
+
+          // CONSULTA PARA EL LISTADO DE PROCEDIMIENTOS PARA LAS GRÁFICAS DESCRIPCIONES
+          $data12 = DB::table('dxpst.Bit_Procedimiento')
+          ->join('dxpst.Bit_Zona', 'dxpst.Bit_Procedimiento.id_zona', '=', 'dxpst.Bit_Zona.id_zona')
+          ->join('dxpst.Bit_Tipo_Procedimiento', 'dxpst.Bit_Procedimiento.id_tipo_proc', '=', 'dxpst.Bit_Tipo_Procedimiento.id_tipo_proc')
+          ->select('dxpst.Bit_Procedimiento.cantidad_proc', 'dxpst.Bit_Zona.descripcion_zona', 'dxpst.Bit_Tipo_Procedimiento.descripcion_tipo_proc')
+          ->where('dxpst.Bit_Procedimiento.nro_registro', '=', $turno_activo)
+          ->get();
+          $result12 = json_decode($data12, TRUE);
+
+          // CONSULTA PARA EL LISTADO DE PROCEDIMIENTOS PARA LAS GRÁFICAS CANTIDADES
+          $data13 = DB::table('dxpst.Bit_Procedimiento')
+          ->join('dxpst.Bit_Zona', 'dxpst.Bit_Procedimiento.id_zona', '=', 'dxpst.Bit_Zona.id_zona')
+          ->join('dxpst.Bit_Tipo_Procedimiento', 'dxpst.Bit_Procedimiento.id_tipo_proc', '=', 'dxpst.Bit_Tipo_Procedimiento.id_tipo_proc')
+          ->select('dxpst.Bit_Procedimiento.cantidad_proc', 'dxpst.Bit_Zona.descripcion_zona', 'dxpst.Bit_Tipo_Procedimiento.descripcion_tipo_proc')
+          ->where('dxpst.Bit_Procedimiento.nro_registro', '=', $turno_activo)
+          ->get();
+          $result13 = json_decode($data13, TRUE);
+
+
+        return view('turnoactivo', [
+        'result' => $result,
+        'result1' => $result1,
+        'result2' => $result2,
+        'result3' => $result3,
         'result_select_acc' => $result_select_acc,
         'result_select_cont' => $result_select_cont,
         'result_select_proc' => $result_select_proc,
         'result_select_prue' => $result_select_prue,
         'result_select_serv' => $result_select_serv,
-        'result_select_age' => $result_select_age
+        'result_select_age' => $result_select_age,
+        'result10' => $result10,
+        'result11' => $result11,
+        'result12' => $result12,
+        'result13' => $result13
         ]);
     }
     else {
-        return view('turnoactivo');
+        $data = DB::table('dxpst.Bit_Tipo_Accidente')->get();
+        $result_select_acc = json_decode($data, TRUE);
+
+        $data1 = DB::table('dxpst.Bit_Tipo_Control')->get();
+        $result_select_cont = json_decode($data1, TRUE);
+
+        $data2 = DB::table('dxpst.Bit_Tipo_Procedimiento')->get();
+        $result_select_proc = json_decode($data2, TRUE);
+
+        $data3 = DB::table('dxpst.Bit_Tipo_Prueba')->get();
+        $result_select_prue = json_decode($data3, TRUE);
+        
+        $data4 = DB::table('dxpst.Bit_Tipo_Servicio')->get();
+        $result_select_serv = json_decode($data4, TRUE);
+
+        $data5 = DB::table('dxpst.Bit_Agente')->get();
+        $result_select_age = json_decode($data5, TRUE);
+
+       return view('turnoactivo', ['result_select_acc' => $result_select_acc,
+       'result_select_cont' => $result_select_cont,
+       'result_select_proc' => $result_select_proc,
+       'result_select_prue' => $result_select_prue,
+       'result_select_serv' => $result_select_serv,
+       'result_select_age' => $result_select_age
+       ]);
     }
 
     }
@@ -183,6 +236,8 @@ class MenuController extends Controller
             'ID_TIPO_CONTROL' => $datos['tipo'],
             'NRO_REGISTRO'=> $turno_activo
         ]);
+        
+        $_SESSION['mensaje'] = 6;
         return redirect('turnoactivo');
     }
 
@@ -224,6 +279,7 @@ class MenuController extends Controller
             'cantidad_acc' => $cantidad
         ]);
     
+        $_SESSION['mensaje'] = 6;
         return redirect('turnoactivo');
     }
 
@@ -263,6 +319,10 @@ class MenuController extends Controller
             'cantidad_proc' => 1,
             'nro_registro' => $turno_activo
         ]);
+
+        $_SESSION['mensaje'] = 6;
         return redirect('turnoactivo');
     }
 }
+
+?>

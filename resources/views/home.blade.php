@@ -7,6 +7,7 @@
 <!-- Styles -->
 
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
 @stop
 
 
@@ -397,7 +398,6 @@
     </div>
     
 </div> 
-   
 
 @stop
 

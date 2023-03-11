@@ -28,9 +28,11 @@ class BitTipos extends Controller
     {
         $datosTipo = request()->except('_token');
         DB::table('dxpst.bit_tipo_accidente')->insert([
-            'CODIGO_TIPO_ACCIDENTE' => $datosTipo['codigo'],
             'DESCRIPCION_TIPO_ACCIDENTE' => $datosTipo['descripcion'],
         ]);
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
         return redirect('/tipo_accidente');
     }
 
@@ -53,6 +55,9 @@ class BitTipos extends Controller
         DB::table('dxpst.bit_tipo_control')->insert([
             'DESCRIPCION_TIPO_CONT' => $datosTipo['descripcion'],
         ]);
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
         return redirect('/tipo_control');
     }
 
@@ -65,13 +70,16 @@ class BitTipos extends Controller
         return view('tipoprocedimiento', ['result' => $result]);
     }
 
-    // FUNCIÓN PARA CONSULTAR LOS REGISTROS DE LA TABLA Bit_Tipo_Procedimiento LACALDERON 16/02/2023
+    // FUNCIÓN PARA REGISTRO DE NUEVO TIPO Bit_Tipo_Procedimiento LACALDERON 16/02/2023
     public function registro_tipo_proc(Request $request)
     {
         $datosTipo = request()->except('_token');
         DB::table('dxpst.Bit_Tipo_Procedimiento')->insert([
             'DESCRIPCION_TIPO_PROC' => $datosTipo['descripcion'],
         ]);
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
         return redirect('/tipo_procedimiento');
     }
 
@@ -84,14 +92,17 @@ class BitTipos extends Controller
         return view('tipoprueba', ['result' => $result]);
     }
 
-    // FUNCIÓN PARA CONSULTAR LOS REGISTROS DE LA TABLA Bit_Tipo_prueba LACALDERON 16/02/2023
+    // FUNCIÓN PARA REGISTRO DE NUEVO TIPO Bit_Tipo_prueba LACALDERON 16/02/2023
     public function registro_tipo_prueba(Request $request)
     {
         $datosTipo = request()->except('_token');
         DB::table('dxpst.Bit_Tipo_prueba')->insert([
             'DESCRIPCION_TIPO_prueba' => $datosTipo['descripcion'],
         ]);
-        return redirect('/tipo_prueba');
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
+        return redirect('tipo_prueba');
     }
 
 
@@ -103,14 +114,17 @@ class BitTipos extends Controller
         return view('tiposervicio', ['result' => $result]);
     }
 
-    // FUNCIÓN PARA CONSULTAR LOS REGISTROS DE LA TABLA Bit_Tipo_Servicio LACALDERON 16/02/2023
+    // FUNCIÓN PARA REGISTRO DE NUEVO TIPO Bit_Tipo_Servicio LACALDERON 16/02/2023
     public function registro_tipo_servicio(Request $request)
     {
         $datosTipo = request()->except('_token');
         DB::table('dxpst.Bit_Tipo_servicio')->insert([
             'DESCRIPCION_TIPO_SERV' => $datosTipo['descripcion'],
         ]);
-        return redirect('/tipo_servicio');
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
+        return redirect('tipo_servicio');
     }
 
     // FUNCIÓN PARA CONSULTAR LOS REGISTROS DE LA TABLA BIT_ZONA LACALDERON 17/02/2023
@@ -121,13 +135,16 @@ class BitTipos extends Controller
         return view('zonas', ['result' => $result]);
     }
 
-    // FUNCIÓN PARA CONSULTAR LOS REGISTROS DE LA TABLA BIT_ZONA LACALDERON 17/02/2023
+    // FUNCIÓN PARA REGISTRO DE NUEVA ZONA BIT_ZONA LACALDERON 17/02/2023
     public function registro_zona(Request $request)
     {
         $datosTipo = request()->except('_token');
         DB::table('dxpst.BIT_ZONA')->insert([
             'DESCRIPCION_ZONA' => $datosTipo['descripcion'],
         ]);
+
+        session_start();
+        $_SESSION['mensaje'] = 6;
         return redirect('/zonas');
     }
 
@@ -136,9 +153,11 @@ class BitTipos extends Controller
     {
         $datosTipo = request();
         DB::table('dxpst.Bit_zona')
-        ->where('ID_TIPO_ACCIDENTE', '=', $datosTipo['id'])
+        ->where('id_zona', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/zonas');
     }
 
@@ -150,6 +169,8 @@ class BitTipos extends Controller
         ->where('ID_TIPO_ACCIDENTE', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/tipo_accidente');
     }
 
@@ -161,6 +182,8 @@ class BitTipos extends Controller
         ->where('ID_TIPO_CONTROL', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/tipo_control');
     }
 
@@ -172,6 +195,8 @@ class BitTipos extends Controller
         ->where('ID_TIPO_PROC', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/tipo_procedimiento');
     }
 
@@ -183,6 +208,8 @@ class BitTipos extends Controller
         ->where('ID_TIPO_SERVICIO', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/tipo_servicio');
     }
 
@@ -194,6 +221,10 @@ class BitTipos extends Controller
         ->where('ID_TIPO_PRUEBA', '=', $datosTipo['id'])
         ->delete();
 
+        session_start();
+        $_SESSION['mensaje'] = 7;
         return redirect('/tipo_prueba');
     }
 }
+
+?>

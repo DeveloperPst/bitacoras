@@ -7,6 +7,7 @@ use App\Http\Controllers\BitUsuarioController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\BitTipos;
 use App\Http\Controllers\Bit_select;
+use App\Http\Controllers\Bit_procedimientos;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,10 @@ Auth::routes();
 // CONTROLADOR DE  REDIRECCIONAMIENTO AL HOME PRINCIPAL LACALDERON 20/02/2023
 Route::get('/home', [Bit_select::class,'listar_desplegables'])->name('home');
 
+// CONTROLADORES CREADOS PARA LA BUSQUEDA Y ACTUALIZACION DE PROCEDIMIENTOS CALONDONO 07/03/2023
+
+Route::get('/actualizar_proc', [Bit_procedimientos::class, 'actualizar_proc'])->name('actualizar_proc');
+Route::get('/editar_proc', [Bit_procedimientos::class, 'editar_proc'])->name('editar_proc');
 
 // Controlador generado para el registro del nro de registro del nuevo maestro_turno lacalderon 13/02/2023
 Route::get('/listado_usuarios', [BitUsuarioController::class, 'usuarios']);
@@ -73,10 +78,9 @@ Route::get('/agentes', [BitUsuarioController::class,'consulta_agentes']);
 // Controlador generado para el registro de los tipos seleccionables lacalderon 17/02/2023
 Route::post('/registro_tipo_acc', [BitTipos::class,'registro_tipo_acc']);
 Route::post('/registro_tipo_cont', [BitTipos::class,'registro_tipo_cont']);
+Route::post('/registro_tipo_servicio', [BitTipos::class,'registro_tipo_servicio']);
 Route::post('/registro_tipo_proc', [BitTipos::class,'registro_tipo_proc']);
 Route::post('/registro_tipo_prueba', [BitTipos::class,'registro_tipo_prueba']);
-Route::post('/registro_tipo_cont', [BitTipos::class,'registro_tipo_cont']);
-Route::post('/registro_tipo_cont', [BitTipos::class,'registro_tipo_cont']);
 Route::post('/registro_zona', [BitTipos::class,'registro_zona']);
 Route::post('/registro_agente', [BitUsuarioController::class,'registro_agente']);
 
@@ -101,3 +105,5 @@ Route::get('/turnoactivo', [MenuController::class,'all']);
 Route::get('/registrar_incidencia', [MenuController::class,'registrar_incidencia'])->name('registrar_incidencia');
 Route::get('/registrar_accidente', [MenuController::class,'registrar_accidente'])->name('registrar_accidente');
 Route::get('/registrar_proc', [MenuController::class,'registrar_proc'])->name('registrar_proc');
+
+?>

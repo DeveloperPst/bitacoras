@@ -293,12 +293,6 @@ return [
         ],
 
         [
-            'text' => 'Inicio',
-            'url'  => 'home',
-            'icon' => 'fas fa-fw fa-house-user',
-        ],
-
-        [
             'text' => 'Turno activo',
             'url'  => 'turnoactivo',
             'icon' => 'fas fa-power-off',

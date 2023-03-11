@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bit_Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class BitUsuarioController extends Controller
 {
@@ -28,7 +28,7 @@ class BitUsuarioController extends Controller
              'CONTRASENA_USUARIO' => $datosTipo['CONTRASENA_USUARIO'],
              'ID_PERFIL' => 1,
              'ID_ROL_USUARIO' => 1,
-             'ESTADO_USUARIO' => 'A',
+             'ESTADO_USUARIO' => 1,
          ]);
          return redirect('listado_usuarios');
      }
@@ -44,17 +44,38 @@ class BitUsuarioController extends Controller
         $data = Bit_Usuario::select('DOCUMENTO_USUARIO')
         ->where('DOCUMENTO_USUARIO', '=', $credenciales['DOCUMENTO_USUARIO'])
         ->where('CONTRASENA_USUARIO', '=', $credenciales['CONTRASENA_USUARIO'])
-        ->where('ESTADO_USUARIO', '=', 'A')
+        ->where('ESTADO_USUARIO', '=', 1)
         ->get();
 
         $credenciales_conc = '[{"documento_usuario":"'.$credenciales["DOCUMENTO_USUARIO"].'"}]';
 
         if($credenciales_conc == $data){
 
+            $data2 = DB::table('dxpst.bit_turno_activo')
+            ->select('id_turno_activo')
+            ->orderBy('id_turno_activo', 'desc')
+            ->limit(1)
+            ->get();
+
+            $data3 = DB::table('dxpst.bit_turno_activo')
+            ->select('fecha_registro')
+            ->orderBy('id_turno_activo', 'desc')
+            ->limit(1)
+            ->get();
+    
             session_start();
+            $result2 = json_decode($data2, TRUE);
+            $turno_actual = implode(" ", $result2[0]);
+            $_SESSION['turno_activo'] = $turno_actual;
+            $_SESSION['mensaje'] = 1;
+
+            $result3 = json_decode($data3, TRUE);
+            $fecha_registro = implode(" ", $result3[0]);
+            $_SESSION['fecha_registro'] = $fecha_registro;
+
             $_SESSION["usuario"] = $credenciales['DOCUMENTO_USUARIO'];
 
-            return redirect('home');
+            return redirect('turnoactivo');
         } else {
             return view('auth.login');
         }
@@ -113,7 +134,7 @@ class BitUsuarioController extends Controller
         $data = DB::table('dxpst.BIT_USUARIO')
         ->where('ID_USUARIO', '=', $datosTipo['id'])
         ->update([
-            'ESTADO_USUARIO' => 'N' 
+            'ESTADO_USUARIO' => 2
         ]);
 
         return redirect('listado_usuarios');
@@ -126,7 +147,7 @@ class BitUsuarioController extends Controller
         $data = DB::table('dxpst.BIT_USUARIO')
         ->where('ID_USUARIO', '=', $datosTipo['id'])
         ->update([
-            'ESTADO_USUARIO' => 'A' 
+            'ESTADO_USUARIO' => 1 
         ]);
 
         return redirect('listado_usuarios');
@@ -146,7 +167,7 @@ class BitUsuarioController extends Controller
         
         return redirect('listado_usuarios');
         } 
-        else 
+        else
         {
             return redirect('listado_usuarios');
         }
@@ -192,7 +213,6 @@ class BitUsuarioController extends Controller
         ->update([
             'ESTADO_AGENTE' => 2
         ]);
-
         return redirect('agentes');
     }
 
@@ -205,10 +225,10 @@ class BitUsuarioController extends Controller
         ->update([
             'ESTADO_AGENTE' => 1 
         ]);
-
         return redirect('agentes');
     }
 
+    //FUNCIONALIDAD PARA CONSULTAR AGENTE ESPECÍFICO LACALDERON 24/02/2023
     public function agente_especifico(Request $request)
     {
         $datosTipo = request();
@@ -219,6 +239,7 @@ class BitUsuarioController extends Controller
         return view('editar_agente', ['data' => $data]);
     }
 
+    //FUNCIONALIDAD PARA EDITAR AGENTE ESPECÍFICO LACALDERON 24/02/2023
     public function editar_agente(Request $request)
     {
         $datosTipo = request()->except('_token');
@@ -232,5 +253,5 @@ class BitUsuarioController extends Controller
 
         return redirect('agentes');
     }
-
 }
+?>
