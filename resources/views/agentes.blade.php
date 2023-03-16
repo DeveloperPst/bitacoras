@@ -18,7 +18,7 @@
             <div class="card10">
                 <div class="card-header-a p-1">{{ __('Registro agentes de tránsito') }}</div>
 
-                <div class="card-body-l">
+                <div class="card-body-agentes">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="row1 mb-2">
-                            <label for="nombre" class="col-md-6 col-form-label">{{ __('Nombre') }}</label>
+                            <label for="nombre" class="col-md-2 col-form-label" style="margin-right: 25%;">{{ __('Nombre') }}</label>
     
                             <div class="col-md-6">
                                 <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" style="width: 11rem;" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre">
@@ -74,7 +74,7 @@
                             <div class="col-md-2 offset-md-3">
                                 <button type="submit" class="btn btn-primary" style="align-content: center;" id="registrar">
                                     {{ __('Registrar') }}
-                                </button><br>
+                                </button><br><br>
                             </div>
                         </div>
                     </form>

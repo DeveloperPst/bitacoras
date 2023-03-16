@@ -212,12 +212,12 @@ padding: 1%;
         
         <div class="seccion-form"> 
             
-            <b>Incidente: {{$incidente}}</b>    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ipat Nro. {{$ipat}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPOA Nro. {{$spoa}}</b>   <br><br><br>
+            <b>Incidente: {{$incidente}}</b>    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ipat Nro. {{$ipat}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPOA Nro. {{$spoa}}</b>   <br><br><br><br><br>
              
-        </div> 
+        </div><br><br><br><br><br> 
                              
                                
-            <b>Relato de los hechos: {{$relato}}</b><br><br><br><br>      
+            <b>Relato de los hechos: {{$relato}}</b><br><br><br><br><br><br><br><br><br><br>       
  
           <div class="seccion-form"> 
             <h4><strong>JHON FREDDY GUEVARA 263</strong></h4>

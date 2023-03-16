@@ -105,5 +105,6 @@ Route::get('/turnoactivo', [MenuController::class,'all']);
 Route::get('/registrar_incidencia', [MenuController::class,'registrar_incidencia'])->name('registrar_incidencia');
 Route::get('/registrar_accidente', [MenuController::class,'registrar_accidente'])->name('registrar_accidente');
 Route::get('/registrar_proc', [MenuController::class,'registrar_proc'])->name('registrar_proc');
+//Route::post('/historial_ceges_detalle', [Bit_maestropdfController::class,'storeFile'])->name('storeFile');
 
 ?>

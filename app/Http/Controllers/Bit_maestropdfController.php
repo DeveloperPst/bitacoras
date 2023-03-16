@@ -6,6 +6,8 @@ use App\Models\Bit_maestropdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
+
 
 class Bit_maestropdfController extends Controller
 {
@@ -28,29 +30,23 @@ class Bit_maestropdfController extends Controller
         ]);
     }
 
+   
      public function crearPDF(Request $request){
 
         $this->registrar_ceges();
 
         $data = $request->all();
         $pdf = PDF::loadView('pdf',$data);
-   
+       // Storage::disk('public')->put("archivo.pdf",$pdf);  
         return $pdf->stream();
       }
 
     public function imprimirPDF(){  
         $maestropdf = compact('pdf','fecha_reporte');
         $pdf= PDF::loadView('/reportes',$maestropdf);
+
         return $pdf->stream();
         /*return $pdf->download('archivo.pdf');*/  
-    }
-
-    public function consulta_ceges(Request $request)
-    {
-        $data = DB::table('dxpst.BIT_MAESTROPDF')
-        ->get();
-        $result = json_decode($data, TRUE);
-        return view('historial_ceges_detalle', ['result' => $result]);
     }
     
     public function descargarPDF()
@@ -232,5 +228,23 @@ class Bit_maestropdfController extends Controller
         $_SESSION['mensaje'] = 5;
         return redirect('maestroTurno');
     }
-    
+
+     //FUNCIÓN GENERADA PARA LISTAR LOS INFORMES CEGES EN EL BLADE HISTORIAL CEGES DETALLADO LACALDERON 16/03/2023
+     public function consulta_ceges(){
+        
+        $datoTurno = request()->except('_token');
+
+        session_start();
+        $turno_activo = $_SESSION['turno_activo'];
+
+        $data = DB::table('dxpst.Bit_Maestropdf')
+        ->select('*')
+        ->where('fecha_registro', 'LIKE', '%'.$datoTurno['fecha_consulta'].'%')
+        ->orderBy('id_maestropdf', 'asc')
+        ->get();
+        $result = json_decode($data, TRUE);
+        return view('historial_ceges_detalle', ['result' => $result]);
+
+    }
+
 }

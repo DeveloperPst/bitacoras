@@ -121,7 +121,7 @@
 
       
       
-                <form method="post" action="{{URL::to('/pdf')}}" class="form-control"><br><br> 
+                <form method="post" action="{{URL::to('/pdf')}}" enctype="multipart/form-data" class="form-control"><br><br> 
                
                      
                     
@@ -378,10 +378,15 @@
                           <textarea name="relato" cols="80" rows="5"></textarea>        
 
                     </div><br>
-      
-        
-                <button type="submit" class="btn btn-primary" style="margin-left:24rem;">Generar PDF</button>
+
+
                   
+              
+                <button type="submit" class="btn btn-primary" style="margin-left:24rem;">Generar PDF</button>
+
+                              
+
+                   
 
               </form>
                   

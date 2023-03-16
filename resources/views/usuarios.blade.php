@@ -21,7 +21,7 @@
                 <div class="card-body-usuarios">
                     <form method="post" action="{{ url('bit_usuario_1') }}">
                         @csrf
-                    <table>
+                    <table class="form">
                         <tr>
                             <td>
                             <label for="DOCUMENTO_USUARIO">{{ __('Documento') }}</label>
@@ -30,9 +30,9 @@
                             </td>
                         
                             <td>
-                            <label for="CORREO_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Correo') }}</label>
+                            <label for="CORREO_USUARIO" class="col-md-4 col-form-label text-center" style="margin-left: 20%;">{{ __('Correo') }}</label>
 
-                                <input id="CORREO_USUARIO" type="text" class="form-control @error('CORREO_USUARIO') is-invalid @enderror" name="CORREO_USUARIO" value="{{ old('CORREO_USUARIO') }}" required autocomplete="CORREO_USUARIO">
+                                <input id="CORREO_USUARIO" type="text"  style="margin-left: 15%;"  class="form-control @error('CORREO_USUARIO') is-invalid @enderror" name="CORREO_USUARIO" value="{{ old('CORREO_USUARIO') }}" required autocomplete="CORREO_USUARIO">
 
                             </td></tr>
 
@@ -43,35 +43,37 @@
                             </td>
 
                             <td>
-                            <label for="APELLIDOS_USUARIO">{{ __('Apellidos') }}</label>
+                            <label for="APELLIDOS_USUARIO" style="margin-left: 25%;">{{ __('Apellidos') }}</label>
 
                             
-                                <input id="APELLIDOS_USUARIO" type="text" class="form-control @error('APELLIDOS_USUARIO') is-invalid @enderror" name="APELLIDOS_USUARIO" value="{{ old('APELLIDOS_USUARIO') }}" required autocomplete="APELLIDOS_USUARIO" autofocus>
+                                <input id="APELLIDOS_USUARIO" type="text" style="margin-left: 15%;" class="form-control @error('APELLIDOS_USUARIO') is-invalid @enderror" name="APELLIDOS_USUARIO" value="{{ old('APELLIDOS_USUARIO') }}" required autocomplete="APELLIDOS_USUARIO" autofocus>
                             </td></tr>
 
                             <tr><td>
                             
                             <label for="CONTRASENA_USUARIO">{{ __('Contraseña') }}</label>
 
-                                <input id="CONTRASENA_USUARIO" type="password" class="form-control @error('CONTRASENA_USUARIO') is-invalid @enderror" name="CONTRASENA_USUARIO" required autocomplete="CONTRASENA_USUARIO">
+                                <input id="CONTRASENA_USUARIO" type="password"  class="form-control @error('CONTRASENA_USUARIO') is-invalid @enderror" name="CONTRASENA_USUARIO" required autocomplete="CONTRASENA_USUARIO">
 
                                
-                            <td><label for="password-confirm">{{ __('Confirmar Contraseña') }}</label>
+                            <td ><label for="password-confirm" style="margin-left: 30%;">{{ __('Confirmar') }}</label>
 
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password"  style="margin-left: 15%;" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </td></tr>
+
+                        <div>
                     
-                        <tr><td>
-                                <button type="submit" class="btn btn-primary" style="margin-right: 2rem;" id="guardar">
-                                    {{ __('Guardar') }}
-                                </button>
-                            </td></tr>
-                    </table>
-                    </form>
-                   
-                    </div>
-                </div>
-            </div>
+                            <tr><td><br>
+                                    <button type="submit" class="btn btn-primary" style="margin-left: 90%;" id="guardar">
+                                        {{ __('Guardar') }}
+                                    </button>
+                                </td></tr>
+                             </div>     
+                          </table>
+                      </form>
+                 </div>
+             </div>
+        </div>
 
 
 

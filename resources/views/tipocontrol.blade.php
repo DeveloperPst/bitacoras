@@ -82,8 +82,8 @@ if($_SESSION['mensaje'] == 6){
                     <form method="POST" action="{{ url('registro_tipo_cont') }}">
                         @csrf
 
-                        <div class="row-tc mb-2">
-                            <label for="descripcion" class="col-md-4 col-form-label text-center">{{ __('Descripción') }}</label>
+                        <div class="row-tc mb-2 text-center">
+                            <label for="descripcion" class="col-md col-form-label">{{ __('Descripción') }}</label>
     
                             <div class="col-md-6">
                                 <input id="descripcion" type="text" class="form-control @error('descripcion') is-invalid @enderror" style="width: 10rem;"  name="descripcion" value="{{ old('descripcion') }}" required autocomplete="descripcion">

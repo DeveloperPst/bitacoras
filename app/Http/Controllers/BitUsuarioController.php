@@ -75,6 +75,8 @@ class BitUsuarioController extends Controller
 
             $_SESSION["usuario"] = $credenciales['DOCUMENTO_USUARIO'];
 
+            $this->registrar_movimiento(1);
+
             return redirect('turnoactivo');
         } else {
             return view('auth.login');
@@ -253,5 +255,27 @@ class BitUsuarioController extends Controller
 
         return redirect('agentes');
     }
+
+    // MÉTODO FUNCIONAL COMO TRIGGER PARA LLEVAR CONTROL DE INGRESOS A LA PLATAFORMA LACALDERON 13/03/2023
+    public function registrar_movimiento($mov)
+    {
+        $movimiento = "";
+        switch($mov){
+            case 1:
+                $movimiento = "Inicio_sesion";
+            break;
+            case 2:
+                $movimiento = "Cierre_sesion";
+            break;
+        }
+
+        $usuario = $_SESSION["usuario"];
+
+        DB::table('dxpst.bit_movimientos')->insert([
+            'id_usuario' => $usuario,
+            'movimiento' => $movimiento
+        ]);
+    }
 }
 ?>
+

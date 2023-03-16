@@ -3,7 +3,7 @@
 
 display: inline-flex; 
 background-color: #e8effc; 
-margin-left: 12%;
+margin-left: 0%;
 
 }
 
@@ -35,11 +35,11 @@ margin-left: 12%;
 
 .seccion-P{
 
-    display: flex;
+   
+   display: flex;
     background-color: #e8effc; 
     justify-content: center;
-    max-width: 100%;
-    
+    margin-right: 50%;
     
 
 }
@@ -49,7 +49,7 @@ margin-left: 12%;
     display: flex;
     background-color: #e8effc; 
     justify-content: center;
-    margin-left: 6%;
+    margin-right:60%;
 
 }
 
@@ -138,7 +138,7 @@ margin-right: 2%;
 
     justify-content: center; 
     align-content: center;
-    margin-left: 2%;
+    margin-left: 15%;
      
     
     }
@@ -165,7 +165,7 @@ text-align: center;
 .textarea{
 
 width: 80%;
-height: 100px;
+height: 180px;
 
 
 }
@@ -218,15 +218,132 @@ margin-left: 8%;
 .seccion{
 
  
-position: relative;
-margin-left: 2%;
-margin-right: 2%;
+margin-left: 3%;
 margin-top: 1%;
 font-size: small;
 background-color: #e8effc;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 max-width: 100%;
-padding-left: 0%;
+display:flex; 
+}
+
+.seccion-2{
+
+ 
+margin-left: 2%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width: 40rem;
+min-height:80%; 
+display:flex; 
+}
+
+.seccion-3{
+
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width:27rem;
+min-height:80%; 
+display:flex; 
+}
+
+.seccion-4{
+
+ 
+margin-top: 1%;
+margin-left:10%;
+font-size: small;
+width: 25rem;
+min-height:80%; 
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+display:flex; 
+
+}
+
+.seccion-5{
+
+margin-left: 1%; 
+margin-right: 2%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width: 33rem;
+max-height: 60%;
+display:flex; 
+
+}
+
+.seccion-6{
+
+ 
+margin-left: 1%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width:25%;
+min-height:80%; 
+display:flex; 
+
+}
+
+.seccion-7{
+
+margin-left:1%; 
+margin-right: 25%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width:100%;
+min-height:80%; 
+display:flex; 
+
+}
+
+.seccion-8{
+
+margin-right:2%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+min-height:60%; 
+display:flex; 
+
+}
+
+.seccion-9{
+
+ 
+margin-top: 1%;
+margin-left: 0%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+min-height:80%; 
+display:flex; 
+
+}
+
+.seccion-10{
+
+ 
+margin-right:55%;
+margin-top: 1%;
+font-size: small;
+background-color: #e8effc;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+width:100%;
+max-height:100%; 
+display:flex;
+margin-block-end:20%; 
 
 }
 
@@ -329,7 +446,7 @@ display: inline-block;
     padding-right: 25%;
     width: 200%;
     height: 200%;
-ner-home
+ 
 
 
 }
@@ -386,22 +503,27 @@ color: #333333;
 .container-turno{
     text-align: center;
     justify-content: center;
-    display: flex;
     background-color: #e8effc;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
-    min-width: 100%;
-
+    display: grid;
+	width:70%; 
+	height: 100%;
+	margin-left: 14%;
 
 }
 
 .container-turno1{
     text-align: center;
     justify-content: center;
-    display: flex;
+    display:flex;
+    margin-right:6%; 
+    max-width: 100%;
+    max-height: 100%;
     background-color: #e8effc;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
+
    
  
 
@@ -412,39 +534,78 @@ color: #333333;
 
     text-align: center;
     justify-content: center;
-    display: flex;
+    display:flex;
+    margin-right: 5%;
+    max-width: 100%;
+    max-height: 100%;
     background-color: #e8effc;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
-    min-width: 100%;
-    
-
 }
 
 .container-turno3{
 
-    text-align: center;
-    justify-content: center;
-    display: flex;
+    display:flex;
+    max-width: 110%;
+    max-height: 100%;
     background-color: #e8effc;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: small;
-    min-width: 100%;
-    
+    margin-right:75%;
+    margin-left: 1%;
 
 }
+
+.container-turno4{
+
+    display:flex;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    margin-left:1%;
+
+}
+
+
+.container-turno5{
+
+    display:flex;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    max-width: 100%;
+    max-height: 100%;
+    margin-right:33%; 
+   
+   }
+
+ .container-turno6{
+
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    max-width: 100%;
+    max-height: 150%;
+    background-color: #e8effc;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    margin-left: 0%;
+}  
 
 
 .container-fluid {
 
     background-color: #e8effc;
   
+  
 
 }
 
 .content{
 
-    height: 95rem;
+   background-color: #e8effc;
 }
 
 
@@ -770,23 +931,61 @@ color: #333333;
     
 }
 
-.card18 {
+.card18a {
 
    
-    width: 33rem;
-    margin-left:10%;
-    min-height: 80%;
-    display: block;
+    width:78rem;
+    margin-left:2%;
+    min-height: 60%;
+    margin-right: 1%;
+    align-content: center;
     justify-content: center;
     background-color: #ffff;
     border: 2px;
     border-color: #666666;
     font-size: medium;
-    align-content: center;
-    border-radius: 3% 3% 3% 3%;    
+    border-radius: 4% 4% 4% 4%;    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-block-end: 5%;
     
+    
+}
+
+.card18b {
+
+   
+    width:30rem;
+    margin-left: 2%;
+    height:40%;
+    align-content: center;
+    justify-content: center;
+    background-color: #ffff;
+    border: 2px;
+    border-color: #666666;
+    font-size: medium;
+    border-radius: 4% 4% 4% 4%;      
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    
+}
+
+.card18 {
+
+   
+    width:30rem;
+    min-height: 30%;
+    margin-left: 3%;
+    align-content: center;
+    justify-content: center;
+    background-color: #ffff;
+    border: 3px;
+    border-color: #666666;
+    font-size: medium;
+    border-radius: 8% 8% 8% 8%;    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    
+}
+
 }
 
 .card19 {
@@ -802,7 +1001,7 @@ color: #333333;
     align-content: center;
     border-radius: 3% 3% 3% 3%;    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-block-end: 5%;
+     
     
 }
 
@@ -828,17 +1027,16 @@ color: #333333;
 .card21 {
 
     
-    width: 25rem;
+    width: 32rem;
     justify-content: center;
     text-align: center;
-    margin-left:23%;
     background-color: #ffff;
     border: 2px;
     border-color: #666666;
     font-size: medium;
     margin-top: 2%;
     align-content: center;
-    border-radius: 3% 3% 3% 3%;    
+    border-radius: 1% 2% 1% 1%;    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: block; 
     
@@ -1077,11 +1275,19 @@ color: #ffff;
       
 }
 
+.card-body-agentes {
+   
+    display: flex;
+    margin-left: 3%;
+   
+      
+}
+
 
 .card-body-usuarios {
    
-    display: flex;
-    margin-left: 26%;
+    display: flex; 
+    margin-right: 5%;
    
       
 }
@@ -1311,8 +1517,8 @@ background-color: #343a40;
     justify-content: center;
     text-align: center;
     align-content: center;
-    width: 50%;
-	height: 200px;
+    width: 39rem;
+	max-height: 100%;
     border-radius: 1%;
     font-weight: bold;
     
@@ -1325,7 +1531,7 @@ background-color: #343a40;
     
     background-color:white;
     align-content: center;
-    width:58rem;
+    width:40rem;
 	height: 100px;
     margin-left: 2%;
      
@@ -1488,11 +1694,45 @@ background-color: #343a40;
     background-color:white;
     text-align: center;
     align-content: center;
-    min-width: 30rem;
-    height: 27rem;
+    width: 25rem;
+    min-height: 70%;
 	border-radius: 1%;
+    margin-right:35%
+    margin-left:1%;
    
+  
     
+    
+}
+
+.table-t1b2 {
+    
+    background-color:white;
+    text-align: center;
+    margin-left: 0%;
+    align-content: center;
+    width: 27rem;
+    height: 100%;
+    border-radius: 1%;
+    
+   
+  
+    
+    
+}
+
+.table-t1b3 {
+    
+    background-color:white;
+    text-align: center;
+    margin-left:16%;
+    align-content: center;
+    width: 50rem;
+    min-height: 60%;
+    border-radius: 1%;
+    
+   
+  
     
     
 }
@@ -1576,28 +1816,27 @@ background-color: #343a40;
     justify-content: center;
     text-align: center;
     align-content: center;
-    width: 30rem;
-	height: 200px;
-    border-radius: 1%;
+    width: 22rem;
+	min-height: 100%;
+    border-radius: 1% 1% 2% 2%;
     font-weight: bold;
-    margin-left:8%;
+    margin-left:3%;
     
-     
     
 }
 
 .table3{
     
   
-    background-color:#fff;
+    background-color:white;
     justify-content: center;
     text-align: center;
-    width: 30rem;
-	align-content: center;
-    border-radius: 1%;
+    align-content: center;
+    width:24rem;
+    height: 100%;
+    border-radius: 1% 1% 2% 2%;
     font-weight: bold;
-    margin-left:8%;
-               
+   
 }
 
 .table4{
@@ -1621,13 +1860,13 @@ background-color: #343a40;
     background-color:#fff;
     justify-content: center;
     text-align: center;
-    width: 50rem;
-    margin-left: 15%;
+    width: 78rem;
     margin-right: 50%;
-	min-height: 80%;
+	height: 20rem;
     align-content: center;
     border-radius: 5px 5px 5px 5px;
-    margin-block-end: 00%;
+    margin-left: 3%;
+     
                
 }
 
@@ -1693,9 +1932,16 @@ background-color: #343a40;
 .table-p2 {
     
     background-color:white;
+    justify-content: center;
+    text-align: center;
     align-content: center;
-    width: 35rem;
-    height: 90%;
+    width: 37rem;
+    margin-left: 1%;
+    max-height: 97%;
+    border-radius: 1% 1% 1% 1%;
+     
+    
+     
 
        
             
