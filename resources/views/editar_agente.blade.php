@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="nro_documento" class="col-md-4 col-form-label text-center">{{ __('Documento') }}</label>
+                            <label for="nro_documento" class="col-md-12 col-form-label text-center">{{ __('Documento') }}</label>
     
                             <div class="col-md-12">
                                 <input id="nro_documento" type="number" class="form-control @error('nro_documento') is-invalid @enderror" name="nro_documento" required autocomplete="nro_documento" autofocus
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="placa_agente" class="col-md-4 col-form-label text-center">{{ __('Nombres') }}</label>
+                            <label for="placa_agente" class="col-md-12 col-form-label text-center">{{ __('Placa') }}</label>
 
                             <div class="col-md-12">
                                 <input id="placa_agente" type="text" class="form-control @error('placa_agente') is-invalid @enderror" name="placa_agente" required autocomplete="placa_agente"
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="nombre_agente" class="col-md-4 col-form-label text-center">{{ __('Apellidos') }}</label>
+                            <label for="nombre_agente" class="col-md-12 col-form-label text-center">{{ __('Nombres') }}</label>
 
                             <div class="col-md-12">
                                 <input id="nombre_agente" type="text" class="form-control @error('nombre_agente') is-invalid @enderror" name="nombre_agente" required autocomplete="nombre_agente"
@@ -83,8 +83,8 @@
                         
                         <br>
                     
-                        <div class="row2 mb-0">
-                            <div class="col-md-12 offset-md-4">
+                        <div class="row" style="margin-left: 20%;">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" id="actualizar">
                                     {{ __('Actualizar') }}
                                 </button><br><br>

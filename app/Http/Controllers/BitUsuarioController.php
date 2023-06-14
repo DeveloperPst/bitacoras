@@ -36,50 +36,118 @@ class BitUsuarioController extends Controller
      //FUNCIONALIDAD PARA VALIDAR LAS CREDENCIALES DE INICIO DE SESIÓN LACALDERON 14/02/2023
      public function logueo(Request $request)
      {
+        session_start();
+
+        $_SESSION['turno_activo'] = 0;
+
         $credenciales = [
             "DOCUMENTO_USUARIO" => $request->documento_usuario,
             "CONTRASENA_USUARIO" => $request->contrasena_usuario
         ];
 
-        $data = Bit_Usuario::select('DOCUMENTO_USUARIO')
-        ->where('DOCUMENTO_USUARIO', '=', $credenciales['DOCUMENTO_USUARIO'])
-        ->where('CONTRASENA_USUARIO', '=', $credenciales['CONTRASENA_USUARIO'])
-        ->where('ESTADO_USUARIO', '=', 1)
+        $data = DB::table('dxpst.bit_usuario')
+        ->select('documento_usuario')
+        ->where('documento_usuario', '=', $credenciales['DOCUMENTO_USUARIO'])
+        ->where('contrasena_usuario', '=', $credenciales['CONTRASENA_USUARIO'])
+        ->where('estado_usuario', '=', 1)
         ->get();
 
         $credenciales_conc = '[{"documento_usuario":"'.$credenciales["DOCUMENTO_USUARIO"].'"}]';
 
         if($credenciales_conc == $data){
 
+            $_SESSION["usuario"] = $credenciales['DOCUMENTO_USUARIO'];
+
+            // OBTIENE ID_USUARIO DE LA TABLA bit_usuario CON RESPECTO AL DOCUMENTO_USUARIO ACALDERON
+            $data10 = DB::table('dxpst.bit_usuario')
+            ->select('id_usuario')
+            ->where('documento_usuario', '=', $_SESSION["usuario"])
+            ->get();
+            $result10 = json_decode($data10, TRUE);
+            $usuario_inicia_sesion = implode(" ", $result10[0]);
+            $_SESSION['usuario_inicia_sesion'] = $usuario_inicia_sesion;
+
+            // OBTIENE id_turno_activo DE LA TABLA bit_turno_activo ACALDERON
             $data2 = DB::table('dxpst.bit_turno_activo')
             ->select('id_turno_activo')
             ->orderBy('id_turno_activo', 'desc')
             ->limit(1)
             ->get();
+            $result2 = json_decode($data2, TRUE);
+            $turno_actual = implode(" ", $result2[0]);
+            $_SESSION['turno_activo'] = $turno_actual;
 
+            // OBTIENE fecha_registro DE LA TABLA bit_turno_activo ACALDERON
             $data3 = DB::table('dxpst.bit_turno_activo')
             ->select('fecha_registro')
             ->orderBy('id_turno_activo', 'desc')
             ->limit(1)
             ->get();
-    
-            session_start();
-            $result2 = json_decode($data2, TRUE);
-            $turno_actual = implode(" ", $result2[0]);
-            $_SESSION['turno_activo'] = $turno_actual;
-            $_SESSION['mensaje'] = 1;
-
             $result3 = json_decode($data3, TRUE);
             $fecha_registro = implode(" ", $result3[0]);
+            $fecha_registro = date("d/m/Y");
             $_SESSION['fecha_registro'] = $fecha_registro;
 
-            $_SESSION["usuario"] = $credenciales['DOCUMENTO_USUARIO'];
+            // SI HAY TURNO ACTIVO OBTIENE usuario_inicia DE LA TABLA bit_turno_activo ACALDERON
+            if($turno_actual != 0){
+            $data4 = DB::table('dxpst.bit_turno_activo')
+            ->select('usuario_inicia')
+            ->get();
+            $result4 = json_decode($data4, TRUE);
+            $usuario_inicia_turno = implode(" ", $result4[0]);
+            $_SESSION['usuario_inicia_turno'] =  $usuario_inicia_turno;
+            }
+            
+            // SI HAY TURNO ACTIVO OBTIENE nombres_usuario Y apellidos_usuario DE LA TABLA Bit_Usuario ACALDERON
+            if($turno_actual != 0){
+            $data5 = DB::table('dxpst.Bit_Usuario')
+            ->select('nombres_usuario')
+            ->where('id_usuario', '=', $usuario_inicia_turno)
+            ->get();
+            $result5 = json_decode($data5, TRUE);
+            $turno5 = implode(" ", $result5[0]);
+            $data6 = DB::table('dxpst.Bit_Usuario')
+            ->select('apellidos_usuario')
+            ->where('id_usuario', '=', $usuario_inicia_turno)
+            ->get();
+            $result6 = json_decode($data6, TRUE);
+            $turno6 = implode(" ", $result6[0]);
+            
+            $_SESSION['nombre_usuario'] = $turno5." ".$turno6;
+            }
 
+            // SI HAY TURNO ACTIVO OBTIENE descripcion_turno DE LA TABLA bit_maestro_turno ACALDERON
+            if($turno_actual != 0){
+            $data8 = DB::table('dxpst.bit_maestro_turno')
+            ->select('id_turno')
+            ->where('nro_registro', '=', $turno_actual)
+            ->get();
+            $result8 = json_decode($data8, TRUE);
+            $id_turno = implode(" ", $result8[0]);
+            $_SESSION['id_turno'] = $id_turno;
+
+            $data7 = DB::table('dxpst.Bit_turno')
+            ->select('descripcion_turno')
+            ->where('id_turno', '=', $id_turno)
+            ->get();
+            $result7 = json_decode($data7, TRUE);
+            $nombre_turno_actual = implode(" ", $result7[0]);
+            
+            $_SESSION['nombre_turno_actual'] = $nombre_turno_actual;
+            }
+            
             $this->registrar_movimiento(1);
 
-            return redirect('turnoactivo');
+            $_SESSION['mensaje'] = 1;
+            return redirect('maestroTurno');
         } else {
-            return view('auth.login');
+           
+           $error= session()->flash('error', 'Por favor verifique sus credenciales!');
+
+            // return view ('auth.login');
+            $error = 'Las credenciales son incorrectas!';
+            return redirect()->back()->with('error', $error);   
+
         }
      }
     

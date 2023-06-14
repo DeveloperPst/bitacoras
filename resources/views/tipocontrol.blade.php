@@ -52,14 +52,35 @@ if($_SESSION['mensaje'] == 6){
     })
     
     Toast.fire({
-        icon: 'info',
-        title: 'Información eliminada correctamente!'
+        icon: 'success',
+        title: 'Información actualizada correctamente!'
     })
     </script>";
 
     $_SESSION['mensaje'] = 0;
 
-} else {
+} else if($_SESSION['mensaje'] == 5){
+        
+    echo "<script>
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 4000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    
+    Toast.fire({
+        icon: 'success',
+        title: 'Información actualizada correctamente!'
+    })
+    </script>";
+
+    $_SESSION['mensaje'] = 0;
 
 }
 
@@ -96,8 +117,8 @@ if($_SESSION['mensaje'] == 6){
                             </div>
                         </div><br>
                     
-                        <div class="row2 mb-0">
-                            <div class="col-md-0 offset-md-0">
+                        <div>
+                            <div>
                                 <button type="submit" class="btn btn-primary" id="guardar">
                                     {{ __('Guardar') }}
                                 </button>   
@@ -126,7 +147,8 @@ if($_SESSION['mensaje'] == 6){
                         <tr>
                             <td><strong>Id</strong></td>
                             <td><strong>Descripción</strong></td>
-                            <td style='text-align: center;'><strong>Acciones</strong></td>
+                            <td><strong>Estado</strong></td>
+                            <td style='text-align: center;' colspan='2'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
                         </tr>
 
@@ -135,13 +157,36 @@ if($_SESSION['mensaje'] == 6){
                             <td>{{ $d['id_tipo_control'] }}</td>
                             <td>{{ $d['descripcion_tipo_cont'] }}</td>
 
+                            @if($d['estado'] == 1)   
+                              <td class="bg-success"> Activo</td>    
+                            @else
+                              <td class="bg-danger">Inactivo</td> 
+                            @endif
+
                             <td>
-                                <form method="post" class="delete_form" action="{{ url('eliminar_tipo_control',$d['id_tipo_control']) }}" id="studentForm_{{$d['id_tipo_control']}}">
+                                <form method="post" action="{{ url('editar_tipo_control',$d['id_tipo_control']) }}" id="studentForm_{{$d['id_tipo_control']}}">
                                 {{ method_field('GET') }}
                                 {{  csrf_field() }}
-                                <button type="submit" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash"></span></button>
+                                <button type="submit" class="btn btn-edit btn-primary" title="Editar"><span class="fa fa-pen"></span></button>
                                 </form>
                             </td>
+                            
+                            @if($d['estado'] == 1)   
+                              <td>
+                            <a href="{{ url('inhabilitar_tipo_control/'.$d['id_tipo_control'].'') }}"
+                                class="btn btn-edit btn-primary bg-danger" title="Inhabilitar">
+                                    <span class="fa fa-pause"></span>
+                                </a>
+                            </td>       
+                            @else
+                              <td>
+                            <a href="{{ url('habilitar_tipo_control/'.$d['id_tipo_control'].'') }}"
+                            class="btn btn-edit btn-primary bg-green" title="Habilitar">
+                                    <span class="fa fa-play"></span>
+                                </a>
+                            </td>    
+                            @endif
+
                             <td>{{ $d['fecha_registro'] }}</td>
                         </tr>
                         @endforeach

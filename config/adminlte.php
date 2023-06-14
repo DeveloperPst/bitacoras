@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => 'home',
+    'dashboard_url' => false,
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -226,42 +226,9 @@ return [
 
     'menu' => [
 
-       
-        [
-            'text' => 'Primer Turno',
-            'url'  => 'primerTurno',
-            'target' => '_blank',
-            'topnav' => true,
-
-         ],
-
-         [
-            'text' => 'Segundo Turno',
-            'url'  => 'segundoTurno',
-            'target' => '_blank',
-            'topnav' => true,
-
-         ],
-
-         [
-            'text' => 'Tercer Turno',
-            'url'  => 'tercerTurno',
-            'target' => '_blank',
-            'topnav' => true,
-
-         ],
-
-         [
-            'text' => 'Historial',
-            'url'  => 'historial',
-            'target' => '_blank',
-            'topnav' => true,
-
-         ],
-
          [
             'text' => 'Regresar',
-            'url'  => 'home',
+            'url'  => 'turnoactivo',
             'target' => '_blank',
             'topnav_right' => true,
 
@@ -284,7 +251,7 @@ return [
 
         // Sidebar items:
 
-        ['header' => 'DASHBOARD TURNOS'], 
+        ['header' => 'TABLERO TURNOS'], 
 
         [
             'text' => 'Maestro Turno',

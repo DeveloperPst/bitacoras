@@ -26,12 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // CONTROLADOR DE  REDIRECCIONAMIENTO AL HOME PRINCIPAL LACALDERON 20/02/2023
-Route::get('/home', [Bit_select::class,'listar_desplegables'])->name('home');
-
-// CONTROLADORES CREADOS PARA LA BUSQUEDA Y ACTUALIZACION DE PROCEDIMIENTOS CALONDONO 07/03/2023
-
-Route::get('/actualizar_proc', [Bit_procedimientos::class, 'actualizar_proc'])->name('actualizar_proc');
-Route::get('/editar_proc', [Bit_procedimientos::class, 'editar_proc'])->name('editar_proc');
+Route::get('/turnoactivo', [Bit_select::class,'listar_desplegables'])->name('home');
 
 // Controlador generado para el registro del nro de registro del nuevo maestro_turno lacalderon 13/02/2023
 Route::get('/listado_usuarios', [BitUsuarioController::class, 'usuarios']);
@@ -43,6 +38,8 @@ Route::get('/inactivar_usuario/{id}', [BitUsuarioController::class,'inactivar_us
 Route::get('/activar_usuario/{id}', [BitUsuarioController::class,'activar_usuario']);
 Route::get('/usuario_especifico_2/{id}', [BitUsuarioController::class,'usuario_especifico_2']);
 Route::post('/restablecer_contrasena', [BitUsuarioController::class,'restablecer_contrasena']);
+Route::get('/consultar_turno', [MenuController::class, 'consultar_turno']);
+Route::get('/detalle_turno/{id}', [MenuController::class, 'detalle_turno']);
 
 // Controlador generado para el redireccionamiento a cada uno de los módulos lacalderon 13/02/2023
 Route::get('/turnoactivo', [MenuController::class,'turnoactivo'])->name('turnoactivo');
@@ -54,7 +51,7 @@ Route::get('/inactivar_agente/{id}', [BitUsuarioController::class,'inactivar_age
 Route::get('/activar_agente/{id}', [BitUsuarioController::class,'activar_agente']);
 Route::get('/agente_especifico/{id}', [BitUsuarioController::class,'agente_especifico']);
 Route::post('/editar_agente', [BitUsuarioController::class,'editar_agente']);
-Route::post('/historial_ceges_detalle', [Bit_maestropdfController::class,'consulta_ceges'])->name('consulta_ceges');
+Route::post('/ceges_detalle', [Bit_maestropdfController::class,'ceges_detalle'])->name('ceges_detalle');
 
 Route::get('/reportes', [Bit_maestropdfController::class,'reportes'])->name('reportes');
 Route::post('/pdf',[Bit_maestropdfController::class,'crearPDF'])->name('crearPDF');
@@ -91,6 +88,7 @@ Route::get('/eliminar_tipo_prueba/{id}', [BitTipos::class,'eliminar_tipo_prueba'
 Route::get('/eliminar_tipo_servicio/{id}', [BitTipos::class,'eliminar_tipo_servicio']);
 Route::get('/eliminar_tipo_proc/{id}', [BitTipos::class,'eliminar_tipo_proc']);
 Route::get('/eliminar_zona/{id}', [BitTipos::class,'eliminar_zona']);
+Route::post('/eliminar_pdf/{id}', [BitTipos::class,'eliminar_pdf']);
 
 // CONTROLADORES CREADOS PARA LA INTERACCIÓN CON EL TURNO INICIADO LACALDERON 20/02/2023
 Route::get('/pausar_turno/{id}', [Bit_maestropdfController::class,'pausar_turno']);
@@ -105,6 +103,38 @@ Route::get('/turnoactivo', [MenuController::class,'all']);
 Route::get('/registrar_incidencia', [MenuController::class,'registrar_incidencia'])->name('registrar_incidencia');
 Route::get('/registrar_accidente', [MenuController::class,'registrar_accidente'])->name('registrar_accidente');
 Route::get('/registrar_proc', [MenuController::class,'registrar_proc'])->name('registrar_proc');
-//Route::post('/historial_ceges_detalle', [Bit_maestropdfController::class,'storeFile'])->name('storeFile');
+
+// Controlador generado para el redireccionamiento de los tipos seleccionables para editar lacalderon 02/05/2023
+Route::get('/editar_tipo_accidente/{id}', [BitTipos::class,'editar_tipo_accidente']);
+Route::get('/editar_tipo_control/{id}', [BitTipos::class,'editar_tipo_control']);
+Route::get('/editar_tipo_procedimiento/{id}', [BitTipos::class,'editar_tipo_procedimiento']);
+Route::get('/editar_tipo_prueba/{id}', [BitTipos::class,'editar_tipo_prueba']);
+Route::get('/editar_tipo_servicio/{id}', [BitTipos::class,'editar_tipo_servicio']);
+Route::get('/editar_tipo_proc/{id}', [BitTipos::class,'editar_tipo_proc']);
+Route::get('/editar_zona/{id}', [BitTipos::class,'editar_zona']);
+
+// Controlador generado para LA EDICIÓN de los tipos seleccionables lacalderon 02/05/2023
+Route::post('/fun_editar_tipo_accidente', [BitTipos::class,'fun_editar_tipo_accidente']);
+Route::post('/fun_editar_tipo_control', [BitTipos::class,'fun_editar_tipo_control']);
+Route::post('/fun_editar_tipo_procedimiento', [BitTipos::class,'fun_editar_tipo_procedimiento']);
+Route::post('/fun_editar_tipo_prueba', [BitTipos::class,'fun_editar_tipo_prueba']);
+Route::post('/fun_editar_tipo_servicio', [BitTipos::class,'fun_editar_tipo_servicio']);
+Route::post('/fun_editar_tipo_proc', [BitTipos::class,'fun_editar_tipo_proc']);
+Route::post('/fun_editar_zona', [BitTipos::class,'fun_editar_zona']);
+
+// Controlador generado para la habilitación e inhabilitación de los tipos seleccionables lacalderon 02/05/2023
+Route::get('/habilitar_tipo_accidente/{id}', [BitTipos::class,'habilitar_tipo_accidente']);
+Route::get('/inhabilitar_tipo_accidente/{id}', [BitTipos::class,'inhabilitar_tipo_accidente']);
+Route::get('/habilitar_tipo_control/{id}', [BitTipos::class,'habilitar_tipo_control']);
+Route::get('/inhabilitar_tipo_control/{id}', [BitTipos::class,'inhabilitar_tipo_control']);
+Route::get('/habilitar_tipo_procedimiento/{id}', [BitTipos::class,'habilitar_tipo_procedimiento']);
+Route::get('/inhabilitar_tipo_procedimiento/{id}', [BitTipos::class,'inhabilitar_tipo_procedimiento']);
+Route::get('/habilitar_tipo_prueba/{id}', [BitTipos::class,'habilitar_tipo_prueba']);
+Route::get('/inhabilitar_tipo_prueba/{id}', [BitTipos::class,'inhabilitar_tipo_prueba']);
+Route::get('/habilitar_tipo_servicio/{id}', [BitTipos::class,'habilitar_tipo_servicio']);
+Route::get('/inhabilitar_tipo_servicio/{id}', [BitTipos::class,'inhabilitar_tipo_servicio']);
+Route::get('/habilitar_tipo_zona/{id}', [BitTipos::class,'habilitar_tipo_zona']);
+Route::get('/inhabilitar_tipo_zona/{id}', [BitTipos::class,'inhabilitar_tipo_zona']);
+
 
 ?>

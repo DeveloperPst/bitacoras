@@ -35,10 +35,10 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="CONTRASENA_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Nueva contraseña') }}</label>
+                            <label for="CONTRASENA_USUARIO" class="col-md-12 col-form-label text-center" style="margin-left: 12%;">{{ __('Nueva contraseña') }}</label>
     
                             <div class="col-md-12">
-                                <input id="CONTRASENA_USUARIO" type="password" class="form-control @error('CONTRASENA_USUARIO') is-invalid @enderror" name="CONTRASENA_USUARIO" required autocomplete="CONTRASENA_USUARIO" autofocus>
+                                <input id="CONTRASENA_USUARIO" type="password" class="form-control @error('CONTRASENA_USUARIO') is-invalid @enderror" name="CONTRASENA_USUARIO" required autocomplete="CONTRASENA_USUARIO" autofocus style="margin-left: 15%;">
 
                                 @error('CONTRASENA_USUARIO')
                                     <span class="invalid-feedback" role="alert">
@@ -49,10 +49,10 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="CONFIRMAR_CONTRASENA" class="col-md-4 col-form-label text-center">{{ __('Confirmar contraseña') }}</label>
+                            <label for="CONFIRMAR_CONTRASENA" class="col-md-12 col-form-label text-center"  style="margin-left: 12%;">{{ __('Confirmar contraseña') }}</label>
     
                             <div class="col-md-12">
-                                <input id="CONFIRMAR_CONTRASENA" type="password" class="form-control @error('CONFIRMAR_CONTRASENA') is-invalid @enderror" name="CONFIRMAR_CONTRASENA" required autocomplete="CONFIRMAR_CONTRASENA">
+                                <input id="CONFIRMAR_CONTRASENA" type="password" class="form-control @error('CONFIRMAR_CONTRASENA') is-invalid @enderror" name="CONFIRMAR_CONTRASENA" required autocomplete="CONFIRMAR_CONTRASENA" style="margin-left: 15%;">
 
                                 @error('CONFIRMAR_CONTRASENA')
                                     <span class="invalid-feedback" role="alert">
@@ -68,7 +68,7 @@
                         <br>
                     
                         <div class="row2 mb-0">
-                            <div class="col-md-12 offset-md-4">
+                            <div class="col-md-5" style="margin-left: 1%;">
                                 <button type="submit" class="btn btn-primary" id="restablecer">
                                     {{ __('Restablecer') }}
                                 </button><br><br>

@@ -124,26 +124,73 @@
 
   $_SESSION['mensaje'] = 0;
   
+} else if($_SESSION['mensaje'] == 7){
+  echo "<script>
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'warning',
+      title: 'Debe seleccionar alguno de los turnos de la lista desplegable!'
+    })
+  </script>";
+
+  $_SESSION['mensaje'] = 0;
+  
+} else if($_SESSION['mensaje'] == 1){
+        
+  echo "<script>
+  const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Sesión iniciada correctamente!'
+    })
+  </script>";
+
+  $_SESSION['mensaje'] = 0;
+
 } else {
 
     }
 ?>
 
+<div class="container-maestroturno">
+
 <div class="card6" style="width: 16rem;">
 
 <h6 class="card-header p-1">Seleccionar turno</h6>
  
-  <div class="card-body6">
+  <div class="card-body6" style="display:grid;">
 
       <form method="POST" action="{{ url('validacion_turno') }}">
         @csrf
 
         <br>
           <div class="row1 mb-4">
-            <label for="turno" class="col-md-4 col-form-label"><strong>{{ __('Turnos') }}</strong></label><br><br>
+            <label for="turno" class="col-md-4 col-form-label" style="font-size:large;"><strong>{{ __('Turnos') }}</strong></label><br><br>
 
-            <select name="turno" style="width: 39%;height:2rem;" id="turno" >
-              <option selected disabled value="">Opciones...</option>
+            <select name="turno" style="width:68%;height:2rem;text-align:center;" id="turno" >
+              <option selected value="0">Seleccione un turno</option>
               <option value="4">Primer Turno</option>
               <option value="5">Segundo Turno</option>
               <option value="6">Tercer Turno</option>
@@ -176,12 +223,12 @@
                         </div>
                     @endif
         @csrf
-                    <table class="table-turno1 table-hover">
+                    <table class="table-turno1 table-hover p-1">
 
                      
                         <tr>
                             <td><strong>Nro Registro</strong></td>
-                            <td><strong>Id Turno</strong></td>
+                            <td><strong>Turno</strong></td>
                             <td><strong>Inició</strong></td>
                             <td><strong>Estado</strong></td>
                             <td colspan='2' style='text-align: center;'><strong>Acciones</strong></td>
@@ -192,8 +239,8 @@
 
                         <tr>
                             <td>{{ $d['nro_registro'] }}</td>
-                            <td>{{ $d['id_turno'] }}</td>
-                            <td>{{ $d['id_usuario'] }}</td>
+                            <td>{{ $d['descripcion_turno'] }}</td>
+                            <td>{{ $d['nombres_usuario'].' '.$d['apellidos_usuario'] }}</td>
                            
                             @if($d['id_estado'] == 1)         
                               <td class="bg-success"> Activo</td> 
@@ -214,7 +261,7 @@
                             @endif
 
                             <td>
-                            <form action="{{ url('finalizar_turno/'.$d['nro_registro'].'') }}">
+                            <form class="delete_form" action="{{ url('finalizar_turno/'.$d['nro_registro'].'') }}">
                                 <button name='finalizar' class="btn btn-edit btn-primary" title = "Finalizar">
                                     <span class="fa fa-check"></span>
                                 </button><br>
@@ -227,7 +274,22 @@
                     </div>
               </div>
             </div>
-
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $('.delete_form').on('submit', function(){
+         if(confirm("¿Está seguro que desea finalizar este turno?"))
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+      });
+  });
+</script>
 @stop
 
 

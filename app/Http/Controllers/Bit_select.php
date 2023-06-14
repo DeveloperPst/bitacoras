@@ -35,7 +35,7 @@ class Bit_select extends Controller
          $data5 = DB::table('dxpst.Bit_Agente')->get();
          $result_select_age = json_decode($data5, TRUE);
 
-         return view('home', ['result_select_acc' => $result_select_acc,
+         return view('turnoactivo', ['result_select_acc' => $result_select_acc,
          'result_select_cont' => $result_select_cont,
          'result_select_proc' => $result_select_proc,
          'result_select_prue' => $result_select_prue,

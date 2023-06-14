@@ -14,31 +14,11 @@
 
 @section('content')
 
+                                
+
 <?php
-    if($_SESSION['mensaje'] == 1){
-        
-        echo "<script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 4000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-          })
-          
-          Toast.fire({
-            icon: 'success',
-            title: 'Sesión iniciada correctamente!'
-          })
-        </script>";
 
-        $_SESSION['mensaje'] = 0;
-
-    } else if($_SESSION['mensaje'] == 6){
+   if($_SESSION['mensaje'] == 6){
         
         echo "<script>
         const Toast = Swal.mixin({
@@ -61,209 +41,148 @@
 
         $_SESSION['mensaje'] = 0;
 
+    } else if($_SESSION['mensaje'] == 7){
+        
+        echo "<script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'warning',
+            title: 'El turno iniciado se encuentra en un estado diferente a activo, por favor validar!'
+          })
+        </script>";
+
+        $_SESSION['mensaje'] = 0;
+
     } else {
 
     }
-?>
+
+
+    if($_SESSION['turno_activo'] == 0){
+        
+        echo "<div class='container-maestroturno'>
+        
+            <div class='card text-center' style='box-shadow: 0 .4em .5em -.3em rgba(0,0,0,.8);width:34rem;'>
+                <div class='card-header'>
+                    <h4><strong>INFORME TURNO ACTIVO</strong></h4>
+                </div>
+                <div class='card-body' style=margin-right:16%;'font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;aling-text:center;'>
+                <h5><strong>¡ No se encuentran turnos activos !</strong></h5>
+                </div>
+                <div class='card-footer text-muted'>
+                    Bienvenidos a Bitácoras 
+                </div>
+            </div>
+        </div>";
+    
+    } else {
+    ?>
 
 <div class="container-turno">
 
-<div style="margin-right:3%;">
-<h3><strong>INFORME TURNO ACTIVO</strong></h3>
-<h5><strong>TURNO ACTIVO:</strong>
-    <?php 
-        if (!isset($_SESSION['turno_activo'])) {
-            echo "Ningún turno activo";
-        } else {
-            echo $_SESSION['turno_activo']." - <strong>USUARIO: </strong>".$_SESSION['usuario']." - <strong>FECHA: </strong>".$_SESSION['fecha_registro'];
-        }
-    ?></h5>
-</div>
+            <div style="margin-right:3%;">
+                <h3><strong>INFORME TURNO ACTIVO</strong></h3>
+                <h5><strong>TURNO ACTIVO:</strong>
+                    <?php 
 
-<hr><br>
+                    echo $_SESSION['nombre_turno_actual']." - <strong>USUARIO: </strong>".$_SESSION['nombre_usuario']." - <strong>FECHA: </strong>".$_SESSION['fecha_registro'];
 
-  	<h5 class="text-center" style="margin-right: 3%;"><strong>CONSOLIDADO PROCEDIMIENTOS</strong></h5><br>
+                ?></h5>
+            </div>
 
-	<div class="container-turno1">
+        <hr><br>
 
-		<div class="seccion">  
+        <h5 class="text-center" style="margin-right: 8%;"><strong>CONSOLIDADO PROCEDIMIENTOS</strong></h5><br>
 
-			<form method="get" action="{{ url('actualizar_proc') }}">
+	       <div class="container-turno1"> 
 
-		        @csrf
+                <form method="get" action="{{ url('registrar_proc') }}">
 
-		          
-		              
-		          <table id="table1" class="table table-sm">
-		          <thead class="thead">
-		              
-		              <tr>
-		                  <th>Zona/Grupo</th>
-		                  <th>Comparendos</th>
-		                  <th>Inmovilizados</th>
-		                  <th>Pico y Placa</th>
-		                  <th>Bicicarril</th>
-		                  <th></th>
+                    <table id="table1" class="table table-sm tipo-p">
 
-		                  
-		              </tr>
-		          
-		            </thead>
+                    <tbody>
+                        
+                        @if(isset($result14))
 
-		          <tbody>
+                        <?php
+                            $zona = "";
+                            $contador = 0;
+                        ?>
+                        <thead class="thead">
+                        <tr>  
+                            <th>ZONA</th><th>TIPO PROCEDIMIENTO</th><th>CANTIDAD</td></th>
+                        </tr>
+                        </thead>
+                        @foreach($result14 as $r14)
+                        <tr>
+                            <?php
+                                if($zona == "" || $zona != $r14['id_zona']){
+                                    echo "<td rowspan='4' style='vertical-align: middle;font-weight: bold;border-color:black;background-color:#F8F9F9;border:10%;'>".$r14['descripcion_zona']."</td>";
+                                                                      
+                                } else if($zona == $r14['id_zona']) {
+                                }
+                                
+                                
+                                $zona = $r14['id_zona'];
+                                $id_concat = $r14['id_concat'];
+                                $cantidad = $r14['cantidad_proc'];
+                                
+                                
+                            ?>
+                                <td>{{ $r14['descripcion_tipo_proc'] }} </td>
 
-		            
-		                
-		           
-		              <tr >
-		                  <td>Centro</td>
-		                  <td><input type="number" name="1" class="form-number"  required></td>
-		                  <td><input type="number" name="2" class="form-number" required></td>
-		                  <td><input type="number" name="3" class="form-number" required></td>
-		                  <td><input type="number" name="4" class="form-number" required></td>
-		                
-		              </tr> 
-		        
-		                <tr>
-		                  <td>Oeste</td>
-		                  <td><input type="number" id = "8" name="Compaoeste" class="form-number" required></td>
-		                  <td><input type="number" id = "8" name="Inmovioeste" class="form-number" required></td>
-		                  <td><input type="number" id = "8" name="Pypoeste" class="form-number" required></td>
-		                  <td><input type="number" id = "8" name="Bicioeste" class="form-number" required></td>
-		                  
-		              </tr>
+                                <td><input type="number" min="0" name="{{ $id_concat }}" class="form-number" 
+                                value="{{ $cantidad }}"/></td>
+                                </tr>
+                                
+                                <?php
+                                    $contador++;
+                                ?>
+                        @endforeach   
+                        <tr>
+                            <td colspan='3' style="border-color:black;font-weight: bold;border-color:black;background-color:#F8F9F9;"><br><br><button type="submit" name="button3" id="button3" class="btn btn-primary">Registrar</button>
 
-		           <tr>
-		                  <td>Norte</td>
-		                  <td><input type="number" id = "6" name="Companorte" class="form-number" required></td>
-		                  <td><input type="number" id = "6" name="Inmovinorte" class="form-number"required></td>
-		                  <td><input type="number" id = "6" name="Pypnorte" class="form-number" required></td>
-		                  <td><input type="number" id = "6" name="Bicinorte" class="form-number" required></td>
-		                  
-		              </tr>
-
-		              <tr>
-		                  <td>Oriente</td>
-		                  <td><input type="number" id = "9" name="Compaoriente" class="form-number" required></td>
-		                  <td><input type="number" id = "9" name="Inmovioriente"class="form-number" required></td>
-		                  <td><input type="number" id = "9" name="Pyporiente" class="form-number" required></td>
-		                  <td><input type="number" id = "9" name="Bicioriente" class="form-number" required></td>
-		                  
-		              </tr>
-		              <tr>
-		                  <td>Sur</td>
-		                  <td><input type="number" id = "5" name="Compasur" class="form-number" required></td>
-		                  <td><input type="number" id = "5" name="Inmovisur" class="form-number" required></td>
-		                  <td><input type="number" id = "5" name="Pypsur" class="form-number" required></td>
-		                  <td><input type="number" id = "5" name="Bicisur" class="form-number" required></td>
-		                  
-		              </tr>
-		              <tr>
-		                  <td>Operativo</td>
-		                  <td><input type="number"  id = "10" name="Compaoperativo" class="form-number" required></td>
-		                  <td><input type="number"  id = "10" name="Inmovioperativo" class="form-number" required></td>
-		                  <td><input type="number"  id = "10" name="Pypoperativo" class="form-number" required></td>
-		                  <td><input type="number"  id = "10" name="Bicioperativo" class="form-number" required></td>
-		                    
-		              </tr>
-
-		              <tr>
-		                  <td>Disponibles</td>
-		                  <td><input type="number"  id = "11" name="Compadisponibles" class="form-number" required></td>
-		                  <td><input type="number"  id = "11" name="Inmovidisponibles" class="form-number" required></td>
-		                  <td><input type="number"  id = "11" name="Pypdisponibles" class="form-number" required> </td>
-		                  <td><input type="number"  id = "11" name="Bicidisponibles" class="form-number" required></td>
-		                  
-		              </tr>
-
-		              <tr>
-		                  <td>Comisaria</td>
-		                  <td><input type="number" id = "12" name="Compacomisaria" class="form-number" required></td>
-		                  <td><input type="number" id = "12" name="Inmovicomisaria" class="form-number" required></td>
-		                  <td><input type="number" id = "12" name="Pypcomisaria" class="form-number" required></td>
-		                  <td><input type="number" id = "12" name="Bicicomisaria" class="form-number" required> </td>
-		                  
-		              </tr>
-
-		             
-		               
-		          <th></th>
-
-		          <td><br><button type="submit" name = "button3" class="btn btn-primary">Guardar</button></td>
-		          
-		          <th><br>
-		        
-		          <th><br>
-		        
-		          <button type="reset" id = "form1" value ="Reset" class="btn btn-danger">Cancelar</button>
-		              
-		          </th>
-		          <th> 
-		          </th>
-		          <th></th>
-		          </th>
-		          </tbody>
-
-		          </table>
-
-			</div>  
+                            <button type="reset" id = "form1" value ="Reset" class="btn btn-danger">Cancelar</button></td>
+                        </tr>
+                        @else
+                            <td>No existen registros para este turno</td>  
+                        @endif
 
 
-		   <div class="seccion-2">    
+                    </tbody>
 
-                    <table class="table-p2 table-sm table-striped table-hover border:2px;" >
+                    </table>
+                </form>      
+           </div><br><br> 
+
+
+            <div class="container-turno2">
 
                     
-                        <thead class = "thead p-2">
-                            <tr>
-                            <th>Zona/Grupo</th>
-                            <th>Comparendos</th>
-                            <th>Inmovilizados</th>
-                            <th>Pico y Placa</th>
-                            <th>Bicicarril</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-color:white">
-                            <tr>
+                    <div class='card18a'>
+                        <div class='card-header p-1'>{{ __('Gráfico Procedimientos') }}</div>
+                        <div id="grafico_procedimiento">
+                            
+                        </div>
+                    </div>
 
-                            @if(isset($result3))
-                            @foreach($result3 as $r3)
-                            <tr>
-                                <td rowspan='4'>{{ $r3['descripcion_zona'] }}</td></tr>  
-                                <tr><td>{{ $r3['descripcion_tipo_proc'] }}</td>
-                                <td>{{ $r3['cantidad_proc'] }}</td>
-                            </tr>    
-                                @endforeach    
-                            @else
-                                <td>No existen registros para este turno</td>  
-                            @endif
-
-
-                            </tr>
-                            </tbody>
-                        </table>
-
-                     </form>      
-			   </div>        
-		 </div><br><br> 
-
-
-		 <div class="container-turno2">
-
-		           
-			    <div class='card18a'>
-			      <div class='card-header p-1'>{{ __('Gráfico Procedimientos') }}</div>
-			      <div id="grafico_procedimiento">
-			            
-			        </div>
-			    </div>
-
-	         <br>
-		 </div><br>     
+                <br>
+            </div><br>     
  		    
 		<hr><br>
 
-		<h5 class="text-center" style="margin-right: 3%;"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
+		<h5 class="text-center" style="margin-right: 8%;"><strong>REPORTE DE ACCIDENTALIDAD</strong></h5><br>
 
 
 		<div class="container-turno3">
@@ -278,7 +197,8 @@
 			          
 		          <tr>
 		              <th>Tipo Accidente</th>
-			              <th>Cantidad</th>                        
+			              <th>Cantidad</th>
+                          <th></th>                        
 			          </tr>
 			      
 			        </thead>
@@ -287,22 +207,31 @@
 			        
 			         <tr>
 		              <td><br><br>
-
-	              
+                    
 	                <select class="form-select" id="tipo_accidente" name="tipo_accidente">
 	                <option selected disabled value="">Seleccionar..</option>
-	                @foreach($result_select_acc as $a)
-	                    <option value="{{ $a['id_tipo_accidente'] }}">{{ $a['descripcion_tipo_accidente'] }}</option>
-	                @endforeach           
+	                @if(isset($result_select_acc))
+                        @foreach($result_select_acc as $a)
+	                        <option value="{{ $a['id_tipo_accidente'] }}">{{ $a['descripcion_tipo_accidente'] }}</option>
+	                    @endforeach  
+
+                    @else
+                        <td>No existen registros para este turno</td>
+                    @endif         
 	               </select>
 	              
 		              </td>
-		              <td><br><br><input type="number" id="cantidad" name="cantidad" class="form-number" required></td>   </tr>
+		              <td><br><br><input type="number" min="0" id="cantidad" name="cantidad" class="form-number" required></td>   </tr>
 
-	                  <tr>
-	                  <td><br><br><button type="submit" name = "button3" class="btn btn-primary">Guardar</button></td>
-	                  <td><br><br><button type="reset" name = "button4" class="btn btn-danger">Cancelar</button></td>
-	                 </tr>    
+                    <?php
+                   
+                        echo "<tr>
+                        <td><br><br><button type='submit' name = 'button3' class='btn btn-primary'>Guardar</button></td>
+                        <td><br><br><button type'reset' name = 'button4' class='btn btn-danger'>Cancelar</button></td>
+                        </tr>";
+
+                    ?>
+	                   
 	            </tbody>
 
 	       </table>
@@ -337,7 +266,7 @@
 	            </tbody>
 	        </table>
 
-         </div> 
+        </div> 
 	        <div class="seccion-5">
 
 			       
@@ -351,7 +280,7 @@
 	    </div><br>
         <hr><br>
 
-        <h5 class="text-center" style="margin-right: 3%;"><strong>PRUEBAS DE ALCOHOLEMIA</strong></h5><br>
+        <h5 class="text-center" style="margin-right: 8%;"><strong>PRUEBAS DE ALCOHOLEMIA</strong></h5><br>
 
         <div class="container-turno4">
 
@@ -379,37 +308,43 @@
                         <td><br>
                                 <select class="form-select" name="operativo" style="width: 6rem;" id="turno" >
                                   <option selected disabled value="">Opciones...</option>
-
+                                  @if(isset($result_select_prue))
                                     @foreach($result_select_prue as $b)
                                         <option value="{{ $b['id_tipo_prueba'] }}">{{ $b['descripcion_tipo_prueba'] }}</option>
                                     @endforeach
+                                @else
+                                    <td>No existen registros para este turno</td>  
+                                @endif
                                 </select>
                            </td>
-                          <tr>
+
+                           <?php
+                           
+                          echo "<tr>
                               <td><br>Positivas</td>
-                              <td><br><input type="number" id="positivast" name="positivast" class="form-number"></td>
+                              <td><br><input type='number' min='0' id='positivast' name='positivast' class='form-number'></td>
                          </tr>
                           <tr>                          
                               <td><br>Negativas</td>
-                              <td><br><input type="number" id="negativast" name="negativast" class="form-number"> </td>
+                              <td><br><input type='number' min'0' id='negativast' name='negativast' class='form-number'> </td>
                          </tr>                                               
                       <th><br>
 
-                      <div class="row2 mb-0">
-                            <div class="col-md-1">
-                                <button type="submit" class="btn btn-primary" style ="margin-left:0%;" id="guardar">
-                                    {{ __('Guardar') }}
+                      <div class='row2 mb-0'>
+                            <div class='col-md-1'>
+                                <button type='submit' class='btn btn-primary' style ='margin-left:0%;' id='guardar'>
+                                    Guardar
                                 </button>   
                             </div>
                         </div>
                       </th>
 
-                      <th><br><br>
+                      <th><br>
                     
-                        <button type="reset" name = "button6" class="btn btn-danger">Cancelar</button>
+                        <button type='reset' name = 'button6' class='btn btn-danger'>Cancelar</button>
                                                 
-                       </th>
-
+                       </th>";
+                    ?>
                       <th></th>
                         <th></th>
                       
@@ -418,7 +353,7 @@
 	              </form>
 	          </div>
 
-        <div class="seccion-7">   
+             <div class="seccion-7">   
 
 		        <table class="table-t1b2 table-sm table-striped table-hover">
 
@@ -460,8 +395,7 @@
 							</tr>
 							    </tbody>
 
-			   </div>	
-			  
+		         </div>				  
 			  		<div class="seccion-8">		    
 							</table>
 							 
@@ -472,103 +406,118 @@
 							        </div>
 							  </div>
 				    	  </div>
-				</div><br><br>
+				</div><br>
+                   
+				<hr><br><br>
 
-				<hr><br>
-
-			 <h5 class="text-center" style="margin-right: 3%;"><strong>INCIDENCIAS PRESENTADAS</strong></h5><br>
+                    
+			 <h5 class="text-center" style="margin-right: 8%;"><strong>INCIDENCIAS PRESENTADAS</strong></h5><br>
 		 
 
 		 <div class="container-turno5">	
-			<div class="seccion-9">
+			<div class="seccion-9"><br>
 			 
 
-            <form method="get" action="{{ url('registrar_incidencia') }}">
-                      
+                <form method="get" action="{{ url('registrar_incidencia') }}">
+                        
                           
                       <table id="table5" class="table5 table-sm">
-                      <thead class="thead">
+                      <thead class="thead-inc">
                           
-                          <tr>
-                             
-                              <th>Placa Agente</th>
+                                                   
+                              <th >Placa Agente</th>
                               <th>Tipo de Control</th>
                               <th>Novedad Presentada</th>
                               <th></th>
                               
-                              <th></th>
-                              
-                          </tr>
+                               
+                           
                       
                         </thead>
 
-                      <tbody class="text-center">
-                          <tr>
+                      <tbody class="tbody-inc">
+                          <tr class="tbody-tr">
                               <td><br>
-
-                              <select class="form-select" id="agentes" name="agentes">
+                              
+                              @if(isset($result_select_age))
+                             
+                              <select class="form-select" id="agentes" name="agentes" style="margin-left: 8%;">
                                 <option selected disabled value="">Seleccionar..</option>
                                 @foreach($result_select_age as $c)
-                                    <option value="{{ $c['id_agente'] }}">{{ $c['placa_agente'] }}</option>
+                                <option value="{{ $c['id_agente'] }}">{{ $c['placa_agente'] }}</option>
                                 @endforeach
-                              </select>
 
+                              </select>
+                                @else
+                                    <td>No existen registros para este turno</td>  
+                                @endif
+
+                               
                               </td>
                               <td><br>
 
-                              <select class="form-select" id="tipo" name='tipo'>
+                              @if(isset($result_select_cont))  
+                              
+                              <select class="form-select" id="tipo" name='tipo' style="margin-left:53%;">
                               <option selected disabled value="">Seleccionar..</option>
+                                
                                 @foreach($result_select_cont as $d)
                                     <option value="{{ $d['id_tipo_control'] }}">{{ $d['descripcion_tipo_cont'] }}</option>
                                 @endforeach
+                                @else
+                                    <td>No existen registros para este turno</td>  
+                                  
+                                @endif
+                                                                                           
                               </select>
                             
                             </td>
 
-                            <td><br><br>
+                            <td><br>
 
                             <textarea class="textarea" name="incidencia" id="incidencia" cols="30" rows="8" required></textarea>
-   
-                            </td>
-                                            
-                        </tr>
-                                                              
-                                           
-                      <th>
 
-                      <div class="row2 mb-0">
-                            <div class="col-md-0" style= "margin-right:42%;">
-                                <button type="submit" class="btn btn-primary" id="guardar">
-                                    {{ __('Guardar') }}
+                   
+                            </td>
+                         </tr>                                                
+                                        
+                      <th>
+                        
+                    <?php
+
+                      echo "<div class='row2 mb-0'>
+                            <div class='col-md-0' style= 'margin-right:42%;'>
+                                <button type='submit' class='btn btn-primary' id='guardar'style= 'margin-left:13%;'>
+                                    Guardar
                                 </button>   
                             </div>
                         </div>
                       </th>
-
-                      <th><br>
-                           <button type="reset" name = "button6" class="btn btn-danger">Cancelar</button>
-                       </th>        
+                     
+                      <th>
+                           <button type='reset' name = 'button6' class='btn btn-danger' style= 'margin-left:53%;'>Cancelar</button>
+                       </th>";
+                                ?>        
                          </tbody>
                       </table>
 		            </form>
 			     </div>
-			 </div><br><br><br><br>
+            
+                
+            <div class="container-turno5">	 
+			<div class="seccion-10">
 
-
-			 <div class="container-turno6">			 	
-			     <div class="seccion-10">
-				<table class="table-t1b3 table-sm table-striped table-hover">
-
-				<thead class = "thead">
-				    <br>
-				    <tr >
+                 <table class="cardIn table-sm table-striped table-hover">
+                    <thead class = "theadInr">
+				    
+				    <tr>
 				    <th>Placa</th>
 				    <th>Tipo de Control</th>
 				    <th>Novedad Presentada</th> 
 				  
-				     </tr>
-				</thead>
-				<tbody>
+				    </tr>
+				    </thead> 
+                    <tbody class = "tbody-incr">
 				  
 				        @if(isset($result2))
 				            @foreach($result2 as $r2)
@@ -581,15 +530,17 @@
 				        @else
 				            <td>No existen registros para este turno</td> 
 				        @endif
-				    </tbody>
-				</table>
-				<br>
-			 </div>			
-		  </div> 
-	</div>
-		<script>
+				        </tbody>
+                     </table>
+                </div>	
+             </div>
+        </div>        
+           	 
+       
 
-Highcharts.chart('grafico_alcoholemia', {
+ <script>
+
+ Highcharts.chart('grafico_alcoholemia', {
     chart: {
         type: 'bar'
     },
@@ -709,61 +660,48 @@ Highcharts.chart('grafico_accidentalidad', {
     }]
 });
 
+
 Highcharts.chart('grafico_procedimiento', {
     chart: {
-        type: 'column'
+        type: 'column',
+        width: 1090
     },
     title: {
-        text: '',
-        align: 'left'
+        text: null
+    },
+    subtitle: {
+        text: null
     },
     xAxis: {
+        max: 0,
         categories: [
-            <?php
-            if(isset($result12)){
-                foreach($result12 as $r12){
-                    echo "'".$r12['descripcion_zona']." - ".$r12['descripcion_tipo_proc']."',";
-                }
-            } else {
-                echo "<td>No existen registros para este turno</td>";
-            }
-            ?>
+            'Procedimientos registrados'
         ],
-        title: {
-            text: null
-        }
+        crosshair: true
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Cantidad (Unidades)',
-            align: 'high'
-        },
-        labels: {
-            overflow: 'justify'
+            text: 'Cantidad (Unidades)'
         }
     },
-    credits: {
-        enabled: false
-    },
-    series: [{
-        name: 'Procedimientos registrados',
-        data: [
-            <?php
-            if(isset($result13)){
-                foreach($result13 as $r13){
-                    echo $r13['cantidad_proc'].",";
+    series: [
+        <?php
+            if(isset($result12)){
+                foreach($result12 as $r12){
+                    echo "{
+                        name: '".$r12['descripcion_zona']." - ".$r12['descripcion_tipo_proc']."',
+                        data: [".$r12['cantidad_proc']."]},";
                 }
             } else {
                 echo "<td>No existen registros para este turno</td>";
             }
-            ?>
-        ]
-    }]
+            ?> 
+    ]
 });
 
 </script>
-
-
-
+ 
+<?php
+}
+     ?> 
 @stop

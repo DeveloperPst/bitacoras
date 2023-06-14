@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="DOCUMENTO_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Documento') }}</label>
+                            <label for="DOCUMENTO_USUARIO" class="col-md-12 col-form-label text-center">{{ __('Documento') }}</label>
     
                             <div class="col-md-12">
                                 <input id="DOCUMENTO_USUARIO" type="text" class="form-control @error('DOCUMENTO_USUARIO') is-invalid @enderror" name="DOCUMENTO_USUARIO" required autocomplete="DOCUMENTO_USUARIO" autofocus
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="NOMBRES_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Nombres') }}</label>
+                            <label for="NOMBRES_USUARIO" class="col-md-12 col-form-label text-center">{{ __('Nombres') }}</label>
 
                             <div class="col-md-12">
                                 <input id="NOMBRES_USUARIO" type="text" class="form-control @error('NOMBRES_USUARIO') is-invalid @enderror" name="NOMBRES_USUARIO" required autocomplete="NOMBRES_USUARIO"
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="APELLIDOS_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Apellidos') }}</label>
+                            <label for="APELLIDOS_USUARIO" class="col-md-12 col-form-label text-center">{{ __('Apellidos') }}</label>
 
                             <div class="col-md-12">
                                 <input id="APELLIDOS_USUARIO" type="text" class="form-control @error('APELLIDOS_USUARIO') is-invalid @enderror" name="APELLIDOS_USUARIO" required autocomplete="APELLIDOS_USUARIO"
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="row mb-12">
-                            <label for="CORREO_USUARIO" class="col-md-4 col-form-label text-center">{{ __('Correo') }}</label>
+                            <label for="CORREO_USUARIO" class="col-md-12 col-form-label text-center">{{ __('Correo') }}</label>
 
                             <div class="col-md-12">
                                 <input id="CORREO_USUARIO" type="text" class="form-control @error('CORREO_USUARIO') is-invalid @enderror" name="CORREO_USUARIO" required autocomplete="CORREO_USUARIO"
@@ -97,8 +97,8 @@
                         
                         <br>
                     
-                        <div class="row2 mb-0">
-                            <div class="col-md-12 offset-md-4">
+                        <div class="row mb-2" style="margin-left: 19%;">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary" id="actualizar">
                                     {{ __('Actualizar') }}
                                 </button><br><br>

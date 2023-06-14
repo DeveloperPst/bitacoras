@@ -12,19 +12,27 @@
 
 
 @section('content')
-<div class="card6" style="width: 18rem;">
 
-<div class="seccion-2">    
+<br> 
 
-<table class="table-p2 table-sm table-striped table-hover border:2px;" >
+<div class="container-historialCeges" style="width:28%;">
+
+<h4><strong>HISTORIAL INFORMES CEGES</strong></h4><br><br>
+
+
+
+<div class="seccion-historialCeges">    
+
+<table class="table-p2 table-sm table-striped table-hover;" >
 
 
     <thead class = "thead p-2">
         <tr>
         <th>ID INFORME CEGES</th>
-        <th>NOMBRE</th>
+        <th>NRO. IPAT</th>
         <th>FECHA REGISTRO</th>
         <th>ACCIONES</th>
+        <th></th>
         </tr>
     </thead>
     <tbody class="bg-color:white">
@@ -35,27 +43,56 @@
         <tr>
             <td>{{ $r['id_maestropdf'] }}</td>
             <td>{{ $r['nombre_pdf'] }}</td>
-            <td>{{ $r['fecha_registro'] }}</td></a></td>
-            <td><a href="{{ url('descargar_pdf') }}"
-                                class="btn btn-edit btn-primary bg-green" title="Descargar">
+            <td>{{ $r['fecha_registro'] }}</td>
+            <td><a href="{{ url('/storage/').'/'.$r['nombre_pdf'].'.pdf' }}"
+                                class="btn btn-edit btn-primary bg-green" title="Descargar" target="_blank">
                                     <span class="fa fa-download"></span>
                                 </a></td>
+            <td>
+            <form method="post" class="delete_form" action="{{ url('eliminar_pdf',$r['id_maestropdf']) }}" id="studentForm_{{$r['id_maestropdf']}}">
+             {{ method_field('post') }}
+             {{  csrf_field() }}
+            <button type="submit" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash"></span></button>
+            </form>
+            
+            </td>
+
+            
         </tr>    
+
+              
+
             @endforeach    
         @else
             <td>No existen registros para este turno</td>  
         @endif
 
+       </tr>
 
-        </tr>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script>
+        $(document).ready(function(){
+            $('.delete_form').on('submit', function(){
+                if(confirm("¿Está seguro que desea eliminar este Informe Ceges?"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
+        });
+        </script>
         </tbody>
     </table>
-
- </form>      
-</div>    
-
- </div> 
+    
+    </form>      
+   </div>    
+  </div> 
+ 
 @stop
+
 
 
 

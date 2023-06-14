@@ -52,8 +52,8 @@ if($_SESSION['mensaje'] == 6){
     })
     
     Toast.fire({
-        icon: 'info',
-        title: 'Información eliminada correctamente!'
+        icon: 'success',
+        title: 'Información actualizada correctamente!'
     })
     </script>";
 
@@ -65,7 +65,7 @@ if($_SESSION['mensaje'] == 6){
 
 ?>
 
-<div class="container">
+<div class="container-tipoP">
     <div class="row2 justify-content-center">
         <div class="col-md-12">
 
@@ -125,22 +125,47 @@ if($_SESSION['mensaje'] == 6){
                         <tr>
                             <td><strong>Id</strong></td>
                             <td><strong>Descripción</strong></td>
-                            <td style='text-align: center;'><strong>Acciones</strong></td>
+                            <td><strong>Estado</strong></td>
+                            <td style='text-align: center;' colspan='2'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
                         </tr>
+
 
                         @foreach($result as $d)
                         <tr>
                             <td>{{ $d['id_tipo_proc'] }}</td>
                             <td>{{ $d['descripcion_tipo_proc'] }}</td>
 
+                            @if($d['estado'] == 1)   
+                              <td class="bg-success"> Activo</td>    
+                            @else
+                              <td class="bg-danger">Inactivo</td> 
+                            @endif
+
                             <td>
-                                <form method="post" class="delete_form" action="{{ url('eliminar_tipo_proc',$d['id_tipo_proc']) }}" id="studentForm_{{$d['id_tipo_proc']}}">
+                                <form method="post" action="{{ url('editar_tipo_procedimiento',$d['id_tipo_proc']) }}" id="studentForm_{{$d['id_tipo_proc']}}">
                                 {{ method_field('GET') }}
                                 {{  csrf_field() }}
-                                <button type="submit" class="btn btn-danger" title="Eliminar"><span class="fa fa-trash"></span></button>
+                                <button type="submit" class="btn btn-edit btn-primary" title="Editar"><span class="fa fa-pen"></span></button>
                                 </form>
                             </td>
+
+                            @if($d['estado'] == 1)   
+                              <td>
+                            <a href="{{ url('inhabilitar_tipo_procedimiento/'.$d['id_tipo_proc'].'') }}"
+                                class="btn btn-edit btn-primary bg-danger" title="Inhabilitar">
+                                    <span class="fa fa-pause"></span>
+                                </a>
+                            </td>       
+                            @else
+                              <td>
+                            <a href="{{ url('habilitar_tipo_procedimiento/'.$d['id_tipo_proc'].'') }}"
+                            class="btn btn-edit btn-primary bg-green" title="Habilitar">
+                                    <span class="fa fa-play"></span>
+                                </a>
+                            </td>    
+                            @endif
+
                             <td>{{ $d['fecha_registro'] }}</td>
                         </tr>
                         @endforeach

@@ -12,54 +12,69 @@
 
 
 @section('content')
-<div class="card6" style="width: 18rem;">
 
-<h6 class="card-header p-1">Seleccionar turno a consultar</h6>
- 
-  <div class="card-body6">
+<?php
+  session_start();
+  if($_SESSION['mensaje'] == 1){
+        echo "<script>
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          
+          Toast.fire({
+            icon: 'info',
+            title: 'No existen registros de turnos para la fecha consultada!!'
+          })
+        </script>";
 
-      <form method="POST" action="">
-        @csrf
+        $_SESSION['mensaje'] = 0;
+  }
+  ?>
 
-        <br>
-          <div class="row1 mb-4">
-            <label for="turno" class="col-md-4 col-form-select " ><strong>{{ __('Turno') }}</strong></label><br><br>
+<div class="container-historial">
+    <div class="card6" style="width: 18rem;">
 
-            <select name="turno" style="width: 8rem; height:2rem;" id="turno">
-              <option selected disabled value="">Opciones...</option>
-              <option value="1">Primer Turno</option>
-              <option value="2">Segundo Turno</option>
-              <option value="3">Tercer Turno</option>
-              
-            </select>
-          </div>
+    <h6 class="card-header p-1">Seleccionar fecha de turno a consultar</h6>
+    
+      <div class="card-body6">
 
-          <div class="row mb-4">
-                            <label for="fecha_consulta" class="col-md-4 col-form-label" style="margin-left:15%;">{{ __('Fecha') }}</label><br><br>
+          <form method="GET" action="{{ url('consultar_turno') }}"><br>
+            @csrf
+              <div class="row mb-6">
+                                <label for="fecha_consulta" class="col-md-4 col-form-label" style="margin-left:11%;font-size:large;">{{ __('Fecha') }}</label><br><br>
 
-                            <div class="col-md-12">
-                                <input id="fecha_consulta" type="date" class="form-select @error('fecha_consulta') is-invalid @enderror" style="width:8rem;margin-left:15%; height:2rem;" name="fecha_consulta" value="{{ old('fecha_consulta') }}" required autocomplete="fecha_consulta">
+                                <div class="col-md-12">
+                                    <input id="fecha_consulta" type="date" class="form-select @error('fecha_consulta') is-invalid @enderror" style="width:8rem;margin-left:15%; height:2rem;" name="fecha_consulta" value="{{ old('fecha_consulta') }}" required autocomplete="fecha_consulta">
 
-                                @error('fecha_consulta')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div><br>
+                                    @error('fecha_consulta')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div><br>
 
-          <div class="row mb-4">
-            <div class="col-md-6 offset-md-4">
-              <button type="submit" class="btn btn-primary" id="consultar">
-                {{ __('Consultar') }}
-              </button>
-            </div><br>
-          </div>
-  
-  </form>
+              <div class="row mb-4">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary" id="consultar">
+                    {{ __('Consultar') }}
+                  </button>
+                </div><br>
+              </div>
+      
+      </form>
 
-  </div>   
- </div> 
+      </div>   
+    </div> 
+</div> 
 @stop
 
 

@@ -4562,11 +4562,9 @@ textarea.form-control-lg {
   padding: 20px 20px 10px 20px;
   padding-right:9%;
   padding-left: 3%;
-  border-radius: 8% 8% 8% 8%;
-  margin: 2%;
+  margin: 6%;
   position: relative;
- 
- 
+  
   
  
 }
@@ -4595,15 +4593,22 @@ textarea.form-control-lg {
 
 .card-body {
   
-  padding: 3rem 1rem;
+  padding: 2em 2em 1em;
+  padding-top: 3em;
   background-color: #fff;
   font-size: medium;
   border-color: darkblue;
   display:block;
-  border-radius: 0% 0% 3% 3%;
-   
-  
+  border-radius: 0 0 1em 1em;
+  box-shadow: 0 1em 1em -.5em rgba(0,0,0,.5); 
+    
 }
+
+#ingresar{
+
+  margin-bottom: 1em;
+  
+  }
 
 .card-title {
   margin-bottom: 0.5rem;
@@ -4629,7 +4634,9 @@ textarea.form-control-lg {
   background-color: #FF0035;
   color: white;
   font-size: medium;
-  border-radius: 3% 3% 0% 0%;
+ border-radius: 2em 0em 0em 0em;
+ overflow: hidden;
+ 
 
 
 

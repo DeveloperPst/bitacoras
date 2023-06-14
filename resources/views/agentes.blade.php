@@ -56,8 +56,8 @@
                             </div>
                         </div>
 
-                        <div class="row1 mb-2">
-                            <label for="nombre" class="col-md-2 col-form-label" style="margin-right: 25%;">{{ __('Nombre') }}</label>
+                        <div class="row1 mb-6">
+                            <label for="nombre" class="col-md-0 col-form-label" style="margin-left:2%;">{{ __('Nombre Completo') }}</label>
     
                             <div class="col-md-6">
                                 <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" style="width: 11rem;" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre">
@@ -100,7 +100,7 @@
                             <td><strong>Id</strong></td>
                             <td><strong>Documento</strong></td>
                             <td><strong>Placa</strong></td>
-                            <td><strong>Nombre</strong></td>
+                            <td><strong>Nombre completo</strong></td>
                             <td><strong>Estado</strong></td>
                             <td colspan='2' style='text-align: center;'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
@@ -112,7 +112,11 @@
                             <td>{{ $d['nro_documento'] }}</td>
                             <td>{{ $d['placa_agente'] }}</td>
                             <td>{{ $d['nombre_agente'] }}</td>
-                            <td>{{ $d['estado_agente'] }}</td>
+                            @if($d['estado_agente'] == 1)   
+                              <td class="bg-success"> Activo</td>    
+                            @else
+                              <td class="bg-danger">Inactivo</td> 
+                            @endif
 
                             <td>
                             <form method="post" class="delete_form" action="{{ url('agente_especifico',$d['id_agente']) }}" id="studentForm_{{$d['id_agente']}}">
@@ -147,7 +151,5 @@
                 </div>    
             </div>
         </div>
-    </div>
-
-</div>
+   </div>
 @endsection

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @stop
 @section('content')
-<div class="container">
+<div class="container-usuarios">
     
     <div class="row3 justify-content-center">
 
@@ -64,9 +64,15 @@
                         <div>
                     
                             <tr><td><br>
-                                    <button type="submit" class="btn btn-primary" style="margin-left: 90%;" id="guardar">
+
+                                    <div style="display:flex;">
+                                   
+                                    <button type="submit" class="btn btn-primary" style="margin-left:30%;" id="guardar">
                                         {{ __('Guardar') }}
                                     </button>
+                                    <button type='reset' name = 'button6' class='btn btn-danger' style= 'margin-left:70%;'>{{ __('Cancelar') }}</button>
+                                             
+                                    </div><br>
                                 </td></tr>
                              </div>     
                           </table>
@@ -92,8 +98,8 @@
                     <table class="table-t1-usuarios table-hover">
                         <tr>
                             <td><strong>Id</strong></td>
-                            <td><strong>Nombres</strong></td>
-                            <td><strong>Apellidos</strong></td>
+                            <td><strong>Usuario</strong></td>
+                            <td><strong>Nombre completo</strong></td>
                             <td><strong>Correo</strong></td>
                             <td colspan='3' style='text-align: center;'><strong>Acciones</strong></td>
                             <td><strong>Fecha Registro</strong></td>
@@ -102,8 +108,8 @@
                         @foreach($data as $d)
                         <tr>
                             <td>{{ $d['id_usuario'] }}</td>
-                            <td>{{ $d['nombres_usuario'] }}</td>
-                            <td>{{ $d['apellidos_usuario'] }}</td>
+                            <td><strong>{{ $d['documento_usuario']}}</strong></td>
+                            <td>{{ $d['nombres_usuario'].' '.$d['apellidos_usuario'] }}</td>
                             <td>{{ $d['correo_usuario'] }}</td>
                             
                             <td>

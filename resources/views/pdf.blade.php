@@ -104,7 +104,7 @@ padding: 1%;
        
 <img src="./img/Alcaldia.png"  alt="Alcaldia de Santiago de Cali" class="VAR" style="margin-left: 0%;">  
        
-        <h4><strong>ALFREDO CANDELO CORTES</strong></h4>
+        <h4><strong>{{ $subsecretario }}</strong></h4>
         <b>Subsecretario de Servicios de Movilidad.</b><br> 
         <b>Cali</b>
 
@@ -179,7 +179,9 @@ padding: 1%;
       </div><br><br>      
              
       <div class="seccion-form">   
-            <b>Lesionado(a): {{$lesionado3}}</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nombre: {{$nombre}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condición: {{$condicion}}</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clínica: {{$clinica3}}</b>
+            <b>Lesionado(a)</b><br>
+            
+            <b>Nombre: {{$nombre}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Condición: {{$condicion}}</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clínica: {{$clinica3}}</b>
 
       </div><br>  
 
@@ -212,15 +214,23 @@ padding: 1%;
         
         <div class="seccion-form"> 
             
-            <b>Incidente: {{$incidente}}</b>    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ipat Nro. {{$ipat}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPOA Nro. {{$spoa}}</b>   <br><br><br><br><br>
+            <b>Incidente: {{$incidente}}</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ipat Nro. {{$ipat}}</b> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPOA Nro. {{$spoa}}</b><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
+       <b>Imágenes: <br><br>  
+      
+        @foreach ($imageUrls as $image_url)   
+        <img src="http://10.1.2.209/bitacora/{{ $image_url }}" alt="" style="width:350px; height:250px;margin-left:25%;text-align:center;"><br><br><br> 
              
-        </div><br><br><br><br><br> 
+        @endforeach     
+        
+             
+        </div><br>
                              
                                
             <b>Relato de los hechos: {{$relato}}</b><br><br><br><br><br><br><br><br><br><br>       
  
           <div class="seccion-form"> 
-            <h4><strong>JHON FREDDY GUEVARA 263</strong></h4>
+            <h4><strong>{{ $aginforme }}</strong></h4>
             <b>Agente de Transito</b><br> 
             <b>Centro de Gestión Secretaria de Movilidad</b>
           </div>   
